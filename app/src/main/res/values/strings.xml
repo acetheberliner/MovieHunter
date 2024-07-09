@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">CineStock</string>
+    <string name="app_name">Cineblog</string>
+    <string name="title">Benvenuto in Cineblog</string>
+    <string name="movie_image_desc">Immagine del film</string>
+    <string name="filmdesc">Pinocchio, un burattino di legno intagliato da Geppetto e trasformato in una marionetta vivente</string>
+    <string name="BottonDesc">Acquista</string>
 </resources>

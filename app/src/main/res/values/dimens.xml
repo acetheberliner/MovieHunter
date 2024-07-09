@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Testo di benvenuto in cima (titolo)-->
+    <dimen name="textSizeTitle">24sp</dimen>
+    <dimen name="padding">16dp</dimen>
+
+    <!-- ScrollView per il contenuto principale -->
+    <dimen name="layout">0</dimen>
+
+    <!-- margini -->
+    <dimen name="marginBottom">16dp</dimen>
+    <dimen name="marginTop">20dp</dimen>
+    <dimen name="marginL">15dp</dimen>
+    <dimen name="marginR">15dp</dimen>
+
+    <!-- dimImg -->
+    <dimen name="IMGwidth">100dp</dimen>
+    <dimen name="IMGheight">157dp</dimen>
+
+    <!-- dimFilm -->
+    <dimen name="filmPadding">8dp</dimen>
+    <dimen name="filmHeight">158dp</dimen>
+    <dimen name="filmText">16sp</dimen>
+    <dimen name="FilmTextHeight">82dp</dimen>
+
+
+</resources>
