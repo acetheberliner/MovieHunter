@@ -24,5 +24,6 @@
     <dimen name="filmText">16sp</dimen>
     <dimen name="FilmTextHeight">82dp</dimen>
 
-
+    <!-- Custom rounded corner dimension -->
+    <dimen name="roundedCorner">8dp</dimen>
 </resources>
