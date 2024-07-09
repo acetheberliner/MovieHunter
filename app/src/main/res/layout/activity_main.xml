@@ -9,7 +9,7 @@
     android:background="@color/yellow"
     tools:context=".MainActivity">
 
-    <!-- Testo di benvenuto in cima (titolo)-->
+    <!-- Testo di benvenuto (titolo)-->
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
