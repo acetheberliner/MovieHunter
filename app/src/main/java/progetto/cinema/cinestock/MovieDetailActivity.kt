@@ -13,7 +13,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
         val movieId = intent.getIntExtra("MOVIE_ID", -1)
 
-        // This is a simplified example, ideally you'd fetch movie details from a ViewModel
+        // Ottieni i dettagli del film dal repository
         val movie = MovieRepository.getMovieById(movieId)
 
         findViewById<TextView>(R.id.movie_detail_title).text = movie.title
@@ -22,5 +22,3 @@ class MovieDetailActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.movie_detail_image).setImageResource(movie.imageResId)
     }
 }
-
-

@@ -6,7 +6,7 @@
     <dimen name="padding">16dp</dimen>
 
     <!-- ScrollView per il contenuto principale -->
-    <dimen name="layout">0</dimen>
+    <dimen name="layout">0dp</dimen>
 
     <!-- margini -->
     <dimen name="marginBottom">16dp</dimen>

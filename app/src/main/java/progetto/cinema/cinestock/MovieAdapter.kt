@@ -47,4 +47,3 @@ class MovieAdapter(private val onClick: (Movie) -> Unit) :
         notifyDataSetChanged()
     }
 }
-
