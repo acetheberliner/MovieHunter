@@ -1,5 +1,7 @@
-package progetto.cinema.cinestock
+package progetto.cinema.cinestock.ui
 
+import progetto.cinema.cinestock.MovieDetailActivity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import progetto.cinema.cinestock.R
+import progetto.cinema.cinestock.data.Movie
 
 class MovieAdapter(private val onClick: (Movie) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
@@ -26,6 +30,15 @@ class MovieAdapter(private val onClick: (Movie) -> Unit) :
             priceView.text = "$${movie.price}"
             imageView.setImageResource(movie.imageResId)
             buyButton.setOnClickListener { onClick(movie) }
+
+            // Aggiungi un listener per l'elemento principale per aprire i dettagli del film
+            itemView.setOnClickListener {
+                val context = itemView.context
+                val intent = Intent(context, MovieDetailActivity::class.java).apply {
+                    putExtra("movie", movie)
+                }
+                context.startActivity(intent)
+            }
         }
     }
 

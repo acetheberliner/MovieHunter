@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,7 +8,6 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <!-- Testo di benvenuto (titolo)-->
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
@@ -25,11 +23,10 @@
         android:layout_marginTop="@dimen/marginTop"
         android:layout_marginStart="@dimen/marginL"
         android:layout_marginEnd="@dimen/marginR"
-        android:padding="@dimen/padding" />
+        android:padding="@dimen/padding"/>
 
-    <!-- RecyclerView per visualizzare l'elenco dei film -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/marginTop"
@@ -39,6 +36,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/background" />
-
+        tools:listitem="@layout/item_movie"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

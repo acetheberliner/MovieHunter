@@ -1,7 +1,9 @@
 <resources>
+    <string name="api_base_url">https://api.example.com/</string>
     <string name="app_name">Cinestock</string>
     <string name="title">Benvenuto in Cinestock</string>
     <string name="movie_image_desc">Immagine del film</string>
     <string name="filmdesc">Pinocchio, un burattino di legno intagliato da Geppetto e trasformato in una marionetta vivente</string>
     <string name="BottonDesc">Acquista</string>
+    <string name="movie_poster">movie_poster</string>
 </resources>

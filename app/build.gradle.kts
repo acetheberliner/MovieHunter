@@ -36,13 +36,30 @@ android {
 }
 
 dependencies {
-
+    // AndroidX Libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
+
+    // Retrofit and Gson
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Kotlin Coroutines for Retrofit
+    implementation(libs.kotlinx.coroutines.android)
+    // Testing Libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx.v260)
+    implementation(libs.androidx.lifecycle.livedata.ktx.v260)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
 }

@@ -1,9 +1,11 @@
 package progetto.cinema.cinestock
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import progetto.cinema.cinestock.R
+import progetto.cinema.cinestock.data.Movie
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -11,14 +13,22 @@ class MovieDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
 
-        val movieId = intent.getIntExtra("MOVIE_ID", -1)
+        // Recupera il film dall'intento
+        val movie = intent.getParcelableExtra<Movie>("movie")
 
-        // Ottieni i dettagli del film dal repository
-        val movie = MovieRepository.getMovieById(movieId)
+        // Assegna i dati ai rispettivi elementi della UI
+        if (movie != null) {
+            val titleView: TextView = findViewById(R.id.movie_detail_title)
+            val descriptionView: TextView = findViewById(R.id.movie_detail_description)
+            val priceView: TextView = findViewById(R.id.movie_detail_price)
+            val imageView: ImageView = findViewById(R.id.movie_detail_image)
 
-        findViewById<TextView>(R.id.movie_detail_title).text = movie.title
-        findViewById<TextView>(R.id.movie_detail_description).text = movie.description
-        findViewById<TextView>(R.id.movie_detail_price).text = "$${movie.price}"
-        findViewById<ImageView>(R.id.movie_detail_image).setImageResource(movie.imageResId)
+            titleView.text = movie.title
+            descriptionView.text = movie.description
+            priceView.text = "$${movie.price}"
+            imageView.setImageResource(movie.imageResId)
+        }
     }
 }
+
+
