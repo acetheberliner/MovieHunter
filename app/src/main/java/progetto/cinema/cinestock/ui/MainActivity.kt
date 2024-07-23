@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import progetto.cinema.cinestock.ui.MovieAdapter
-import progetto.cinema.cinestock.viewmodel.MovieViewModel
+import progetto.cinema.cinestock.ui.viewmodel.MovieViewModel
 
 class MainActivity : AppCompatActivity() {
     private val movieViewModel: MovieViewModel by viewModels {
