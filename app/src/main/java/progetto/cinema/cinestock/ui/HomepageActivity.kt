@@ -1,45 +1,60 @@
-//package progetto.cinema.cinestock.ui
-//
-//import android.os.Bundle
-//import androidx.appcompat.app.AppCompatActivity
-//import androidx.lifecycle.ViewModelProvider
-//import androidx.recyclerview.widget.LinearLayoutManager
-//import androidx.recyclerview.widget.RecyclerView
-//import com.google.android.material.progressindicator.CircularProgressIndicator
-//import progetto.cinema.cinestock.R
-//import progetto.cinema.cinestock.ui.adapter.FilmAdapter
-//import progetto.cinema.cinestock.ui.viewmodel.HomepageViewModel
-//import progetto.cinema.cinestock.ui.viewmodel.HomepageViewModelListener
-//
-//class HomepageActivity : AppCompatActivity(){
-//
-//    private val TAG = ""
-//    private lateinit var recyclerView: RecyclerView
-//    private var progressIndicator: CircularProgressIndicator? = null
-//
-//    private var viewModel: HomepageViewModel? = null
-//
-//    override fun onCreate(savedInstanceState: Bundle?){
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        recyclerView = findViewById(R.id.recycler_view)
-//        progressIndicator = findViewById(R.id.progressIndicator)
-//
-//        val adapter = FilmAdapter(mutableListOf())
-//        recyclerView.adapter = adapter
-//        recyclerView.layoutManager = LinearLayoutManager(this@HomepageActivity)
-//
-//        viewModel = ViewModelProvider(this)[HomepageViewModel::class.java]
-//        viewModel?.setupListener(
-//            listener = object : HomepageViewModelListener {
-//                override fun onLocationListRetrieved(
-//                    filmModelList: List<FilmModel>
-//                ) {
-//                    // ho lista dei film aggiornata
-//                }
-//
-//            }
-//        )
-//        viewModel?.filmSearch()
-//    }
-//}
+package progetto.cinema.cinestock.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.spot.unibo.corsolp.remote.remotemodels.films.Entity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import progetto.cinema.cinestock.models.FilmModel
+import progetto.cinema.cinestock.remote.FilmApi
+import retrofit2.http.Query
+import java.util.UUID
+
+interface HomepageViewModelListener {
+    fun onLocationListRetrieved(searchRemoteModelList: List<Entity>)
+}
+
+class HomepageViewModel: ViewModel(){
+    private var listener: HomepageViewModelListener? = null
+
+    fun setupListener(
+        listener: HomepageViewModelListener?
+    ){
+        this.listener = listener
+    }
+
+    fun filmSearch(
+        title: String,
+        type: String? = null,
+        first: Int? = null,
+        country: String? = null,
+        language: String? = null
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val remoteModel = FilmApi.rootService.filmSearch(
+                title = title, // la prima parte corrisponde alla chiave della variabile del metodo chiamato e la seconda parte corrisponde al campo in input del metodo
+                type = type,
+                first = first,
+                country = country,
+                language = language
+            )
+            val dataList = remoteModel.searchRemoteModelList.orEmpty().filter{
+                it.titleType?.text == "Movie"
+            }
+
+
+        }
+    }
+
+}
+
+private fun Entity.toFilmModel(): FilmModel {
+    return FilmModel(
+        identifier = this.id ?: UUID.randomUUID().toString(),
+        name = this.titleText?.text?: "",
+        //description = this.regionNames?: "",
+        //address = String.format("%s %s %s", this.hotelAddress?.street ?: "", this.hotelAddress?.city ?: "", this.hotelAddress?.province ?: ""),
+        pictureUrl = this.primaryImage?.url ?: "",
+    )
+
+}

@@ -1,4 +1,4 @@
 package progetto.cinema.cinestock
-
-class App {
-}
+//
+//class App {
+//}

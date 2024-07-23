@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.spot.unibo.corsolp.remote.remotemodels.films.Entity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import progetto.cinema.cinestock.models.FilmModel
+import progetto.cinema.cinestock.remote.FilmApi
 import java.util.UUID
 
 interface HomepageViewModelListener {

@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.ui.viewmodel
+package progetto.cinema.cinestock.viewmodel
 
 
 import android.app.Application
