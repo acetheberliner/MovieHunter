@@ -1,18 +1,19 @@
 package progetto.cinema.cinestock
 
-import progetto.cinema.cinestock.ui.MovieAdapter
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import progetto.cinema.cinestock.ui.MovieAdapter
 import progetto.cinema.cinestock.viewmodel.MovieViewModel
 
 class MainActivity : AppCompatActivity() {
     private val movieViewModel: MovieViewModel by viewModels {
         MovieViewModel.Factory(application)
     }
+    private val apiKey = "e96d473555668ee67739012c7f140604"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +26,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        movieViewModel.allMovies.observe(this, Observer { movies ->
+        movieViewModel.movies.observe(this, Observer { movies ->
             movies?.let { adapter.submitList(it) }
         })
+
+        movieViewModel.fetchTrendingMovies(apiKey)
     }
 }

@@ -20,7 +20,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -53,20 +53,26 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.converter.gson)
 
+    // OkHttp
+    implementation(libs.squareup.okhttp)
+
     // Kotlin Coroutines for Retrofit
     implementation(libs.kotlinx.coroutines.android)
+
     // Testing Libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Lifecycle components
     implementation(libs.androidx.lifecycle.viewmodel.ktx.v260)
     implementation(libs.androidx.lifecycle.livedata.ktx.v260)
-
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    // Glide
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 
-
-
+    implementation(libs.material)
 }

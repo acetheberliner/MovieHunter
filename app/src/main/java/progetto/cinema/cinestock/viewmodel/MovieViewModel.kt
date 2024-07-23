@@ -1,33 +1,34 @@
 package progetto.cinema.cinestock.viewmodel
 
+
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import progetto.cinema.cinestock.data.Movie
-import progetto.cinema.cinestock.data.MovieDatabase
+import progetto.cinema.cinestock.models.movie.TMDbMovie
 import progetto.cinema.cinestock.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: MovieRepository
-    val allMovies: LiveData<List<Movie>>
+    private val repository: MovieRepository = MovieRepository(application)
+    private val _movies = MutableLiveData<List<TMDbMovie>>()
+    val movies: LiveData<List<TMDbMovie>> = _movies
 
-    init {
-        val movieDao = MovieDatabase.getDatabase(application, viewModelScope).movieDao()
-        repository = MovieRepository(movieDao, application)
-        allMovies = repository.allMovies
+    fun fetchTrendingMovies(apiKey: String) = viewModelScope.launch {
+        val movieList = repository.getTrendingMovies(apiKey)
+        _movies.postValue(movieList)
     }
 
-    fun insert(movie: Movie) = viewModelScope.launch {
-        repository.insert(movie)
-    }
-
-    class Factory(val app: Application) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
+    class Factory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(MovieViewModel::class.java)) {
-                return MovieViewModel(app) as T
+                @Suppress("UNCHECKED_CAST")
+                return MovieViewModel(application) as T
             }
-            throw IllegalArgumentException("Unable to construct viewmodel")
+            throw IllegalArgumentException("Unknown ViewModel class")
         }
     }
 }
