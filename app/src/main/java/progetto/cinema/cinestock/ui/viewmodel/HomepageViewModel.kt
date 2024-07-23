@@ -1,17 +1,14 @@
-package progetto.cinema.cinestock.viewmodel
+package progetto.cinema.cinestock.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.spot.unibo.corsolp.remote.remotemodels.films.Entity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import progetto.cinema.cinestock.models.FilmModel
-import progetto.cinema.cinestock.remote.FilmApi
-import retrofit2.http.Query
 import java.util.UUID
 
 interface HomepageViewModelListener {
-    fun onLocationListRetrieved(searchRemoteModelList: List<Entity>)
+    fun onLocationListRetrieved(filmModelList: List<FilmModel>)
 }
 
 class HomepageViewModel: ViewModel(){
@@ -40,8 +37,13 @@ class HomepageViewModel: ViewModel(){
             )
             val dataList = remoteModel.searchRemoteModelList.orEmpty().filter{
                 it.titleType?.text == "Movie"
+            }.map{
+                it.toFilmModel()
             }
-
+            // l'elemento che si è registrato al listener riceve la lista (dataList)
+            listener?.onLocationListRetrieved(
+                filmModelList = dataList
+            )
 
         }
     }
@@ -50,11 +52,11 @@ class HomepageViewModel: ViewModel(){
 
 private fun Entity.toFilmModel(): FilmModel {
     return FilmModel(
-        identifier = this.id ?: UUID.randomUUID().toString(),
-        name = this.titleText?.text?: "",
+        identifier = this.id ?: UUID.randomUUID().toString(), // se l'id non è valorizzato viene creato un random UUID toString
+        name = this.titleText?.text?: "", // titolo del film
         //description = this.regionNames?: "",
         //address = String.format("%s %s %s", this.hotelAddress?.street ?: "", this.hotelAddress?.city ?: "", this.hotelAddress?.province ?: ""),
-        pictureUrl = this.primaryImage?.url ?: "",
+        pictureUrl = this.url ?: "", // immagine/locandina
     )
 
 }

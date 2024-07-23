@@ -1,10 +1,8 @@
-package progetto.cinema.cinestock.viewmodel
+package progetto.cinema.cinestock.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import progetto.cinema.cinestock.data.Movie
-import progetto.cinema.cinestock.data.MovieDatabase
 import progetto.cinema.cinestock.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {

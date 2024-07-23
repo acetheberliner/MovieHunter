@@ -1,11 +1,10 @@
-package progetto.cinema.cinestock
+package progetto.cinema.cinestock.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.data.Movie
 import android.widget.ImageView
 import android.widget.TextView
+import progetto.cinema.cinestock.R
 
 class MovieDetailActivity : AppCompatActivity() {
 
