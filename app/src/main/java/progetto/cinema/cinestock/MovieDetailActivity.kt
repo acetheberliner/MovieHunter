@@ -24,11 +24,11 @@ class MovieDetailActivity : AppCompatActivity() {
             val voteAverageView: TextView = findViewById(R.id.movie_detail_vote_average)
             val imageView: ImageView = findViewById(R.id.movie_detail_image)
 
-            titleView.text = movie.title
+            titleView.text = movie.original_title
             descriptionView.text = movie.overview
-            releaseDateView.text = "Release Date: ${movie.releaseDate}"
-            voteAverageView.text = "Rating: ${movie.voteAverage}"
-            Glide.with(this).load(movie.posterUrl).into(imageView)
+            releaseDateView.text = "Release Date: ${movie.release_date}"
+            voteAverageView.text = "Rating: ${movie.vote_average}"
+            Glide.with(this).load(movie.poster_path).into(imageView)
         }
     }
 }

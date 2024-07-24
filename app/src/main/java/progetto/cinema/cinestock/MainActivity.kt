@@ -12,6 +12,7 @@ import progetto.cinema.cinestock.ui.MovieAdapter
 import progetto.cinema.cinestock.viewmodel.MovieViewModel
 
 class MainActivity : AppCompatActivity() {
+
     private val movieViewModel: MovieViewModel by viewModels {
         MovieViewModel.Factory(application)
     }

@@ -25,9 +25,14 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
         val buyButton: Button = itemView.findViewById(R.id.buy_button)
 
         fun bind(movie: TMDbMovie) {
-            titleView.text = movie.title
+            titleView.text = movie.original_title
             descriptionView.text = movie.overview
-            Glide.with(imageView.context).load(movie.posterUrl).into(imageView)
+
+            Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}")
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(imageView)
+
             buyButton.setOnClickListener { onClick(movie) }
 
             // Aggiungi un listener per l'elemento principale per aprire i dettagli del film
