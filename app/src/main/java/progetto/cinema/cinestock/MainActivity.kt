@@ -3,6 +3,7 @@ package progetto.cinema.cinestock
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -27,18 +28,19 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
+        val searchView = findViewById<SearchView>(R.id.search_view) // allows the user to enter and search for text
+        val backButton = findViewById<ImageButton>(R.id.back_button)
 
         val adapter = MovieAdapter { movie ->
-            // Passa l'ID del film selezionato a LoginActivity
+            // Passes the ID of the selected film to LoginActivity
             val intent = Intent(this, LoginActivity::class.java).apply {
-                putExtra("MOVIE_ID", movie.id) // Passa l'ID del film
+                putExtra("MOVIE_ID", movie.id) // Passes the film ID
             }
             startActivity(intent)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val searchView = findViewById<SearchView>(R.id.search_view) // allows the user to enter and search for text
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean { // called when the user submits the search query (by pressing the enter button or clicking the search button)
                 query?.let { // checks if "query" is null. If it is not, calls the searchMovies method
@@ -65,5 +67,20 @@ class MainActivity : AppCompatActivity() {
         })
 
         movieViewModel.fetchTrendingMovies(apiKey)
+
+        // set listener for backButton
+        backButton.setOnClickListener {
+            onBackPressed() // call return method
+        }
+
+    }
+
+    override fun onBackPressed() {
+        val searchView = findViewById<SearchView>(R.id.search_view)
+        if (searchView.isIconified) {
+            super.onBackPressed() // closes the activity if the SearchView is closed
+        } else {
+            searchView.isIconified = true // closes search view if open
+        }
     }
 }
