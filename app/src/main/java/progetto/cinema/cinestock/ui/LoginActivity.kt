@@ -1,5 +1,6 @@
 package progetto.cinema.cinestock.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
 
 class LoginActivity : AppCompatActivity() {
@@ -36,12 +38,17 @@ class LoginActivity : AppCompatActivity() {
         val loginBackButton = findViewById<Button>(R.id.login_back_button)
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
 
+        // Pulsanti per tornare alla lista dei film
+        val backToFilmButton = findViewById<Button>(R.id.back_to_film_button)
+        val loginBackToFilmButton = findViewById<Button>(R.id.login_back_to_film_button)
+        val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_film_button)
+
         loginButton.setOnClickListener {
-            viewFlipper.displayedChild = 1 // Show login fields
+            viewFlipper.displayedChild = 1 // Mostra i campi di login
         }
 
         signinButton.setOnClickListener {
-            viewFlipper.displayedChild = 2 // Show sign-in fields
+            viewFlipper.displayedChild = 2 // Mostra i campi di sign-in
         }
 
         loginSubmitButton.setOnClickListener {
@@ -68,11 +75,26 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginBackButton.setOnClickListener {
-            viewFlipper.displayedChild = 0 // Show the initial buttons container
+            viewFlipper.displayedChild = 0 // Mostra il contenitore iniziale dei pulsanti
         }
 
         signinBackButton.setOnClickListener {
-            viewFlipper.displayedChild = 0 // Show the initial buttons container
+            viewFlipper.displayedChild = 0 // Mostra il contenitore iniziale dei pulsanti
+        }
+
+        // Gestisci i clic sul pulsante "Back to Film" nella schermata di selezione
+        backToFilmButton.setOnClickListener {
+            navigateToMainActivity()
+        }
+
+        // Gestisci i clic sul pulsante "Back to Film" nella schermata di login
+        loginBackToFilmButton.setOnClickListener {
+            navigateToMainActivity()
+        }
+
+        // Gestisci i clic sul pulsante "Back to Film" nella schermata di sign-in
+        signinBackToFilmButton.setOnClickListener {
+            navigateToMainActivity()
         }
     }
 
@@ -81,7 +103,8 @@ class LoginActivity : AppCompatActivity() {
             userViewModel.login(username, password)
             runOnUiThread {
                 Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                // Remove the redirection to SuccessActivity
+                // Dopo un login riuscito, potresti voler navigare alla lista dei film
+                navigateToMainActivity()
             }
         }
     }
@@ -91,8 +114,15 @@ class LoginActivity : AppCompatActivity() {
             userViewModel.register(username, password)
             runOnUiThread {
                 Toast.makeText(this@LoginActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
-                // Remove the redirection to SuccessActivity
+                // Dopo una registrazione riuscita, potresti voler navigare alla lista dei film
+                navigateToMainActivity()
             }
         }
+    }
+
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
     }
 }

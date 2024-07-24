@@ -53,6 +53,14 @@
                     android:layout_height="wrap_content"
                     android:text="Sign In"
                     android:layout_marginTop="16dp"/>
+
+                <!-- Back to Film Button -->
+                <Button
+                    android:id="@+id/back_to_film_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Back to Film"
+                    android:layout_marginTop="16dp"/>
             </LinearLayout>
 
             <!-- Login Fields -->
@@ -92,6 +100,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Back"
+                    android:layout_marginTop="16dp"/>
+
+                <!-- Back to Film Button -->
+                <Button
+                    android:id="@+id/login_back_to_film_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Back to Film"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
 
@@ -140,6 +156,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Back"
+                    android:layout_marginTop="16dp"/>
+
+                <!-- Back to Film Button -->
+                <Button
+                    android:id="@+id/signin_back_to_film_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Back to Film"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
 
