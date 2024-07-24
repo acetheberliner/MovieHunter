@@ -1,4 +1,3 @@
-// LoginActivity.kt
 package progetto.cinema.cinestock.ui
 
 import android.content.Intent
@@ -13,8 +12,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.MainActivity
-import progetto.cinema.cinestock.R
 import progetto.cinema.cinestock.MovieDetailActivity
+import progetto.cinema.cinestock.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -98,24 +97,41 @@ class LoginActivity : AppCompatActivity() {
 
         // Recupera l'ID del film passato
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
+
+        if (selectedMovieId == -1) {
+            Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
+            // Opt: Redirect to some default or error page
+        }
     }
 
     private fun performLogin(username: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            userViewModel.login(username, password)
-            runOnUiThread {
-                Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                navigateToMovieDetailActivity()
+            try {
+                userViewModel.login(username, password)
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                    navigateToMovieDetailActivity()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Login Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
     private fun performRegister(username: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            userViewModel.register(username, password)
-            runOnUiThread {
-                Toast.makeText(this@LoginActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
-                navigateToMovieDetailActivity()
+            try {
+                userViewModel.register(username, password)
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    navigateToMovieDetailActivity()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Registration Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -133,6 +149,9 @@ class LoginActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
+        } ?: run {
+            Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
+            navigateToMainActivity() // Redirect if no movie ID
         }
     }
 }
