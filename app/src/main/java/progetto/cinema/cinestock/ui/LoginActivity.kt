@@ -1,3 +1,4 @@
+// LoginActivity.kt
 package progetto.cinema.cinestock.ui
 
 import android.content.Intent
@@ -13,10 +14,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
+import progetto.cinema.cinestock.MovieDetailActivity
 
 class LoginActivity : AppCompatActivity() {
 
     private val userViewModel: UserViewModel by viewModels()
+    private var selectedMovieId: Int? = null // Variabile per memorizzare l'ID del film selezionato
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
         val loginBackButton = findViewById<Button>(R.id.login_back_button)
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
 
-        // Pulsanti per tornare alla lista dei film
         val backToFilmButton = findViewById<Button>(R.id.back_to_film_button)
         val loginBackToFilmButton = findViewById<Button>(R.id.login_back_to_film_button)
         val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_film_button)
@@ -82,20 +84,20 @@ class LoginActivity : AppCompatActivity() {
             viewFlipper.displayedChild = 0 // Mostra il contenitore iniziale dei pulsanti
         }
 
-        // Gestisci i clic sul pulsante "Back to Film" nella schermata di selezione
         backToFilmButton.setOnClickListener {
             navigateToMainActivity()
         }
 
-        // Gestisci i clic sul pulsante "Back to Film" nella schermata di login
         loginBackToFilmButton.setOnClickListener {
             navigateToMainActivity()
         }
 
-        // Gestisci i clic sul pulsante "Back to Film" nella schermata di sign-in
         signinBackToFilmButton.setOnClickListener {
             navigateToMainActivity()
         }
+
+        // Recupera l'ID del film passato
+        selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
     }
 
     private fun performLogin(username: String, password: String) {
@@ -103,8 +105,7 @@ class LoginActivity : AppCompatActivity() {
             userViewModel.login(username, password)
             runOnUiThread {
                 Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                // Dopo un login riuscito, potresti voler navigare alla lista dei film
-                navigateToMainActivity()
+                navigateToMovieDetailActivity()
             }
         }
     }
@@ -114,8 +115,7 @@ class LoginActivity : AppCompatActivity() {
             userViewModel.register(username, password)
             runOnUiThread {
                 Toast.makeText(this@LoginActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
-                // Dopo una registrazione riuscita, potresti voler navigare alla lista dei film
-                navigateToMainActivity()
+                navigateToMovieDetailActivity()
             }
         }
     }
@@ -124,5 +124,15 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
+    }
+
+    private fun navigateToMovieDetailActivity() {
+        selectedMovieId?.let { movieId ->
+            val intent = Intent(this, MovieDetailActivity::class.java).apply {
+                putExtra("MOVIE_ID", movieId) // Passa l'ID del film alla MovieDetailActivity
+            }
+            startActivity(intent)
+            finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
+        }
     }
 }

@@ -29,8 +29,10 @@ class MainActivity : AppCompatActivity() {
         val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
 
         val adapter = MovieAdapter { movie ->
-            // Launches the login page when clicking on a movie
-            val intent = Intent(this, LoginActivity::class.java)
+            // Passa l'ID del film selezionato a LoginActivity
+            val intent = Intent(this, LoginActivity::class.java).apply {
+                putExtra("MOVIE_ID", movie.id) // Passa l'ID del film
+            }
             startActivity(intent)
         }
         recyclerView.adapter = adapter
