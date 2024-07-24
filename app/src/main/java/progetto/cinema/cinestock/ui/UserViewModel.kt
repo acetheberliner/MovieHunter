@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    private val apiKey = "YOUR_API_KEY_HERE"  // Sostituisci con la tua chiave API
+    private val apiKey = "e96d473555668ee67739012c7f140604"
 
     private val tmdbApiService = Retrofit.Builder()
         .baseUrl("https://api.themoviedb.org/3/")
