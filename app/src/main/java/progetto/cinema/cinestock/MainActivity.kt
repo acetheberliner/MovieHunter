@@ -77,10 +77,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val searchView = findViewById<SearchView>(R.id.search_view)
-        if (searchView.isIconified) {
-            super.onBackPressed() // closes the activity if the SearchView is closed
+        // checks whether the SearchView is open
+        if (!searchView.isIconified) {
+            // if SearchView is open, it restores the movie list by closing the SearchView
+            searchView.onActionViewCollapsed() // closes the SearchView
+            movieViewModel.fetchTrendingMovies(apiKey) // reload list of trending movies
         } else {
-            searchView.isIconified = true // closes search view if open
+            // if the SearchView is already closed, close the Activity
+            super.onBackPressed()
         }
     }
 }

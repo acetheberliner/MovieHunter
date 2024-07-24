@@ -18,7 +18,7 @@ import progetto.cinema.cinestock.R
 class LoginActivity : AppCompatActivity() {
 
     private val userViewModel: UserViewModel by viewModels()
-    private var selectedMovieId: Int? = null // Variabile per memorizzare l'ID del film selezionato
+    private var selectedMovieId: Int? = null // variable that stores the ID of the selected film
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +45,11 @@ class LoginActivity : AppCompatActivity() {
         val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_film_button)
 
         loginButton.setOnClickListener {
-            viewFlipper.displayedChild = 1 // Mostra i campi di login
+            viewFlipper.displayedChild = 1 // shows login input fields
         }
 
         signinButton.setOnClickListener {
-            viewFlipper.displayedChild = 2 // Mostra i campi di sign-in
+            viewFlipper.displayedChild = 2 // shows sign-in input fields
         }
 
         loginSubmitButton.setOnClickListener {
@@ -76,11 +76,11 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginBackButton.setOnClickListener {
-            viewFlipper.displayedChild = 0 // Mostra il contenitore iniziale dei pulsanti
+            viewFlipper.displayedChild = 0 // shows the initial container of the buttons
         }
 
         signinBackButton.setOnClickListener {
-            viewFlipper.displayedChild = 0 // Mostra il contenitore iniziale dei pulsanti
+            viewFlipper.displayedChild = 0 // shows the initial container of the buttons
         }
 
         backToFilmButton.setOnClickListener {
@@ -95,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
             navigateToMainActivity()
         }
 
-        // Recupera l'ID del film passato
+        // Retrieve given filmID
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
 
         if (selectedMovieId == -1) {
@@ -139,19 +139,19 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
+        finish() // closes LoginActivity by clicking the back button
     }
 
     private fun navigateToMovieDetailActivity() {
         selectedMovieId?.let { movieId ->
             val intent = Intent(this, MovieDetailActivity::class.java).apply {
-                putExtra("MOVIE_ID", movieId) // Passa l'ID del film alla MovieDetailActivity
+                putExtra("MOVIE_ID", movieId) // passes the movie ID to MovieDetailActivity.
             }
             startActivity(intent)
-            finish() // Chiude la LoginActivity per non tornare ad essa premendo il pulsante "Back"
+            finish() // closes LoginActivity by clicking the back button
         } ?: run {
             Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
-            navigateToMainActivity() // Redirect if no movie ID
+            navigateToMainActivity() // redirect if there is no movie ID
         }
     }
 }
