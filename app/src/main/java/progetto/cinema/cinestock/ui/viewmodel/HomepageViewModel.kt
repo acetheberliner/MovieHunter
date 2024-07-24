@@ -2,7 +2,7 @@ package progetto.cinema.cinestock.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.spot.unibo.corsolp.remote.remotemodels.films.Entity
+import progetto.cinema.cinestock.remote.remotemodels.search.Entity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.models.FilmModel

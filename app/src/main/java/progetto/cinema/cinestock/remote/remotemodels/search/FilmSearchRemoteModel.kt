@@ -1,4 +1,4 @@
-package com.spot.unibo.corsolp.remote.remotemodels.films
+package progetto.cinema.cinestock.remote.remotemodels.search
 
 import com.squareup.moshi.Json
 //import android.os.Parcelable

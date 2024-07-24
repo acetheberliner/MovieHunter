@@ -1,6 +1,6 @@
 package progetto.cinema.cinestock.remote
 
-import com.spot.unibo.corsolp.remote.remotemodels.films.FilmSearchResponseRemoteModel
+import progetto.cinema.cinestock.remote.remotemodels.search.FilmSearchResponseRemoteModel
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

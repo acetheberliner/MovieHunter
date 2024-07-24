@@ -1,11 +1,13 @@
 package progetto.cinema.cinestock
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import progetto.cinema.cinestock.ui.LoginActivity
 import progetto.cinema.cinestock.ui.MovieAdapter
 import progetto.cinema.cinestock.viewmodel.MovieViewModel
 
@@ -21,7 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val adapter = MovieAdapter { movie ->
-            // Qui va il codice per gestire il click sul film
+            // Avvia la schermata di login quando si clicca su un film
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
