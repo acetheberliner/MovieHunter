@@ -14,12 +14,23 @@ import progetto.cinema.cinestock.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: MovieRepository = MovieRepository(application)
+
+    // LiveData for trending movies
     private val _movies = MutableLiveData<List<TMDbMovie>>()
     val movies: LiveData<List<TMDbMovie>> = _movies
+
+    // LiveData for search results
+    private val _searchResults = MutableLiveData<List<TMDbMovie>>()
+    val searchResults: LiveData<List<TMDbMovie>> = _searchResults
 
     fun fetchTrendingMovies(apiKey: String) = viewModelScope.launch {
         val movieList = repository.getTrendingMovies(apiKey)
         _movies.postValue(movieList)
+    }
+
+    fun searchMovies(apiKey: String, query: String) = viewModelScope.launch {
+        val movieList = repository.searchMovies(apiKey, query)
+        _searchResults.postValue(movieList)
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {

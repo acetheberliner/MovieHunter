@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@color/white</item> <!-- White bg -->
+        <item name="android:queryBackground">@color/white</item> <!-- Query bg -->
+        <item name="android:textColorHint">@color/black</item> <!-- hint text color -->
+        <item name="android:textColor">@color/black</item> <!-- text color -->
+        <item name="android:iconifiedByDefault">false</item> <!-- Show non-iconicalized search bar -->
+    </style>
+</resources>
