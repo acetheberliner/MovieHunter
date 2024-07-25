@@ -1,5 +1,6 @@
 package progetto.cinema.cinestock.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -67,11 +68,13 @@ class RiepilogoActivity : AppCompatActivity() {
 
         proceedButton.setOnClickListener {
             val address = addressEditText.text.toString()
-            if (isValidEmail(address)) {
-                // Manage purchase here
-                Toast.makeText(this, "Proceeding with purchase...", Toast.LENGTH_SHORT).show()
+            if (address.isNotEmpty()) {
+                // Navigate to SplashActivity
+                val intent = Intent(this, EndActivity::class.java)
+                startActivity(intent)
+                finish()  // Finish this activity so the user can't return to it
             } else {
-                Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -97,10 +100,5 @@ class RiepilogoActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun isValidEmail(email: String): Boolean {
-        // Check if the email contains the "@" symbol
-        return email.contains("@gmail.com")
     }
 }
