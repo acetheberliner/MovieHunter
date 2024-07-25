@@ -5,7 +5,7 @@
     <string name="title">Benvenuto in Cinestock</string>
     <string name="movie_image_desc">Immagine del film</string>
     <string name="filmdesc">Descrizione</string>
-    <string name="Button">Acquista</string>
+    <string name="Button">Buy</string>
     <string name="movie_poster">movie_poster</string>
     <string name="toggle_password_visibility">Toggle password visibility</string>
     <string name="back_button">Back</string>

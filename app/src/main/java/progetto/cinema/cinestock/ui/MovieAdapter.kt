@@ -2,6 +2,7 @@ package progetto.cinema.cinestock.ui
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,14 +36,14 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
                 .error(R.drawable.error)
                 .into(imageView)
 
-            // Listener for the "Acquista" button
+            // Listener for the "Buy" button
             buyButton.setOnClickListener {
-                openLoginActivity(itemView.context)
+                openLoginActivity(movie.id)
             }
 
             // Listener for the entire item layout
             movieItemLayout.setOnClickListener {
-                openLoginActivity(itemView.context)
+                openLoginActivity(movie.id)
             }
 
             //buyButton.setOnClickListener { onClick(movie) }
@@ -59,9 +60,13 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
 
         }
 
-        private fun openLoginActivity(context: Context) {
-            val intent = Intent(context, LoginActivity::class.java)
-            context.startActivity(intent)
+        private fun openLoginActivity(movieId: Int) {
+            Log.d("MovieAdapter", "Passing movie ID: $movieId to LoginActivity")
+            //val context = itemView.context
+            val intent = Intent(itemView.context, LoginActivity::class.java).apply {
+                putExtra("MOVIE_ID", movieId)
+            }
+            itemView.context.startActivity(intent)
         }
     }
 
