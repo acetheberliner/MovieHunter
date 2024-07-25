@@ -1,5 +1,6 @@
 package progetto.cinema.cinestock.ui
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
         val descriptionView: TextView = itemView.findViewById(R.id.movie_description)
         val imageView: ImageView = itemView.findViewById(R.id.movie_image)
         val buyButton: Button = itemView.findViewById(R.id.buy_button)
+        val movieItemLayout: View = itemView.findViewById(R.id.movie_item_layout)
 
         fun bind(movie: TMDbMovie) {
             titleView.text = movie.original_title
@@ -33,16 +35,33 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
                 .error(R.drawable.error)
                 .into(imageView)
 
-            buyButton.setOnClickListener { onClick(movie) }
+            // Listener for the "Acquista" button
+            buyButton.setOnClickListener {
+                openLoginActivity(itemView.context)
+            }
+
+            // Listener for the entire item layout
+            movieItemLayout.setOnClickListener {
+                openLoginActivity(itemView.context)
+            }
+
+            //buyButton.setOnClickListener { onClick(movie) }
 
             // Aggiungi un listener per l'elemento principale per aprire i dettagli del film
-            itemView.setOnClickListener {
-                val context = itemView.context
-                val intent = Intent(context, MovieDetailActivity::class.java).apply {
-                    putExtra("movie", movie)
-                }
-                context.startActivity(intent)
-            }
+//            itemView.setOnClickListener {
+//                val context = itemView.context
+//                val intent = Intent(context, MovieDetailActivity::class.java).apply {
+//                    putExtra("movie", movie)
+//                }
+//                context.startActivity(intent)
+//            }
+
+
+        }
+
+        private fun openLoginActivity(context: Context) {
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
         }
     }
 

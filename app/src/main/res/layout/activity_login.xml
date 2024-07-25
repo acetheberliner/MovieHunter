@@ -73,6 +73,7 @@
 
                 <EditText
                     android:id="@+id/login_username"
+                    style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -81,6 +82,7 @@
 
                 <EditText
                     android:id="@+id/login_password"
+                    style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -121,6 +123,7 @@
 
                 <EditText
                     android:id="@+id/signin_username"
+                    style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -129,6 +132,7 @@
 
                 <EditText
                     android:id="@+id/signin_password"
+                    style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -137,6 +141,7 @@
 
                 <EditText
                     android:id="@+id/signin_confirm_password"
+                    style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Confirm Password"
