@@ -77,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
         loginBackButton.setOnClickListener {
             viewFlipper.displayedChild = 0 // shows the initial container of the buttons
         }
