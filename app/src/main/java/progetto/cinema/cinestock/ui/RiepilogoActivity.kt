@@ -3,9 +3,11 @@ package progetto.cinema.cinestock.ui
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
 import progetto.cinema.cinestock.models.movie.TMDbMovie
 import progetto.cinema.cinestock.network.MovieApiService
@@ -19,6 +21,7 @@ import retrofit2.HttpException
 
 class RiepilogoActivity : AppCompatActivity() {
 
+    private lateinit var backgroundImageView: ImageView
     private lateinit var priceTextView: TextView
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
@@ -39,6 +42,7 @@ class RiepilogoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_riepilogo)
 
+        backgroundImageView = findViewById(R.id.background_image)
         priceTextView = findViewById(R.id.price_text_view)
         titleTextView = findViewById(R.id.title_text_view)
         descriptionTextView = findViewById(R.id.description_text_view)
@@ -47,7 +51,6 @@ class RiepilogoActivity : AppCompatActivity() {
         // get the film ID from the intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
         Log.d("RiepilogoActivity", "Received movie ID: $movieId")
-
 
         if (movieId != null && movieId != -1) {
             movieId?.let {
@@ -72,6 +75,8 @@ class RiepilogoActivity : AppCompatActivity() {
                     titleTextView.text = movieDetails.original_title
                     descriptionTextView.text = movieDetails.overview
                     priceTextView.text = "Price: $6.99" // fixed price
+                    val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
+                    Glide.with(this@RiepilogoActivity).load(imageUrl).into(backgroundImageView)
                 }
             } catch (e: HttpException) {
                 runOnUiThread {

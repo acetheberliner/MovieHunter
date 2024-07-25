@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
+
+    <!-- Background ImageView -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/movie_background"
+        android:alpha="0.3" />
 
     <!-- Title TextView -->
     <TextView
@@ -11,9 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_marginTop="16dp"
-        android:textStyle="bold"/>
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <!-- Description TextView -->
     <TextView
@@ -22,17 +34,23 @@
         android:layout_height="wrap_content"
         android:text="Overview"
         android:textSize="16sp"
-        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:layout_below="@id/title_text_view"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:textStyle="bold"/>
+        android:layout_centerHorizontal="true" />
 
+    <!-- Price TextView -->
     <TextView
         android:id="@+id/price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price: $6.99"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@id/description_text_view"
+        android:layout_centerHorizontal="true" />
 
     <!-- Proceed Button -->
     <Button
@@ -40,5 +58,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Proceed to Purchase"
-        android:layout_marginTop="24dp" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp" />
+
+</RelativeLayout>
