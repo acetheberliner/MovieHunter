@@ -38,20 +38,12 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
-                <!-- Login Button -->
-                <Button
-                    android:id="@+id/login_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:layout_marginTop="16dp"/>
-
-                <!-- Sign In Button -->
+                <!-- Signin Button -->
                 <Button
                     android:id="@+id/signin_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sign In"
+                    android:text="Signin"
                     android:layout_marginTop="16dp"/>
 
                 <!-- Back to Film Button -->
@@ -65,56 +57,6 @@
 
             <!-- Login Fields -->
             <LinearLayout
-                android:id="@+id/login_fields"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <EditText
-                    android:id="@+id/login_username"
-                    style="@style/CustomEditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Username"
-                    android:inputType="text"
-                    android:textColor="@android:color/white"/>
-
-                <EditText
-                    android:id="@+id/login_password"
-                    style="@style/CustomEditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:textColor="@android:color/white"/>
-
-                <Button
-                    android:id="@+id/login_submit_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Submit"
-                    android:layout_marginTop="16dp"/>
-
-                <!-- Back to Selection Button -->
-                <Button
-                    android:id="@+id/login_back_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Back"
-                    android:layout_marginTop="16dp"/>
-
-                <!-- Back to Film Button -->
-                <Button
-                    android:id="@+id/login_back_to_film_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Back to Film"
-                    android:layout_marginTop="16dp"/>
-            </LinearLayout>
-
-            <!-- Sign In Fields -->
-            <LinearLayout
                 android:id="@+id/signin_fields"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +64,7 @@
                 android:visibility="gone">
 
                 <EditText
-                    android:id="@+id/signin_username"
+                    android:id="@+id/sign_username"
                     style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -136,15 +78,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:inputType="textPassword"
-                    android:textColor="@android:color/white"/>
-
-                <EditText
-                    android:id="@+id/signin_confirm_password"
-                    style="@style/CustomEditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Confirm Password"
                     android:inputType="textPassword"
                     android:textColor="@android:color/white"/>
 
@@ -171,6 +104,8 @@
                     android:text="Back to Film"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
+
+
 
         </ViewFlipper>
 

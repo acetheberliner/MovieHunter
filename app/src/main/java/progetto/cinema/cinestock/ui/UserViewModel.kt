@@ -18,30 +18,18 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         .create(TmdbApiService::class.java)
 
     fun register(username: String, password: String) = viewModelScope.launch {
-        // Registrazione utente nel database locale
-        // ...
 
         // Chiamata all'API TMDb per ottenere un token di richiesta
         val tokenResponse = tmdbApiService.createRequestToken(apiKey)
         val requestToken = tokenResponse.request_token
 
-        // Utilizza il token di richiesta per creare una sessione
-        val sessionResponse = tmdbApiService.createSession(apiKey, requestToken)
-        val sessionId = sessionResponse.session_id
-
-        // Gestisci la sessione ottenuta
-        // ...
     }
 
     fun login(username: String, password: String) = viewModelScope.launch {
-        // Login dell'utente nel database locale
-        // ...
 
         // Chiamata all'API TMDb per creare una sessione ospite
         val guestSessionResponse = tmdbApiService.createGuestSession(apiKey)
         val guestSessionId = guestSessionResponse.guest_session_id
 
-        // Gestisci la sessione ospite ottenuta
-        // ...
     }
 }

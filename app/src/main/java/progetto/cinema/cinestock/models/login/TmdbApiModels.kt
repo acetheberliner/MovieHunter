@@ -10,7 +10,3 @@ data class TokenResponse(
     val request_token: String
 )
 
-// Modello per la risposta della creazione di una sessione
-data class SessionResponse(
-    val session_id: String
-)
