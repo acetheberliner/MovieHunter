@@ -52,7 +52,7 @@ class RiepilogoActivity : AppCompatActivity() {
         addressEditText = findViewById(R.id.address_edit_text)
         attentionTextView = findViewById(R.id.attention_text_view)
 
-        // get the film ID from the intent
+        // Get the film ID from the intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
         Log.d("RiepilogoActivity", "Received movie ID: $movieId")
 
@@ -67,11 +67,11 @@ class RiepilogoActivity : AppCompatActivity() {
 
         proceedButton.setOnClickListener {
             val address = addressEditText.text.toString()
-            if (address.isNotEmpty()) {
-                // manage purchase here
+            if (isValidEmail(address)) {
+                // Manage purchase here
                 Toast.makeText(this, "Proceeding with purchase...", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Please enter your address", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -83,7 +83,7 @@ class RiepilogoActivity : AppCompatActivity() {
                 runOnUiThread {
                     titleTextView.text = movieDetails.original_title
                     descriptionTextView.text = movieDetails.overview
-                    priceTextView.text = "Price: $6.99" // fixed price
+                    priceTextView.text = "Price: $6.99" // Fixed price
                     val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
                     Glide.with(this@RiepilogoActivity).load(imageUrl).into(backgroundImageView)
                 }
@@ -97,5 +97,10 @@ class RiepilogoActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        // Check if the email contains the "@" symbol
+        return email.contains("@gmail.com")
     }
 }
