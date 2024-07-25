@@ -3,13 +3,13 @@ package progetto.cinema.cinestock.ui
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.models.movie.TMDbMovie
 import progetto.cinema.cinestock.network.MovieApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,6 +26,8 @@ class RiepilogoActivity : AppCompatActivity() {
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
+    private lateinit var addressEditText: EditText
+    private lateinit var attentionTextView: TextView
 
     private var movieId: Int? = null
 
@@ -47,6 +49,8 @@ class RiepilogoActivity : AppCompatActivity() {
         titleTextView = findViewById(R.id.title_text_view)
         descriptionTextView = findViewById(R.id.description_text_view)
         proceedButton = findViewById(R.id.proceed_button)
+        addressEditText = findViewById(R.id.address_edit_text)
+        attentionTextView = findViewById(R.id.attention_text_view)
 
         // get the film ID from the intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
@@ -62,8 +66,13 @@ class RiepilogoActivity : AppCompatActivity() {
         }
 
         proceedButton.setOnClickListener {
-            // manage purchase here
-            Toast.makeText(this, "Proceeding with purchase...", Toast.LENGTH_SHORT).show()
+            val address = addressEditText.text.toString()
+            if (address.isNotEmpty()) {
+                // manage purchase here
+                Toast.makeText(this, "Proceeding with purchase...", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Please enter your address", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
