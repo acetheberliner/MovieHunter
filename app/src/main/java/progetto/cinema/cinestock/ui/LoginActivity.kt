@@ -115,7 +115,6 @@ class LoginActivity : AppCompatActivity() {
                 userViewModel.login(username, password)
                 runOnUiThread {
                     Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                    //navigateToMovieDetailActivity()
                     navigateToRiepilogoActivity()
                 }
             } catch (e: Exception) {
@@ -149,32 +148,6 @@ class LoginActivity : AppCompatActivity() {
         finish() // closes LoginActivity by clicking the back button
     }
 
-//    private fun navigateToMovieDetailActivity() {
-//        selectedMovieId?.let { movieId ->
-//            val intent = Intent(this, MovieDetailActivity::class.java).apply {
-//                putExtra("MOVIE_ID", movieId) // passes the movie ID to MovieDetailActivity.
-//            }
-//            startActivity(intent)
-//            finish() // closes LoginActivity by clicking the back button
-//        } ?: run {
-//            Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
-//            navigateToMainActivity() // redirect if there is no movie ID
-//        }
-//    }
-
-//    private fun navigateToRiepilogoActivity() {
-//        selectedMovieId?.let { movieId ->
-//            Log.d("LoginActivity", "Navigating to RiepilogoActivity with movie ID: $movieId")
-//            val intent = Intent(this, RiepilogoActivity::class.java).apply {
-//                putExtra("MOVIE_ID", movieId) // passes the movie ID to RiepilogoActivity.
-//            }
-//            startActivity(intent)
-//            finish() // closes LoginActivity by clicking the back button
-//        } ?: run {
-//            Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
-//            navigateToMainActivity() // redirect if there is no movie ID
-//        }
-//    }
 
     private fun navigateToRiepilogoActivity() {
         val movieId = selectedMovieId

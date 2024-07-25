@@ -23,7 +23,7 @@ class RiepilogoActivity : AppCompatActivity() {
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
-    //private var movieId: Int = -1
+
     private var movieId: Int? = null
 
     private val apiKey = "e96d473555668ee67739012c7f140604"
@@ -48,15 +48,6 @@ class RiepilogoActivity : AppCompatActivity() {
         movieId = intent.getIntExtra("MOVIE_ID", -1)
         Log.d("RiepilogoActivity", "Received movie ID: $movieId")
 
-        // use a temporary variable for verification
-        //val currentMovieId = movieId ?: -1 // used the Elvis operator (?:) to assign a default value (-1) to currentMovieId if movieId is null. In this way, currentMovieId will always be of type Int
-
-//        if (movieId != -1) {
-//            fetchMovieDetails(movieId)
-//        } else {
-//            Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
-//            finish() // closes the activity if filmID is not provided
-//        }
 
         if (movieId != null && movieId != -1) {
             movieId?.let {

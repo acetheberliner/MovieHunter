@@ -46,18 +46,6 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
                 openLoginActivity(movie.id)
             }
 
-            //buyButton.setOnClickListener { onClick(movie) }
-
-            // Aggiungi un listener per l'elemento principale per aprire i dettagli del film
-//            itemView.setOnClickListener {
-//                val context = itemView.context
-//                val intent = Intent(context, MovieDetailActivity::class.java).apply {
-//                    putExtra("movie", movie)
-//                }
-//                context.startActivity(intent)
-//            }
-
-
         }
 
         private fun openLoginActivity(movieId: Int) {
