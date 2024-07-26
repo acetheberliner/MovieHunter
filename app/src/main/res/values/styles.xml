@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Stile personalizzato per la SearchView -->
+    <!-- SearchView custom style-->
     <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:background">@color/white</item> <!-- White bg -->
         <item name="android:queryBackground">@color/white</item> <!-- Query bg -->
@@ -10,7 +10,7 @@
         <item name="android:iconifiedByDefault">false</item> <!-- Show non-iconicalized search bar -->
     </style>
 
-    <!-- Stile personalizzato per l'EditText -->
+    <!-- EditText custom style -->
     <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
