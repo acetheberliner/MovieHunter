@@ -18,14 +18,14 @@
         android:id="@+id/title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title"
+        android:text="@string/film_title"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?attr/textAppearance"/>
 
     <!-- Description TextView -->
     <TextView
@@ -34,11 +34,11 @@
         android:layout_height="wrap_content"
         android:text="@string/filmdesc"
         android:textSize="18sp"
-        android:textColor="@color/white"
         android:layout_below="@id/title_text_view"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?attr/textAppearance"/>
 
     <!-- Price TextView -->
     <TextView
@@ -48,9 +48,9 @@
         android:text="@string/price"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         android:layout_below="@id/description_text_view"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?attr/textAppearance"/>
 
     <!-- Address Hint TextView -->
     <TextView
@@ -58,21 +58,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_address"
-        android:textSize="14sp"
-        android:textColor="@color/white"
+        android:textSize="16sp"
         android:layout_below="@id/price_text_view"
         android:layout_marginTop="100dp"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textAppearance="?attr/textAppearance"/>
 
     <!-- Address EditText -->
     <EditText
         android:id="@+id/address_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_address"
+        android:hint="@string/enter_hint"
         android:padding="16dp"
         android:layout_below="@id/address_hint_text_view"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
         android:inputType="text" />
 
@@ -83,12 +83,12 @@
         android:layout_height="wrap_content"
         android:text="@string/warning_message"
         android:textSize="18sp"
-        android:textColor="@color/white"
         android:layout_below="@id/address_edit_text"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="18dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?attr/textAppearance"/>
 
     <!-- Proceed Button -->
     <Button

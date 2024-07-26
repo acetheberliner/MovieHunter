@@ -21,7 +21,8 @@
     <string name="submit_btn">Submit</string>
     <string name="back_to_select_options">Back to options</string>
     <string name="price">Price: $6.99</string>
-    <string name="enter_address">Enter your shipping address here</string>
-    <string name="warning_message">⚠️ WARNING! Payment is only made upon delivery exclusively in cash</string>
+    <string name="enter_address">Enter your shipping address below:</string>
+    <string name="enter_hint">Enter your shipping address here</string>
+    <string name="warning_message">⚠️ WARNING! Payment is done only upon delivery, exclusively in cash</string>
     <string name="proceed_btn">Proceed to Purchase</string>
 </resources>
