@@ -27,8 +27,6 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
-    private lateinit var addressEditText: EditText
-    private lateinit var attentionTextView: TextView
 
     private var movieId: Int? = null
 
@@ -50,8 +48,7 @@ class SummaryActivity : AppCompatActivity() {
         titleTextView = findViewById(R.id.title_text_view)
         descriptionTextView = findViewById(R.id.description_text_view)
         proceedButton = findViewById(R.id.proceed_button)
-        addressEditText = findViewById(R.id.address_edit_text)
-        attentionTextView = findViewById(R.id.attention_text_view)
+
 
         // Get the film ID from the intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
@@ -67,15 +64,10 @@ class SummaryActivity : AppCompatActivity() {
         }
 
         proceedButton.setOnClickListener {
-            val address = addressEditText.text.toString()
-            if (address.isNotEmpty() && address.contains("Street", ignoreCase = true)) {
-                val intent = Intent(this, EndActivity::class.java)
-                startActivity(intent)
-                finish()  // Finish this activity so the user cannot return to it
-            } else {
-                Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, ShippingActivity::class.java)
+            startActivity(intent)
         }
+
     }
 
     private fun fetchMovieDetails(movieId: Int) {

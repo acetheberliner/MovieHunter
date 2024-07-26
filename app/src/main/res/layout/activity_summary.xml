@@ -37,6 +37,8 @@
         android:layout_below="@id/title_text_view"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_centerHorizontal="true"
         android:textAppearance="?attr/textAppearance"/>
 
@@ -52,52 +54,28 @@
         android:layout_centerHorizontal="true"
         android:textAppearance="?attr/textAppearance"/>
 
-    <!-- Address Hint TextView -->
-    <TextView
-        android:id="@+id/address_hint_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_address"
-        android:textSize="16sp"
-        android:layout_below="@id/price_text_view"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentStart="true"
-        android:textAppearance="?attr/textAppearance"/>
-
-    <!-- Address EditText -->
-    <EditText
-        android:id="@+id/address_edit_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_hint"
-        android:padding="16dp"
-        android:layout_below="@id/address_hint_text_view"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"
-        android:inputType="text" />
-
-    <!-- Attention TextView -->
-    <TextView
-        android:id="@+id/attention_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/warning_message"
-        android:textSize="18sp"
-        android:layout_below="@id/address_edit_text"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="18dp"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="?attr/textAppearance"/>
-
-    <!-- Proceed Button -->
-    <Button
-        android:id="@+id/proceed_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/proceed_btn"
+        android:orientation="vertical"
+        android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp">
+
+        <!-- Share Button -->
+        <Button
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share_btn"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Proceed Button -->
+        <Button
+            android:id="@+id/proceed_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proceed_btn"/>
+    </LinearLayout>
 
 </RelativeLayout>
