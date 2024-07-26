@@ -1,6 +1,5 @@
 package progetto.cinema.cinestock.ui
 
-import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import progetto.cinema.cinestock.MovieDetailActivity
 import progetto.cinema.cinestock.R
 import progetto.cinema.cinestock.models.movie.TMDbMovie
 
@@ -51,7 +49,7 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
         private fun openLoginActivity(movieId: Int) {
             Log.d("MovieAdapter", "Passing movie ID: $movieId to LoginActivity")
             //val context = itemView.context
-            val intent = Intent(itemView.context, LoginActivity::class.java).apply {
+            val intent = Intent(itemView.context, SignInActivity::class.java).apply {
                 putExtra("MOVIE_ID", movieId)
             }
             itemView.context.startActivity(intent)

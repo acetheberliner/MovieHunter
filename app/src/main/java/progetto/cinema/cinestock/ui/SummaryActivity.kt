@@ -20,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class RiepilogoActivity : AppCompatActivity() {
+class SummaryActivity : AppCompatActivity() {
 
     private lateinit var backgroundImageView: ImageView
     private lateinit var priceTextView: TextView
@@ -43,7 +43,7 @@ class RiepilogoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_riepilogo)
+        setContentView(R.layout.activity_summary)
 
         backgroundImageView = findViewById(R.id.background_image)
         priceTextView = findViewById(R.id.price_text_view)
@@ -68,7 +68,7 @@ class RiepilogoActivity : AppCompatActivity() {
 
         proceedButton.setOnClickListener {
             val address = addressEditText.text.toString()
-            if (address.isNotEmpty()) {
+            if (address.isNotEmpty() && address.contains("Street")) {
                 // Navigate to SplashActivity
                 val intent = Intent(this, EndActivity::class.java)
                 startActivity(intent)
@@ -88,15 +88,15 @@ class RiepilogoActivity : AppCompatActivity() {
                     descriptionTextView.text = movieDetails.overview
                     priceTextView.text = "Price: $6.99" // Fixed price
                     val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
-                    Glide.with(this@RiepilogoActivity).load(imageUrl).into(backgroundImageView)
+                    Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
                 }
             } catch (e: HttpException) {
                 runOnUiThread {
-                    Toast.makeText(this@RiepilogoActivity, "Failed to fetch movie details: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SummaryActivity, "Failed to fetch movie details: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 runOnUiThread {
-                    Toast.makeText(this@RiepilogoActivity, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SummaryActivity, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

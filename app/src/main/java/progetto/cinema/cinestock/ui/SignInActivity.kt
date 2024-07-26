@@ -15,14 +15,14 @@ import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
 
-class LoginActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
 
     private val userViewModel: UserViewModel by viewModels()
     private var selectedMovieId: Int? = null // variable that stores the ID of the selected film
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_sign_in)
 
         val viewFlipper = findViewById<ViewFlipper>(R.id.view_flipper)
 
@@ -83,12 +83,12 @@ class LoginActivity : AppCompatActivity() {
             try {
                 userViewModel.login(username, password)
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignInActivity, "Sign In Successful", Toast.LENGTH_SHORT).show()
                     navigateToRiepilogoActivity()
                 }
             } catch (e: Exception) {
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Login Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignInActivity, "Sign In Failed: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -105,7 +105,7 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToRiepilogoActivity() {
         val movieId = selectedMovieId
         if (movieId != null && movieId != -1) {
-            val intent = Intent(this, RiepilogoActivity::class.java).apply {
+            val intent = Intent(this, SummaryActivity::class.java).apply {
                 putExtra("MOVIE_ID", movieId)
             }
             startActivity(intent)

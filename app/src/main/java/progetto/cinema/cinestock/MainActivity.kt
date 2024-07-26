@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import progetto.cinema.cinestock.ui.LoginActivity
+import progetto.cinema.cinestock.ui.SignInActivity
 import progetto.cinema.cinestock.ui.MovieAdapter
 import progetto.cinema.cinestock.ui.viewmodel.MovieViewModel
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MovieAdapter { movie ->
             // Passes the ID of the selected film to LoginActivity
-            val intent = Intent(this, LoginActivity::class.java).apply {
+            val intent = Intent(this, SignInActivity::class.java).apply {
                 putExtra("MOVIE_ID", movie.id) // Passes the film ID
             }
             startActivity(intent)
