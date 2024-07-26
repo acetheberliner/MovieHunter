@@ -68,11 +68,10 @@ class SummaryActivity : AppCompatActivity() {
 
         proceedButton.setOnClickListener {
             val address = addressEditText.text.toString()
-            if (address.isNotEmpty() && address.contains("Street")) {
-                // Navigate to SplashActivity
+            if (address.isNotEmpty() && address.contains("Street", ignoreCase = true)) {
                 val intent = Intent(this, EndActivity::class.java)
                 startActivity(intent)
-                finish()  // Finish this activity so the user can't return to it
+                finish()  // Finish this activity so the user cannot return to it
             } else {
                 Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show()
             }
@@ -86,7 +85,7 @@ class SummaryActivity : AppCompatActivity() {
                 runOnUiThread {
                     titleTextView.text = movieDetails.original_title
                     descriptionTextView.text = movieDetails.overview
-                    priceTextView.text = "Price: $6.99" // Fixed price
+                    priceTextView.text = "Price: $6.99" // Fixed price (all movies have the same price)
                     val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
                     Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
                 }

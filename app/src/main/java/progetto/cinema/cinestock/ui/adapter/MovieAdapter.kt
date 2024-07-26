@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.ui
+package progetto.cinema.cinestock.ui.adapter
 
 import android.content.Intent
 import android.util.Log
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
 import progetto.cinema.cinestock.models.movie.TMDbMovie
+import progetto.cinema.cinestock.ui.SignInActivity
 
 class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {

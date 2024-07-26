@@ -38,24 +38,24 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
-                <!-- Signin Button -->
+                <!-- Sign-in Button -->
                 <Button
                     android:id="@+id/signin_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Signin"
+                    android:text="@string/text_for_signin"
                     android:layout_marginTop="16dp"/>
 
-                <!-- Back to Film Button -->
+                <!-- Back Button -->
                 <Button
-                    android:id="@+id/back_to_film_button"
+                    android:id="@+id/back_to_homepage_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Back to Film"
+                    android:text="@string/text_for_back_btn"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
 
-            <!-- Login Fields -->
+            <!-- Sign-in Fields -->
             <LinearLayout
                 android:id="@+id/signin_fields"
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                     style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
+                    android:hint="@string/username_text"
                     android:inputType="text"
                     android:textColor="@android:color/white"/>
 
@@ -77,7 +77,7 @@
                     style="@style/CustomEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:hint="@string/password_text"
                     android:inputType="textPassword"
                     android:textColor="@android:color/white"/>
 
@@ -85,7 +85,7 @@
                     android:id="@+id/signin_submit_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Submit"
+                    android:text="@string/submit_btn"
                     android:layout_marginTop="16dp"/>
 
                 <!-- Back to Selection Button -->
@@ -93,15 +93,15 @@
                     android:id="@+id/signin_back_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Back"
+                    android:text="@string/back_to_select_options"
                     android:layout_marginTop="16dp"/>
 
                 <!-- Back to Film Button -->
                 <Button
-                    android:id="@+id/signin_back_to_film_button"
+                    android:id="@+id/signin_back_to_homepage_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Back to Film"
+                    android:text="@string/text_for_back_btn"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
 

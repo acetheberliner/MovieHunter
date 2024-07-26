@@ -30,7 +30,7 @@
         android:id="@+id/search_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:queryHint="Cerca film"
+        android:queryHint="@string/query_hint"
         style="@style/CustomSearchViewStyle"
         app:layout_constraintTop_toBottomOf="@id/welcome_text"
         app:layout_constraintStart_toEndOf="@id/back_button"

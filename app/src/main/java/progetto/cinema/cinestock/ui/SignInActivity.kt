@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
+import progetto.cinema.cinestock.ui.viewmodel.UserViewModel
 
 class SignInActivity : AppCompatActivity() {
 
@@ -34,8 +35,8 @@ class SignInActivity : AppCompatActivity() {
 
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
 
-        val backToFilmButton = findViewById<Button>(R.id.back_to_film_button)
-        val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_film_button)
+        val backToFilmButton = findViewById<Button>(R.id.back_to_homepage_button)
+        val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_homepage_button)
 
 
         signinButton.setOnClickListener {

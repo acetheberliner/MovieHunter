@@ -23,7 +23,7 @@ class EndActivity : AppCompatActivity() {
         // Load the image into the ImageView
         val backgroundImageView = findViewById<ImageView>(R.id.background_end_img)
         Glide.with(this)
-            .load(R.drawable.end) // Sostituisci con il nome dell'immagine
+            .load(R.drawable.end)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(backgroundImageView)
 
@@ -32,7 +32,7 @@ class EndActivity : AppCompatActivity() {
             // Navigate to the Movie List Activity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            //finish()  // Opzionalmente termina questa attività per rimuoverla dallo stack
+            //finish()
         }
     }
 }
