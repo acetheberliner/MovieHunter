@@ -50,8 +50,17 @@ abstract class UserDatabase : RoomDatabase() {
                 val count = userDao.getUserCount()
                 if (count == 0) {
                     // Only add users if the database is empty
-                    userDao.insert(User(firstName = "John", lastName = "Doe", phoneNumber = "123456789"))
-                    userDao.insert(User(firstName = "Jane", lastName = "Doe", phoneNumber = "987654321"))
+                    userDao.insert(User(firstName = "John", lastName = "White", phoneNumber = "123456789"))
+                    userDao.insert(User(firstName = "Erik", lastName = "Doe", phoneNumber = "987654321"))
+                    userDao.insert(User(firstName = "Alice", lastName = "Smith", phoneNumber = "159732547"))
+                    userDao.insert(User(firstName = "Bob", lastName = "Johnson", phoneNumber = "253019873"))
+                    userDao.insert(User(firstName = "Carol", lastName = "Williams", phoneNumber = "786320144"))
+                    userDao.insert(User(firstName = "Dave", lastName = "Brown", phoneNumber = "786633210"))
+                    userDao.insert(User(firstName = "Eve", lastName = "Jones", phoneNumber = "896531046"))
+                    userDao.insert(User(firstName = "Frank", lastName = "Miller", phoneNumber = "259751064"))
+                    userDao.insert(User(firstName = "Grace", lastName = "Wilson", phoneNumber = "896322017"))
+                    userDao.insert(User(firstName = "Hank", lastName = "Moore", phoneNumber = "259800450"))
+
                 }
             }
         }

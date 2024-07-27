@@ -116,6 +116,4 @@ class SignInActivity : AppCompatActivity() {
             navigateToMainActivity() // redirect if there is no movie ID
         }
     }
-
-
 }

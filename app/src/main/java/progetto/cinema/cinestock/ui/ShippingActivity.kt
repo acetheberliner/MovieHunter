@@ -7,14 +7,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
 
-class ShippingActivity: AppCompatActivity() {
+class ShippingActivity : AppCompatActivity() {
 
     private lateinit var addressEditText: EditText
     private lateinit var attentionTextView: TextView
     private lateinit var buyButton: Button
-
+    private lateinit var backButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class ShippingActivity: AppCompatActivity() {
         addressEditText = findViewById(R.id.address_edit_text)
         attentionTextView = findViewById(R.id.attention_text_view)
         buyButton = findViewById(R.id.buy)
+        backButton = findViewById(R.id.back_to_homepage_button)
 
         buyButton.setOnClickListener {
             val address = addressEditText.text.toString()
@@ -34,5 +36,15 @@ class ShippingActivity: AppCompatActivity() {
                 Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show()
             }
         }
+
+        backButton.setOnClickListener {
+            navigateToBackActivity()
+        }
+    }
+
+    private fun navigateToBackActivity() {
+        val intent = Intent(this, SummaryActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

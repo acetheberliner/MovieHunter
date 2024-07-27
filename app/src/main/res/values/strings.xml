@@ -29,4 +29,6 @@
     <string name="first_name">first_name</string>
     <string name="last_name">last_name</string>
     <string name="phone_number">phone_number</string>
+    <string name="contact_icon_description">contact_icon_description</string>
+    <string name="Select_contact">Select contact</string>
 </resources>
