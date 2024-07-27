@@ -46,9 +46,14 @@ abstract class UserDatabase : RoomDatabase() {
             }
 
             suspend fun populateDatabase(userDao: UserDao) {
-                // Here you can populate the database with initial data if needed
+                // Check if the database is empty before populating it
+                val count = userDao.getUserCount()
+                if (count == 0) {
+                    // Only add users if the database is empty
+                    userDao.insert(User(firstName = "John", lastName = "Doe", phoneNumber = "123456789"))
+                    userDao.insert(User(firstName = "Jane", lastName = "Doe", phoneNumber = "987654321"))
+                }
             }
         }
     }
 }
-

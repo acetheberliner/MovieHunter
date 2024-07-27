@@ -14,4 +14,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table ORDER BY lastName ASC")
     fun getAllUsers(): LiveData<List<User>>
+
+    @Query("SELECT COUNT(*) FROM user_table")
+    suspend fun getUserCount(): Int
 }

@@ -32,21 +32,15 @@ class UserListActivity : AppCompatActivity() {
         recyclerView.adapter = userAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        userViewModel.allUsers.observe(this, Observer { users ->
-            users?.let {
-                userAdapter.setUsers(it)
-            }
-        })
-
         // Check for contacts permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
             != PackageManager.PERMISSION_GRANTED) {
             // Request the permission
             ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.READ_CONTACTS), 1)
+                arrayOf(Manifest.permission.READ_CONTACTS), PERMISSION_REQUEST_CODE)
         } else {
-            // Fetch contacts if permission is granted
-            fetchContacts()
+            // Load data from database
+            loadData()
         }
     }
 
@@ -59,14 +53,41 @@ class UserListActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun fetchContacts() {
-        // Simulate fetching contacts and inserting into the database
-        val users = listOf(
-            User(firstName = "John", lastName = "Doe", phoneNumber = "123456789"),
-            User(firstName = "Jane", lastName = "Doe", phoneNumber = "987654321")
-        )
-        users.forEach { user ->
-            userViewModel.insert(user)
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, load data from the database
+                loadData()
+            } else {
+                // Permission denied, return to SummaryActivity
+                returnToSummaryActivity()
+            }
         }
+    }
+
+    private fun loadData() {
+        // Load data from the database
+        userViewModel.allUsers.observe(this, Observer { users ->
+            users?.let {
+                userAdapter.setUsers(it)
+            }
+        })
+    }
+
+    private fun returnToSummaryActivity() {
+        // Create an intent to go back to SummaryActivity
+        val intent = Intent(this, SummaryActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // Clear all other activities
+        startActivity(intent)
+        finish() // Close the current activity
+    }
+
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1
     }
 }
