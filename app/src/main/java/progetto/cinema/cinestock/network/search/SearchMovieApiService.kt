@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.network
+package progetto.cinema.cinestock.network.search
 
 import progetto.cinema.cinestock.models.movie.TMDbMovie
 import retrofit2.http.GET

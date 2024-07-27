@@ -2,8 +2,8 @@ package progetto.cinema.cinestock.repository
 
 import android.content.Context
 import progetto.cinema.cinestock.models.movie.TMDbMovie
-import progetto.cinema.cinestock.network.MovieApi
-import progetto.cinema.cinestock.network.SearchMovieApi
+import progetto.cinema.cinestock.network.movie.MovieApi
+import progetto.cinema.cinestock.network.search.SearchMovieApi
 
 class MovieRepository(private val context: Context) {
 

@@ -1,19 +1,19 @@
-package progetto.cinema.cinestock.network
+package progetto.cinema.cinestock.network.search
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MovieApi {
+object SearchMovieApi {
     private const val BASE_URL = "https://api.themoviedb.org/3/"
-    private var retrofitService: MovieApiService? = null
+    private var retrofitService: SearchMovieApiService? = null
 
-    fun getRetrofitService(): MovieApiService {
+    fun getRetrofitService(): SearchMovieApiService {
         if (retrofitService == null) {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()
-            retrofitService = retrofit.create(MovieApiService::class.java)
+            retrofitService = retrofit.create(SearchMovieApiService::class.java)
         }
         return retrofitService!!
     }

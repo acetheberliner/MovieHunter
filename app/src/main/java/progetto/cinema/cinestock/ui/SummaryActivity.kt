@@ -3,15 +3,15 @@ package progetto.cinema.cinestock.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.network.MovieApiService
+import progetto.cinema.cinestock.network.movie.MovieApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -19,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import progetto.cinema.cinestock.models.user.User
 
 class SummaryActivity : AppCompatActivity() {
 
@@ -27,6 +28,8 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
+    private lateinit var shareButton: Button
+    private lateinit var sentToTextView: TextView
 
     private var movieId: Int? = null
 
@@ -48,11 +51,11 @@ class SummaryActivity : AppCompatActivity() {
         titleTextView = findViewById(R.id.title_text_view)
         descriptionTextView = findViewById(R.id.description_text_view)
         proceedButton = findViewById(R.id.proceed_button)
+        shareButton = findViewById(R.id.share_button)
+        sentToTextView = findViewById(R.id.sent_to_text_view)
 
-
-        // Get the film ID from the intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
-        Log.d("RiepilogoActivity", "Received movie ID: $movieId")
+        Log.d("SummaryActivity", "Received movie ID: $movieId")
 
         if (movieId != null && movieId != -1) {
             movieId?.let {
@@ -68,6 +71,20 @@ class SummaryActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        shareButton.setOnClickListener {
+            val intent = Intent(this, UserListActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE_USER)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_USER && resultCode == RESULT_OK) {
+            val selectedUser = data?.getSerializableExtra("selected_user") as? User
+            selectedUser?.let {
+                onUserSelected(it)
+            }
+        }
     }
 
     private fun fetchMovieDetails(movieId: Int) {
@@ -77,19 +94,29 @@ class SummaryActivity : AppCompatActivity() {
                 runOnUiThread {
                     titleTextView.text = movieDetails.original_title
                     descriptionTextView.text = movieDetails.overview
-                    priceTextView.text = "Price: $6.99" // Fixed price (all movies have the same price)
+                    priceTextView.text = "Price: $6.99"
                     val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
                     Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
                 }
             } catch (e: HttpException) {
                 runOnUiThread {
-                    Toast.makeText(this@SummaryActivity, "Failed to fetch movie details: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SummaryActivity, "Error fetching movie details", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 runOnUiThread {
-                    Toast.makeText(this@SummaryActivity, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SummaryActivity, "An unexpected error occurred", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun onUserSelected(user: User) {
+        val message = "Movie sent to ${user.firstName} ${user.lastName}"
+        sentToTextView.text = message
+        sentToTextView.visibility = View.VISIBLE
+    }
+
+    companion object {
+        private const val REQUEST_CODE_USER = 1
     }
 }

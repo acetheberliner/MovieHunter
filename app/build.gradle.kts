@@ -46,6 +46,10 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler) // Added kapt for Room compiler
+
+    // Fragment
+    implementation(libs.androidx.fragment.ktx)
 
     // Retrofit and Gson
     implementation(libs.retrofit)
@@ -66,7 +70,6 @@ dependencies {
 
     // Lifecycle components
     implementation(libs.androidx.lifecycle.viewmodel.ktx.v260)
-    implementation(libs.androidx.lifecycle.livedata.ktx.v260)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 

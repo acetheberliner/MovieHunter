@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import progetto.cinema.cinestock.ui.SignInActivity
-import progetto.cinema.cinestock.ui.adapter.MovieAdapter
+import progetto.cinema.cinestock.ui.adapter.movie.MovieAdapter
 import progetto.cinema.cinestock.ui.viewmodel.MovieViewModel
 
 class MainActivity : AppCompatActivity() {

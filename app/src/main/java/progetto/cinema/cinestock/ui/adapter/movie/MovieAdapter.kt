@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.ui.adapter
+package progetto.cinema.cinestock.ui.adapter.movie
 
 import android.content.Intent
 import android.util.Log

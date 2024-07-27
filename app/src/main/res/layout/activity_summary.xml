@@ -76,6 +76,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/proceed_btn"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <!-- Sent to TextView -->
+        <TextView
+            android:id="@+id/sent_to_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Film sent to:" />
     </LinearLayout>
 
 </RelativeLayout>

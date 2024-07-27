@@ -26,4 +26,7 @@
     <string name="warning_message">⚠️ WARNING! Payment is done only upon delivery, exclusively in cash</string>
     <string name="proceed_btn">Proceed to Purchase</string>
     <string name="share_btn">Share</string>
+    <string name="first_name">first_name</string>
+    <string name="last_name">last_name</string>
+    <string name="phone_number">phone_number</string>
 </resources>
