@@ -6,10 +6,14 @@
 </p>
 
 <p align="center">
-    Creators: Martina Proietti, Michela Minichini
-</p>
-<p align="center">
-    E-mail addresses: martina.proietti2@studio.unibo.it, michela.minichini2@studio.unibo.it
+    <div style="border: 1px solid #ccc; padding: 10px; display: inline-block;">
+        <strong>Creators:</strong><br>
+        Martina Proietti<br>
+        Michela Minichini<br><br>
+        <strong>E-mail addresses:</strong><br>
+        <a href="mailto:martina.proietti2@studio.unibo.it">martina.proietti2@studio.unibo.it</a><br>
+        <a href="mailto:michela.minichini2@studio.unibo.it">michela.minichini2@studio.unibo.it</a>
+    </div>
 </p>
 
 ### Project for: Laboratorio di Programmazione di Sistemi Mobili 
