@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-    <div style="border: 1px solid #ccc; padding: 10px; display: inline-block;">
+    <div style="border: 1px solid #ccc; padding: 10px; display: inline-block; text-align: center;">
         <strong>Creators:</strong><br>
         Martina Proietti<br>
         Michela Minichini<br><br>
