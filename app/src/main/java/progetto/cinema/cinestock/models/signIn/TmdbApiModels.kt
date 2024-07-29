@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.models.login
+package progetto.cinema.cinestock.models.signIn
 
 // Modello per la risposta della creazione di una sessione ospite
 data class GuestSessionResponse(

@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import progetto.cinema.cinestock.models.login.TmdbApiService
+import progetto.cinema.cinestock.models.signIn.TmdbApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

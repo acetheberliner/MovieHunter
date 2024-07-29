@@ -9,6 +9,8 @@ import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,22 +32,21 @@ class SignInActivity : AppCompatActivity() {
         val signinButton = findViewById<Button>(R.id.signin_button)
         val signinSubmitButton = findViewById<Button>(R.id.signin_submit_button)
 
-        val UsernameEditText = findViewById<EditText>(R.id.sign_username)
-        val PasswordEditText = findViewById<EditText>(R.id.signin_password)
+        val usernameEditText = findViewById<EditText>(R.id.sign_username)
+        val passwordEditText = findViewById<TextInputEditText>(R.id.signin_password)
+        //val passwordInputLayout = findViewById<TextInputLayout>(R.id.signin_password_input_layout)
 
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
-
         val backToFilmButton = findViewById<Button>(R.id.back_to_homepage_button)
         val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_homepage_button)
-
 
         signinButton.setOnClickListener {
             viewFlipper.displayedChild = 1 // shows input fields
         }
 
         signinSubmitButton.setOnClickListener {
-            val username = UsernameEditText.text.toString()
-            val password = PasswordEditText.text.toString()
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
                 performLogin(username, password)
@@ -57,7 +58,6 @@ class SignInActivity : AppCompatActivity() {
         signinBackButton.setOnClickListener {
             viewFlipper.displayedChild = 0 // shows the initial container of the buttons
         }
-
 
         backToFilmButton.setOnClickListener {
             navigateToMainActivity()
@@ -74,7 +74,7 @@ class SignInActivity : AppCompatActivity() {
         if (selectedMovieId == -1) {
             Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
             // Opt: Redirect to some default or error page
-        } else{
+        } else {
             Log.d("LoginActivity", "Movie ID is valid: $selectedMovieId")
         }
     }
@@ -95,13 +95,11 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish() // closes LoginActivity by clicking the back button
     }
-
 
     private fun navigateToRiepilogoActivity() {
         val movieId = selectedMovieId
