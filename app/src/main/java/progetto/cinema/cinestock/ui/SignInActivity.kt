@@ -34,6 +34,7 @@ class SignInActivity : AppCompatActivity() {
 
         val usernameEditText = findViewById<EditText>(R.id.sign_username)
         val passwordEditText = findViewById<TextInputEditText>(R.id.signin_password)
+        //val passwordInputLayout = findViewById<TextInputLayout>(R.id.signin_password_input_layout)
 
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
         val backToFilmButton = findViewById<Button>(R.id.back_to_homepage_button)
