@@ -7,6 +7,8 @@
 
 <p align="center">
     Creators: Martina Proietti, Michela Minichini
+</p>
+<p align="center">
     E-mail addresses: martina.proietti2@studio.unibo.it, michela.minichini2@studio.unibo.it
 </p>
 
