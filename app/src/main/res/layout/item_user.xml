@@ -3,48 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp"
+    android:padding="@dimen/padding"
     android:background="@drawable/contact_background"
     android:gravity="center_vertical"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="@dimen/marginBottom_2">
 
     <ImageView
         android:id="@+id/contactIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/img_width_for_item_user"
+        android:layout_height="@dimen/img_height_for_item_user"
+        android:layout_marginEnd="@dimen/marginEnd"
         android:src="@drawable/contact"
-        android:contentDescription="@string/contact_icon_description" />
+        android:contentDescription="@string/contact_icon_description"/>
 
     <LinearLayout
-        android:layout_width="0dp"
+
+        android:layout_width="@dimen/width"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="@dimen/weight"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/textSize_2"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="@dimen/marginBottom_6"/>
 
         <TextView
             android:id="@+id/textViewLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/textSize_2"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="@dimen/marginBottom_6"/>
 
         <TextView
             android:id="@+id/textViewPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/black" />
+            android:textSize="@dimen/textSize"
+            android:textColor="@color/black"/>
+
     </LinearLayout>
+
 </LinearLayout>

@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Testo di benvenuto in cima (titolo)-->
+    <!-- Title - welcome text -->
     <dimen name="textSizeTitle">24sp</dimen>
     <dimen name="padding">16dp</dimen>
 
-    <!-- ScrollView per il contenuto principale -->
+    <!-- Texts size -->
+    <dimen name="textSize">16sp</dimen>
+    <dimen name="textSize_2">18sp</dimen>
+    <dimen name="textSize_3">20sp</dimen>
+    <dimen name="textSize_4">14sp</dimen>
+
+    <!-- ScrollView for main content -->
     <dimen name="layout">0dp</dimen>
 
-    <!-- margini -->
-    <dimen name="marginBottom">16dp</dimen>
+    <!-- margins -->
     <dimen name="marginTop">20dp</dimen>
+    <dimen name="marginTop_2">16dp</dimen>
+    <dimen name="marginTop_3">10dp</dimen>
+    <dimen name="marginTop_4">8dp</dimen>
+
+    <dimen name="marginBottom">16dp</dimen>
+    <dimen name="marginBottom_2">8dp</dimen>
+    <dimen name="marginBottom_3">18dp</dimen>
+    <dimen name="marginBottom_4">20dp</dimen>
+    <dimen name="marginBottom_5">10dp</dimen>
+    <dimen name="marginBottom_6">4dp</dimen>
+
+    <dimen name="marginStart">8dp</dimen>
+    <dimen name="marginStart_2">15dp</dimen>
+    <dimen name="marginStart_3">30dp</dimen>
+    <dimen name="marginStart_4">10dp</dimen>
+
+    <dimen name="marginEnd">16dp</dimen>
+    <dimen name="marginEnd_2">15dp</dimen>
+    <dimen name="marginEnd_3">30dp</dimen>
+    <dimen name="marginEnd_4">10dp</dimen>
+
     <dimen name="marginL">15dp</dimen>
     <dimen name="marginR">15dp</dimen>
+    <dimen name="margin">16dp</dimen>
+
+    <!-- Paddings -->
+    <dimen name="paddingStart">15dp</dimen>
+    <dimen name="paddingEnd">15dp</dimen>
+
+    <!-- Width and Height -->
+    <dimen name="width">0dp</dimen>
+    <dimen name="height">0dp</dimen>
+    <dimen name="width_for_back_btn">50dp</dimen>
+    <dimen name="height_for_back_btn">50dp</dimen>
+    <dimen name="img_width_for_shipping_page">300dp</dimen>
+    <dimen name="img_height_for_shipping_page">100dp</dimen>
+    <dimen name="img_width_for_signin">296dp</dimen>
+    <dimen name="img_height_for_signin">238dp</dimen>
+    <dimen name="img_height_for_item_movie">150dp</dimen>
+    <dimen name="img_width_for_item_user">48dp</dimen>
+    <dimen name="img_height_for_item_user">48dp</dimen>
+
+    <!-- Weight -->
+    <dimen name="weight">1</dimen>
+
+    <!-- Max lines -->
+    <dimen name="maxLines">3</dimen>
 
     <!-- dimImg -->
     <dimen name="IMGwidth">100dp</dimen>
@@ -26,4 +76,7 @@
 
     <!-- Custom rounded corner dimension -->
     <dimen name="roundedCorner">8dp</dimen>
+
+    <!-- Alpha -->
+    <dimen name="alpha">0.3</dimen>
 </resources>

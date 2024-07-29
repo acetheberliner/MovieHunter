@@ -3,34 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="16dp">
+    android:padding="@dimen/padding">
 
     <!-- Logo image -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/img_width_for_shipping_page"
+        android:layout_height="@dimen/img_height_for_shipping_page"
         android:src="@drawable/logo"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginStart="@dimen/marginStart_3"
+        android:layout_marginEnd="@dimen/marginEnd_3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:paddingStart="@dimen/marginL"
-        android:paddingEnd="@dimen/marginR">
+        android:paddingStart="@dimen/paddingStart"
+        android:paddingEnd="@dimen/paddingEnd">
 
         <TextView
             android:id="@+id/address_hint_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/enter_address"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
+            android:textSize="@dimen/textSize"
+            android:layout_marginTop="@dimen/marginTop_3"
             android:textColor="@color/white"/>
 
         <!-- Address EditText -->
@@ -39,9 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_hint"
-            android:padding="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="8dp"
+            android:padding="@dimen/padding"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginBottom="@dimen/marginBottom_2"
             android:inputType="text"
             android:textColor="@color/white"/>
 
@@ -51,9 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warning_message"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="18dp"
+            android:textSize="@dimen/textSize_2"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginBottom="@dimen/marginBottom_3"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -64,14 +64,14 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="@dimen/marginBottom_4">
 
         <Button
             android:id="@+id/buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Button"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="@dimen/marginEnd_4"/>
 
         <Button
             android:id="@+id/back_to_homepage_button"
@@ -79,7 +79,4 @@
             android:layout_height="wrap_content"
             android:text="@string/text_for_back_btn" />
     </LinearLayout>
-
-
-
 </RelativeLayout>
