@@ -61,9 +61,6 @@
     <!-- Weight -->
     <dimen name="weight">1</dimen>
 
-    <!-- Max lines -->
-    <dimen name="maxLines">3</dimen>
-
     <!-- dimImg -->
     <dimen name="IMGwidth">100dp</dimen>
     <dimen name="IMGheight">157dp</dimen>

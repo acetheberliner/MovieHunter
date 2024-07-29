@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTop_4"
             android:textSize="@dimen/textSize_4"
-            android:maxLines="@dimen/maxLines"
+            android:maxLines="3"
             android:ellipsize="end"/>
 
         <Button
