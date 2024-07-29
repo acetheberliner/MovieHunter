@@ -68,13 +68,13 @@ class SignInActivity : AppCompatActivity() {
 
         // Retrieve given filmID
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
-        Log.d("LoginActivity", "Received movie ID: $selectedMovieId")
+        Log.d("SigninActivity", "Received movie ID: $selectedMovieId")
 
         if (selectedMovieId == -1) {
             Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
             // Opt: Redirect to some default or error page
         } else {
-            Log.d("LoginActivity", "Movie ID is valid: $selectedMovieId")
+            Log.d("SigninActivity", "Movie ID is valid: $selectedMovieId")
         }
     }
 
@@ -97,7 +97,7 @@ class SignInActivity : AppCompatActivity() {
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // closes LoginActivity by clicking the back button
+        finish() // closes SigninActivity by clicking the back button
     }
 
     private fun navigateToRiepilogoActivity() {
