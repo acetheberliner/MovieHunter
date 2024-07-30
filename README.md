@@ -34,3 +34,30 @@ Creating a mobile app to explore, search and purchase your favourite movies quic
 - News and Blog Section: Add a section with film news and articles, reviews, interviews with actors and directors
 - User Feedback: Implements a system to collect direct feedback from users on the app. This can provide valuable information about what could be improved
 
+## Home Page
+![Home page](https://github.com/user-attachments/assets/537040b6-1b18-404e-b9a6-e68f29393386)
+
+## Search Bar
+https://github.com/user-attachments/assets/3e7b3092-07d6-458f-bb27-102d87ade9aa
+
+## Sign In
+![signIn_1](https://github.com/user-attachments/assets/507f08df-e152-4d5c-ad3f-ba3f9e5fadbc)
+![signIn_2](https://github.com/user-attachments/assets/61f58276-b6ff-4043-afe4-09113edd2765)
+
+## Film Summary
+![summary](https://github.com/user-attachments/assets/dacd3e33-3db2-4616-abcd-0fa2e2178543)
+
+## Share Film
+![share](https://github.com/user-attachments/assets/7071b8ff-049f-4195-9d72-f8d2e2dbf7ab)
+https://github.com/user-attachments/assets/7c27fb39-ef05-44be-8350-2a6776c00940
+
+## Address 
+![address](https://github.com/user-attachments/assets/0c6a9e1d-3f9f-4827-abfa-ce099d6631c0)
+![address_2](https://github.com/user-attachments/assets/0ce2b26a-920d-4890-a5cd-66971a07d459)
+
+(!! To be valid, the address must contain the word "street" !!)
+
+## End Page
+![end page](https://github.com/user-attachments/assets/a8cab623-b507-429c-8705-ee842b05388f)
+
+
