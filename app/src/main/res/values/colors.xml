@@ -1,12 +1,12 @@
 <resources>
     <color name="purple_500">#6200EE</color>
-    <color name="blu">#190f70</color>
+    <color name="blu">#3F51B5</color>
     <color name="teal_200">#03DAC5</color>
-    <color name="purple_700">#176986</color>
-    <color name="teal_700">#176986</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_700">#018786</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="light_blue">#176986</color>
+    <color name="light_blue">#2196F3</color>
     <color name="search_icon_color">#000000</color>
     <color name="search_text_color">#000000</color>
     <color name="Lgray">#CCCCCC</color>

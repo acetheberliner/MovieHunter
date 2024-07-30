@@ -9,4 +9,5 @@
     <color name="light_blue">#0d47a1</color>
     <color name="search_icon_color">#FFFFFF</color>
     <color name="search_text_color">#FFFFFF</color>
+    <color name="Lgray">#CCCCCC</color>
 </resources>
