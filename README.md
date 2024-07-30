@@ -36,7 +36,7 @@ Creating a mobile app to explore, search and purchase your favourite movies quic
 
 ## Home Page
 <!-- ![Home page](./ReadMEimgs/Homepage.jpg)-->
-<img src="./ReadMEimgs/Homepage.jpg" width="600" height="600">
+<img src="./ReadMEimgs/Homepage.jpg" width="400" height="700">
 
 ## Search Bar
 <!-- ![Search Bar Video Demonstration]-->
@@ -44,28 +44,28 @@ https://github.com/user-attachments/assets/3e7b3092-07d6-458f-bb27-102d87ade9aa
 
 ## Sign In
 <!-- ![Sign-in page] -->
-<img src="./ReadMEimgs/SignIn.jpg" width="600" height="600">
-<img src="./ReadMEimgs/SignIn_2.jpg" width="600" height="600">
+<img src="./ReadMEimgs/SignIn.jpg" width="400" height="700">
+<img src="./ReadMEimgs/SignIn_2.jpg" width="400" height="700">
 
 ## Film Summary
 <!-- ![Film summary page](./ReadMEimgs/FilmSummary.jpg)-->
-<img src="./ReadMEimgs/FilmSummary.jpg" width="600" height="600">
+<img src="./ReadMEimgs/FilmSummary.jpg" width="400" height="700">
 
 ## Share Film
 <!-- ![Share with contacts page](./ReadMEimgs/ShareWithContacts.jpg)-->
-<img src="./ReadMEimgs/ShareWithContacts.jpg" width="600" height="600">
+<img src="./ReadMEimgs/ShareWithContacts.jpg" width="400" height="700">
 
 <!-- ![Share Film Video Demonstration]-->
 https://github.com/user-attachments/assets/7c27fb39-ef05-44be-8350-2a6776c00940
 
 ## Address 
 <!-- ![Shipping page] -->
-<img src="ReadMEimgs/EnterAddressPage.jpg" width="600" height="600">
-<img src="ReadMEimgs/AddressPage.jpg" width="600" height="600">
+<img src="ReadMEimgs/EnterAddressPage.jpg" width="400" height="700">
+<img src="ReadMEimgs/AddressPage.jpg" width="400" height="700">
 
 (!! To be valid, the address must contain the word "street" !!)
 
 ## End Page
 <!-- ![End page](./ReadMEimgs/EndPage.jpg) -->
-<img src="./ReadMEimgs/EndPage.jpg" width="600" height="600">
+<img src="./ReadMEimgs/EndPage.jpg" width="400" height="700">
 
