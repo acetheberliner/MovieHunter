@@ -12,7 +12,10 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(user: User)
 
-    @Query("SELECT * FROM user_table ORDER BY lastName ASC")
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAll(users: List<User>)
+
+    @Query("SELECT * FROM user_table ORDER BY name ASC")
     fun getAllUsers(): LiveData<List<User>>
 
     @Query("SELECT COUNT(*) FROM user_table")

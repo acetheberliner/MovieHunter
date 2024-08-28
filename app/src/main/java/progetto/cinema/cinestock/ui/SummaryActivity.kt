@@ -111,9 +111,17 @@ class SummaryActivity : AppCompatActivity() {
     }
 
     private fun onUserSelected(user: User) {
-        val message = "Movie sent to ${user.firstName} ${user.lastName}"
+        val message = "Movie sent to ${user.name}"
         sentToTextView.text = message
         sentToTextView.visibility = View.VISIBLE
+
+        // send an intent to share the movie with the selected user
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "Check out this movie: ${titleTextView.text}")
+            type = "text/plain"
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share Movie"))
     }
 
     companion object {

@@ -14,13 +14,11 @@ class UserAdapter(private val onUserClick: (User) -> Unit) :
     private var users = emptyList<User>()
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val firstNameTextView: TextView = itemView.findViewById(R.id.textViewName)
-        val lastNameTextView: TextView = itemView.findViewById(R.id.textViewLastName)
+        private val nameTextView: TextView = itemView.findViewById(R.id.textViewName)
         val phoneNumberTextView: TextView = itemView.findViewById(R.id.textViewPhoneNumber)
 
         fun bind(user: User) {
-            firstNameTextView.text = user.firstName
-            lastNameTextView.text = user.lastName
+            nameTextView.text = user.name
             phoneNumberTextView.text = user.phoneNumber
 
             itemView.setOnClickListener {
@@ -40,7 +38,7 @@ class UserAdapter(private val onUserClick: (User) -> Unit) :
         holder.bind(currentUser)
     }
 
-    override fun getItemCount() = users.size
+    override fun getItemCount(): Int = users.size
 
     fun setUsers(users: List<User>) {
         this.users = users
