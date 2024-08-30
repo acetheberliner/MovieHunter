@@ -4,5 +4,6 @@
         <attr name="textAppearance" format="reference" />
     </declare-styleable>
     <attr name="searchViewStyle" format="reference" />
+    <attr name="eyeIconColor" format="color" />
 </resources>
 

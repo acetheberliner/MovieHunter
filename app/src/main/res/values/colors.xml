@@ -10,4 +10,5 @@
     <color name="search_icon_color">#000000</color>
     <color name="search_text_color">#000000</color>
     <color name="Lgray">#CCCCCC</color>
+    <color name="eyeIconColor">#FFFFFF</color> <!-- Bianco -->
 </resources>

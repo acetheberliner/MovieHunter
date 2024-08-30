@@ -9,6 +9,7 @@
         <item name="android:statusBarColor">@color/purple_700</item>
         <item name="textAppearance">@style/TextAppearance.Cinestock.Day</item>
         <item name="searchViewStyle">@style/CustomSearchViewStyle</item>
+        <item name="eyeIconColor">@color/eyeIconColor</item>
     </style>
 
     <style name="TextAppearance.Cinestock.Day" parent="TextAppearance.MaterialComponents.Body1">
