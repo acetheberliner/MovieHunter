@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.data
+package progetto.cinema.cinestock.repository
 
 import androidx.lifecycle.LiveData
 import progetto.cinema.cinestock.data.dao.UserDao

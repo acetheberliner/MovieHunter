@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.data.entity.User
-import progetto.cinema.cinestock.data.UserRepository
+import progetto.cinema.cinestock.repository.UserRepository
 import progetto.cinema.cinestock.data.database.UserDatabase
 
 class ContactsViewModel(application: Application) : AndroidViewModel(application) {

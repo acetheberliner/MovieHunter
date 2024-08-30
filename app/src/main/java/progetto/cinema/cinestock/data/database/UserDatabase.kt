@@ -70,7 +70,6 @@ abstract class UserDatabase : RoomDatabase() {
                     }
                 }
                 userDao.insertAll(contactsList)
-
             }
         }
     }
