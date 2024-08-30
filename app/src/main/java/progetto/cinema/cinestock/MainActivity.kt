@@ -1,9 +1,13 @@
 package progetto.cinema.cinestock
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -28,13 +32,12 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
-        val searchView = findViewById<SearchView>(R.id.search_view) // allows the user to enter and search for text
+        val searchView = findViewById<SearchView>(R.id.search_view)
         val backButton = findViewById<ImageButton>(R.id.back_button)
 
         val adapter = MovieAdapter { movie ->
-            // Passes the ID of the selected film to LoginActivity
             val intent = Intent(this, SignInActivity::class.java).apply {
-                putExtra("MOVIE_ID", movie.id) // Passes the film ID
+                putExtra("MOVIE_ID", movie.id)
             }
             startActivity(intent)
         }
@@ -42,48 +45,64 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean { // called when the user submits the search query (by pressing the enter button or clicking the search button)
-                query?.let { // checks if "query" is null. If it is not, calls the searchMovies method
-                    progressIndicator.visibility = View.VISIBLE // shows progress indicator
-                    movieViewModel.searchMovies(apiKey, it)
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let {
+                    if (isNetworkAvailable()) {
+                        progressIndicator.visibility = View.VISIBLE
+                        movieViewModel.searchMovies(apiKey, it)
+                    } else {
+                        showNoInternetConnectionMessage()
+                    }
                 }
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean { // called whenever the text in the SearchView changes
-                return false // not handling the text change event while the user types
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
             }
         })
 
         movieViewModel.movies.observe(this, Observer { movies ->
-            progressIndicator.visibility = View.GONE // hides progress indicator
+            progressIndicator.visibility = View.GONE
             movies?.let { adapter.submitList(it) }
         })
 
-        // when searchMovies is executed and updates the results, the code inside Observer is executed
         movieViewModel.searchResults.observe(this, Observer { searchResults ->
-            progressIndicator.visibility = View.GONE // hides progress indicator
+            progressIndicator.visibility = View.GONE
             searchResults?.let { adapter.submitList(it) }
         })
 
-        movieViewModel.fetchTrendingMovies(apiKey)
+        handleNetworkOperations()
 
-        // set listener for backButton
         backButton.setOnClickListener {
-            onBackPressed() // call return method
+            onBackPressed()
         }
+    }
 
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    private fun handleNetworkOperations() {
+        if (isNetworkAvailable()) {
+            movieViewModel.fetchTrendingMovies(apiKey)
+        } else {
+            showNoInternetConnectionMessage()
+        }
+    }
+
+    private fun showNoInternetConnectionMessage() {
+        Toast.makeText(this, "No internet connection available", Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {
         val searchView = findViewById<SearchView>(R.id.search_view)
-        // checks whether the SearchView is open
         if (!searchView.isIconified) {
-            // if SearchView is open, it restores the movie list by closing the SearchView
-            searchView.onActionViewCollapsed() // closes the SearchView
-            movieViewModel.fetchTrendingMovies(apiKey) // reload list of trending movies
+            searchView.onActionViewCollapsed()
+            movieViewModel.fetchTrendingMovies(apiKey)
         } else {
-            // if the SearchView is already closed, close the Activity
             super.onBackPressed()
         }
     }
