@@ -1,11 +1,11 @@
-package progetto.cinema.cinestock.data
+package progetto.cinema.cinestock.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import progetto.cinema.cinestock.models.user.User
+import progetto.cinema.cinestock.data.entity.User
 
 @Dao
 interface UserDao {

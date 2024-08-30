@@ -1,7 +1,8 @@
 package progetto.cinema.cinestock.data
 
 import androidx.lifecycle.LiveData
-import progetto.cinema.cinestock.models.user.User
+import progetto.cinema.cinestock.data.dao.UserDao
+import progetto.cinema.cinestock.data.entity.User
 
 class UserRepository(private val userDao: UserDao) {
 

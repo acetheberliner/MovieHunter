@@ -15,10 +15,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.data.UserDatabase
+import progetto.cinema.cinestock.data.database.UserDatabase
 import progetto.cinema.cinestock.data.UserRepository
 import progetto.cinema.cinestock.ui.adapter.user.UserAdapter
-import progetto.cinema.cinestock.models.user.User
+import progetto.cinema.cinestock.data.entity.User
 
 class UserListActivity : AppCompatActivity() {
 

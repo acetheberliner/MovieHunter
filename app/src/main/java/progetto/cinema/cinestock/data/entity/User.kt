@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.models.user
+package progetto.cinema.cinestock.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

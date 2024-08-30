@@ -10,10 +10,6 @@ import android.widget.ViewFlipper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import progetto.cinema.cinestock.MainActivity
 import progetto.cinema.cinestock.R
 import progetto.cinema.cinestock.ui.viewmodel.UserViewModel
@@ -72,23 +68,22 @@ class SignInActivity : AppCompatActivity() {
 
         if (selectedMovieId == -1) {
             Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
-            // Opt: Redirect to some default or error page
+
         } else {
             Log.d("SigninActivity", "Movie ID is valid: $selectedMovieId")
         }
     }
 
     private fun performLogin(username: String, password: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                userViewModel.login(username, password)
-                runOnUiThread {
-                    Toast.makeText(this@SignInActivity, "Sign In Successful", Toast.LENGTH_SHORT).show()
+        userViewModel.login(username, password) { success, errorMessage ->
+            runOnUiThread {
+                if (success) {
+                    Toast.makeText(this, "Sign In Successful", Toast.LENGTH_SHORT).show()
                     navigateToRiepilogoActivity()
-                }
-            } catch (e: Exception) {
-                runOnUiThread {
-                    Toast.makeText(this@SignInActivity, "Sign In Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sign In Failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                    // Reset password field to allow re-entry
+                    findViewById<TextInputEditText>(R.id.signin_password).text?.clear()
                 }
             }
         }

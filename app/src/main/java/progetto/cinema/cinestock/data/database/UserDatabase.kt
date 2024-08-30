@@ -1,4 +1,4 @@
-package progetto.cinema.cinestock.data
+package progetto.cinema.cinestock.data.database
 
 import android.content.Context
 import androidx.room.Database
@@ -7,8 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import progetto.cinema.cinestock.models.user.User
+import progetto.cinema.cinestock.data.entity.User
 import android.provider.ContactsContract
+import progetto.cinema.cinestock.data.dao.UserDao
 
 @Database(entities = [User::class], version = 2, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.models.user.User
+import progetto.cinema.cinestock.data.entity.User
 
 class UserAdapter(private val onUserClick: (User) -> Unit) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
