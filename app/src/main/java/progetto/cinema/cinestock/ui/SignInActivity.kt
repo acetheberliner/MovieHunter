@@ -17,26 +17,23 @@ import progetto.cinema.cinestock.ui.viewmodel.UserViewModel
 class SignInActivity : AppCompatActivity() {
 
     private val userViewModel: UserViewModel by viewModels()
-    private var selectedMovieId: Int? = null // variable that stores the ID of the selected film
+    private var selectedMovieId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
         val viewFlipper = findViewById<ViewFlipper>(R.id.view_flipper)
-
         val signinButton = findViewById<Button>(R.id.signin_button)
         val signinSubmitButton = findViewById<Button>(R.id.signin_submit_button)
-
         val usernameEditText = findViewById<EditText>(R.id.sign_username)
         val passwordEditText = findViewById<TextInputEditText>(R.id.signin_password)
-
         val signinBackButton = findViewById<Button>(R.id.signin_back_button)
         val backToFilmButton = findViewById<Button>(R.id.back_to_homepage_button)
         val signinBackToFilmButton = findViewById<Button>(R.id.signin_back_to_homepage_button)
 
         signinButton.setOnClickListener {
-            viewFlipper.displayedChild = 1 // shows input fields
+            viewFlipper.displayedChild = 1
         }
 
         signinSubmitButton.setOnClickListener {
@@ -51,7 +48,7 @@ class SignInActivity : AppCompatActivity() {
         }
 
         signinBackButton.setOnClickListener {
-            viewFlipper.displayedChild = 0 // shows the initial container of the buttons
+            viewFlipper.displayedChild = 0
         }
 
         backToFilmButton.setOnClickListener {
@@ -62,13 +59,11 @@ class SignInActivity : AppCompatActivity() {
             navigateToMainActivity()
         }
 
-        // Retrieve given filmID
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
         Log.d("SigninActivity", "Received movie ID: $selectedMovieId")
 
         if (selectedMovieId == -1) {
             Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
-
         } else {
             Log.d("SigninActivity", "Movie ID is valid: $selectedMovieId")
         }
@@ -82,7 +77,6 @@ class SignInActivity : AppCompatActivity() {
                     navigateToRiepilogoActivity()
                 } else {
                     Toast.makeText(this, "Sign In Failed: $errorMessage", Toast.LENGTH_SHORT).show()
-                    // Reset password field to allow re-entry
                     findViewById<TextInputEditText>(R.id.signin_password).text?.clear()
                 }
             }
@@ -92,7 +86,7 @@ class SignInActivity : AppCompatActivity() {
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // closes SigninActivity by clicking the back button
+        finish()
     }
 
     private fun navigateToRiepilogoActivity() {
@@ -105,7 +99,7 @@ class SignInActivity : AppCompatActivity() {
             finish()
         } else {
             Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
-            navigateToMainActivity() // redirect if there is no movie ID
+            navigateToMainActivity()
         }
     }
 }
