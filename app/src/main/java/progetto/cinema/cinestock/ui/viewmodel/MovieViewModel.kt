@@ -23,6 +23,10 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val _searchResults = MutableLiveData<List<TMDbMovie>>()
     val searchResults: LiveData<List<TMDbMovie>> = _searchResults
 
+    // LiveData for movie details
+    private val _movieDetails = MutableLiveData<TMDbMovie>()
+    val movieDetails: LiveData<TMDbMovie> = _movieDetails
+
     fun fetchTrendingMovies(apiKey: String) = viewModelScope.launch {
         val movieList = repository.getTrendingMovies(apiKey)
         _movies.postValue(movieList)
@@ -31,6 +35,11 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     fun searchMovies(apiKey: String, query: String) = viewModelScope.launch {
         val movieList = repository.searchMovies(apiKey, query)
         _searchResults.postValue(movieList)
+    }
+
+    fun fetchMovieDetails(apiKey: String, movieId: Int) = viewModelScope.launch {
+        val movie = repository.getMovieDetails(apiKey, movieId)
+        _movieDetails.postValue(movie)
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {

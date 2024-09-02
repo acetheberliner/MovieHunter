@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
@@ -20,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import progetto.cinema.cinestock.data.entity.User
+import progetto.cinema.cinestock.ui.viewmodel.MovieViewModel
 
 class SummaryActivity : AppCompatActivity() {
 
@@ -35,12 +37,9 @@ class SummaryActivity : AppCompatActivity() {
 
     private val apiKey = "e96d473555668ee67739012c7f140604"
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/3/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val movieApiService = retrofit.create<MovieApiService>()
+    private val movieViewModel: MovieViewModel by viewModels {
+        MovieViewModel.Factory(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +58,19 @@ class SummaryActivity : AppCompatActivity() {
 
         if (movieId != null && movieId != -1) {
             movieId?.let {
-                fetchMovieDetails(it)
+                movieViewModel.fetchMovieDetails(apiKey, it)
             }
         } else {
             Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
             finish()
+        }
+
+        movieViewModel.movieDetails.observe(this) { movieDetails ->
+            titleTextView.text = movieDetails.original_title
+            descriptionTextView.text = movieDetails.overview
+            priceTextView.text = "Price: $6.99"
+            val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
+            Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
         }
 
         proceedButton.setOnClickListener {
@@ -83,29 +90,6 @@ class SummaryActivity : AppCompatActivity() {
             val selectedUser = data?.getSerializableExtra("selected_user") as? User
             selectedUser?.let {
                 onUserSelected(it)
-            }
-        }
-    }
-
-    private fun fetchMovieDetails(movieId: Int) {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val movieDetails = movieApiService.getMovieDetails(movieId, apiKey)
-                runOnUiThread {
-                    titleTextView.text = movieDetails.original_title
-                    descriptionTextView.text = movieDetails.overview
-                    priceTextView.text = "Price: $6.99"
-                    val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
-                    Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
-                }
-            } catch (e: HttpException) {
-                runOnUiThread {
-                    Toast.makeText(this@SummaryActivity, "Error fetching movie details", Toast.LENGTH_SHORT).show()
-                }
-            } catch (e: Exception) {
-                runOnUiThread {
-                    Toast.makeText(this@SummaryActivity, "An unexpected error occurred", Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }

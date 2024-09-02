@@ -14,4 +14,8 @@ class MovieRepository(private val context: Context) {
     suspend fun searchMovies(apiKey: String, query: String): List<TMDbMovie> {
         return SearchMovieApi.getRetrofitService().searchMovies(apiKey, query).results
     }
+
+    suspend fun getMovieDetails(apiKey: String, movieId: Int): TMDbMovie {
+        return MovieApi.getRetrofitService().getMovieDetails(movieId, apiKey)
+    }
 }
