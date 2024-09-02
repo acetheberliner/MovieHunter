@@ -12,14 +12,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import progetto.cinema.cinestock.R
-import progetto.cinema.cinestock.network.movie.MovieApiService
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import progetto.cinema.cinestock.data.entity.User
 import progetto.cinema.cinestock.ui.viewmodel.MovieViewModel
 

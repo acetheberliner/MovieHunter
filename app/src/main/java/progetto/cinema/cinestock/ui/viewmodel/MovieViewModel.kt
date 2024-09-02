@@ -1,6 +1,5 @@
 package progetto.cinema.cinestock.ui.viewmodel
 
-
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
