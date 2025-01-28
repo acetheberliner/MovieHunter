@@ -40,8 +40,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/film_item" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <androidx.recyclerview.widget.RecyclerView prova
         android:layout_width="match_parent"
         android:layout_height="@dimen/height"
         android:layout_marginStart="@dimen/marginStart_2"
