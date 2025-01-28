@@ -1,20 +1,41 @@
 <resources>
     <style name="Theme.MovieHunter" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Colori principali -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor">@color/purple_700</item>
-        <item name="textAppearance">@style/TextAppearance.Cinestock.Day</item>
+
+        <!-- Colore della barra di stato -->
+        <item name="android:statusBarColor">@color/transparent_sky</item>
+
+        <!-- Colore della barra degli strumenti -->
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+
+        <!-- Altro -->
+        <item name="textAppearance">@style/TextAppearance.MovieHunter.Day</item>
         <item name="searchViewStyle">@style/CustomSearchViewStyle</item>
         <item name="eyeIconColor">@color/eyeIconColor</item>
     </style>
 
-    <style name="TextAppearance.Cinestock.Day" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textColor">@color/black</item>
+    <!-- Stile della barra degli strumenti personalizzata -->
+    <style name="CustomActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/transparent_sky</item>
+        <item name="titleTextStyle">@style/CustomActionBarTitleText</item>
+        <item name="elevation">0dp</item>
     </style>
 
+    <!-- Stile del testo del titolo nella barra degli strumenti -->
+    <style name="CustomActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 
+    <!-- Stile per il testo generale -->
+    <style name="TextAppearance.MovieHunter.Day" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
