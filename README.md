@@ -10,8 +10,6 @@
 </p>
 <p align="center">
     <strong>E-mail addresses:</strong><br>
-    <img src="https://img.icons8.com/color/48/000000/email-open.png" alt="email" width="24"/> <a href="mailto:martina.proietti2@studio.unibo.it">martina.proietti2@studio.unibo.it</a><br>
-    <img src="https://img.icons8.com/color/48/000000/email-open.png" alt="email" width="24"/> <a href="mailto:michela.minichini2@studio.unibo.it">michela.minichini2@studio.unibo.it</a>
 </p>
 
 ### Project for: Laboratorio di Programmazione di Sistemi Mobili 
