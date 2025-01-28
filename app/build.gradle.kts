@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    namespace = "progetto.cinema.cinestock"
+    namespace = "project.filmography.moviehunter"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "progetto.cinema.cinestock"
-        minSdk = 28
+        applicationId = "project.filmography.moviehunter"
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -29,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler) // Added kapt for Room compiler
 
