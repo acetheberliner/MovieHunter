@@ -11,4 +11,5 @@
     <color name="search_text_color">#000000</color>
     <color name="Lgray">#CCCCCC</color>
     <color name="eyeIconColor">#FFFFFF</color> <!-- Bianco -->
+    <color name="film_item">#B3B4B4B4</color>
 </resources>

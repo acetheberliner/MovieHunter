@@ -66,7 +66,7 @@
     <dimen name="IMGheight">157dp</dimen>
 
     <!-- dimFilm -->
-    <dimen name="filmPadding">8dp</dimen>
+    <dimen name="filmPadding">16dp</dimen>
     <dimen name="filmHeight">158dp</dimen>
     <dimen name="filmText">16sp</dimen>
     <dimen name="FilmTextHeight">82dp</dimen>

@@ -9,11 +9,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher_logo2_square"
+        android:icon="@mipmap/ic_launcher_mh"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_logo2_circle"
+        android:roundIcon="@mipmap/ic_launcher_mh"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Cinestock"
+        android:theme="@style/Theme.MovieHunter"
         tools:targetApi="31">
 
         <activity

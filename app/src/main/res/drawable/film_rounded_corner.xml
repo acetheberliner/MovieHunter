@@ -1,4 +1,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/light_blue" />
+    <solid android:color="@color/film_item" />
     <corners android:radius="@dimen/filmPadding" />
 </shape>
