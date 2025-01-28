@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/padding"
     android:background="@drawable/film_rounded_corner"
-    android:layout_marginBottom="@dimen/marginBottom_2">
+    android:layout_marginBottom="@dimen/marginBottom_5">
 
     <ImageView
         android:id="@+id/movie_image"
-        android:layout_width="@dimen/IMGwidth"
-        android:layout_height="@dimen/img_height_for_item_movie"
-        android:layout_marginEnd="@dimen/marginEnd_4"
+        android:layout_width="106dp"
+        android:layout_height="183dp"
         android:contentDescription="@string/movie_poster"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/movie_details"
@@ -31,28 +31,30 @@
 
         <TextView
             android:id="@+id/movie_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/textSize_2"
-            android:textStyle="bold" />
+            android:fontFamily="@font/gg_sans_bold" />
 
         <TextView
             android:id="@+id/movie_description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTop_4"
-            android:textSize="@dimen/textSize_4"
+            android:ellipsize="end"
             android:maxLines="3"
-            android:ellipsize="end"/>
+            android:textSize="@dimen/textSize_4" />
 
         <Button
             android:id="@+id/buy_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:layout_marginTop="@dimen/marginTop_2"
+            android:backgroundTint="@color/transparent_sky"
             android:text="@string/Button"
-            android:backgroundTint="@color/blu"
-            android:textColor="@color/white" />
+            android:textAllCaps="false"
+            android:fontFamily="@font/gg_sans_bold"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

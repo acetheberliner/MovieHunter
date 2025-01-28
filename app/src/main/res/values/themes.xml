@@ -19,6 +19,7 @@
         <item name="textAppearance">@style/TextAppearance.MovieHunter.Day</item>
         <item name="searchViewStyle">@style/CustomSearchViewStyle</item>
         <item name="eyeIconColor">@color/eyeIconColor</item>
+        <item name="android:fontFamily">@font/gg_sans_regular</item>
     </style>
 
     <!-- Stile della barra degli strumenti personalizzata -->
@@ -32,6 +33,7 @@
     <style name="CustomActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/gg_sans_bold</item>
     </style>
 
     <!-- Stile per il testo generale -->

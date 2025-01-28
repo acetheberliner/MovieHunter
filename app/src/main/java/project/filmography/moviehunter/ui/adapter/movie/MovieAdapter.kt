@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import project.filmography.moviehunter.R
 import project.filmography.moviehunter.models.movie.TMDbMovie
 import project.filmography.moviehunter.ui.SignInActivity
@@ -30,7 +32,10 @@ class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
             titleView.text = movie.original_title
             descriptionView.text = movie.overview
 
-            Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}")
+            Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}").apply(
+                RequestOptions.bitmapTransform(
+                RoundedCorners(16)
+            )) // Raggio angoli
                 .placeholder(R.drawable.placeholder)
                 .error(R.drawable.error)
                 .into(imageView)

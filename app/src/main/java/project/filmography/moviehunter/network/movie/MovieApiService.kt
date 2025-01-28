@@ -8,13 +8,15 @@ import retrofit2.http.Query
 interface MovieApiService {
     @GET("trending/movie/week")
     suspend fun getTrendingMovies(
-        @Query("api_key") apiKey: String
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String = "it"
     ): TMDbResponse
 
     @GET("movie/{id}")
     suspend fun getMovieDetails(
         @Path("id") movieId: Int,
-        @Query("api_key") apiKey: String
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String = "it"
     ): TMDbMovie
 }
 

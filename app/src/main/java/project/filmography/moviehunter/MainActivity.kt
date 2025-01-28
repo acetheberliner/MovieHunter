@@ -6,6 +6,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -18,6 +20,7 @@ import com.google.android.material.progressindicator.CircularProgressIndicator
 import project.filmography.moviehunter.ui.SignInActivity
 import project.filmography.moviehunter.ui.adapter.movie.MovieAdapter
 import project.filmography.moviehunter.ui.viewmodel.MovieViewModel
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,6 +64,14 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+
+        val searchEditText: EditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
+
+        searchView.setOnClickListener {
+            // Mostra la tastiera quando SearchView viene cliccata
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT)
+        }
 
         movieViewModel.movies.observe(this, Observer { movies ->
             progressIndicator.visibility = View.GONE
