@@ -24,7 +24,6 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
     private lateinit var shareButton: Button
-    private lateinit var sentToTextView: TextView
 
     private var movieId: Int? = null
 
@@ -44,7 +43,6 @@ class SummaryActivity : AppCompatActivity() {
         descriptionTextView = findViewById(R.id.description_text_view)
         proceedButton = findViewById(R.id.proceed_button)
         shareButton = findViewById(R.id.share_button)
-        sentToTextView = findViewById(R.id.sent_to_text_view)
 
         movieId = intent.getIntExtra("MOVIE_ID", -1)
         Log.d("SummaryActivity", "Received movie ID: $movieId")
@@ -89,13 +87,11 @@ class SummaryActivity : AppCompatActivity() {
 
     private fun onUserSelected(user: User) {
         val message = "Film inviato a ${user.name}"
-        sentToTextView.text = message
-        sentToTextView.visibility = View.VISIBLE
 
         // send an intent to share the movie with the selected user
         val shareIntent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "Hey, ho appena visto questo film di nome ${titleTextView.text}, ti consiglio di prenderlo in considerazione!")
+            putExtra(Intent.EXTRA_TEXT, "Hey ${user.name}, ho appena visto questo film di nome ${titleTextView.text}, ti consiglio di prenderlo in considerazione!")
             type = "text/plain"
         }
         startActivity(Intent.createChooser(shareIntent, "Condividi Film"))

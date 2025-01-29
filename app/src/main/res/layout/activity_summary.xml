@@ -123,13 +123,6 @@
             android:layout_height="@dimen/height"
             android:visibility="gone" />
 
-        <!-- Sent to TextView -->
-        <TextView
-            android:id="@+id/sent_to_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Film_sent_to"
-            android:visibility="gone" />
     </LinearLayout>
 
 </RelativeLayout>
