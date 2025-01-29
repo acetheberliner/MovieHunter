@@ -121,7 +121,7 @@
                     android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/submit_btn"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/success"
+                    android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
 
                 <!-- Back to Selection Button -->

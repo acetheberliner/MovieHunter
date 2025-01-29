@@ -13,7 +13,7 @@
     <string name="background_desc">movie_background</string>
     <string name="text_for_end_page">Torna alla Home</string>
     <string name="query_hint">Cerca film</string>
-    <string name="text_for_signin">Registrati</string>
+    <string name="text_for_signin">Accedi</string>
     <string name="text_for_back_btn">Indietro</string>
     <string name="username_text">Username</string>
     <string name="password_text">Password</string>

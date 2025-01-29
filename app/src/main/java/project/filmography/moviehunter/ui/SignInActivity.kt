@@ -73,10 +73,10 @@ class SignInActivity : AppCompatActivity() {
         userViewModel.login(username, password) { success, errorMessage ->
             runOnUiThread {
                 if (success) {
-                    Toast.makeText(this, "Registrazione effettuata", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Accesso eseguito", Toast.LENGTH_SHORT).show()
                     navigateToRiepilogoActivity()
                 } else {
-                    Toast.makeText(this, "Registrazione non riuscita: $errorMessage", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Accesso non riuscito: $errorMessage", Toast.LENGTH_SHORT).show()
                     findViewById<TextInputEditText>(R.id.signin_password).text?.clear()
                 }
             }
