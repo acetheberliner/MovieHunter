@@ -4,6 +4,8 @@
     <!-- Title - welcome text -->
     <dimen name="textSizeTitle">24sp</dimen>
     <dimen name="padding">16dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
 
     <!-- Texts size -->
     <dimen name="textSize">16sp</dimen>
@@ -22,6 +24,7 @@
 
     <dimen name="marginBottom">16dp</dimen>
     <dimen name="marginBottom_2">8dp</dimen>
+    <dimen name="marginBottom_5dp">5dp</dimen>
     <dimen name="marginBottom_3">18dp</dimen>
     <dimen name="marginBottom_4">20dp</dimen>
     <dimen name="marginBottom_5">10dp</dimen>

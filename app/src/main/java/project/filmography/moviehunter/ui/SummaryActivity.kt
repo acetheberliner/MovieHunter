@@ -11,13 +11,14 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import project.filmography.moviehunter.R
 import project.filmography.moviehunter.data.entity.User
 import project.filmography.moviehunter.ui.viewmodel.MovieViewModel
 
 class SummaryActivity : AppCompatActivity() {
 
-    private lateinit var backgroundImageView: ImageView
+    private lateinit var posterImage: ImageView
     private lateinit var priceTextView: TextView
     private lateinit var titleTextView: TextView
     private lateinit var descriptionTextView: TextView
@@ -37,7 +38,7 @@ class SummaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_summary)
 
-        backgroundImageView = findViewById(R.id.background_image)
+        posterImage = findViewById(R.id.poster_image)
         priceTextView = findViewById(R.id.price_text_view)
         titleTextView = findViewById(R.id.title_text_view)
         descriptionTextView = findViewById(R.id.description_text_view)
@@ -53,16 +54,16 @@ class SummaryActivity : AppCompatActivity() {
                 movieViewModel.fetchMovieDetails(apiKey, it)
             }
         } else {
-            Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nessun film selezionato", Toast.LENGTH_SHORT).show()
             finish()
         }
 
         movieViewModel.movieDetails.observe(this) { movieDetails ->
             titleTextView.text = movieDetails.original_title
             descriptionTextView.text = movieDetails.overview
-            priceTextView.text = "Price: $6.99"
+            priceTextView.text = "€4.99"
             val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
-            Glide.with(this@SummaryActivity).load(imageUrl).into(backgroundImageView)
+            Glide.with(this@SummaryActivity).load(imageUrl).transform(RoundedCorners(16)).into(posterImage)
         }
 
         proceedButton.setOnClickListener {
@@ -87,17 +88,17 @@ class SummaryActivity : AppCompatActivity() {
     }
 
     private fun onUserSelected(user: User) {
-        val message = "Movie sent to ${user.name}"
+        val message = "Film inviato a ${user.name}"
         sentToTextView.text = message
         sentToTextView.visibility = View.VISIBLE
 
         // send an intent to share the movie with the selected user
         val shareIntent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "Check out this movie: ${titleTextView.text}")
+            putExtra(Intent.EXTRA_TEXT, "Hey, ho appena visto questo film di nome ${titleTextView.text}, ti consiglio di prenderlo in considerazione!")
             type = "text/plain"
         }
-        startActivity(Intent.createChooser(shareIntent, "Share Movie"))
+        startActivity(Intent.createChooser(shareIntent, "Condividi Film"))
     }
 
     companion object {

@@ -19,11 +19,11 @@
     <string name="password_text">Password</string>
     <string name="submit_btn">Invia</string>
     <string name="back_to_select_options">Indietro</string>
-    <string name="price">Prezzo: €4.99</string>
+    <string name="price">€4.99</string>
     <string name="enter_address">Indirizzo di spedizione</string>
     <string name="enter_hint">Viale G. Matteotti 593</string>
     <string name="warning_message">* Pagamento solo alla consenga</string>
-    <string name="proceed_btn">Completa acquisto</string>
+    <string name="proceed_btn">Acquista</string>
     <string name="share_btn">Condividi</string>
     <string name="first_name">first_name</string>
     <string name="last_name">last_name</string>
