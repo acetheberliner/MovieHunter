@@ -12,6 +12,8 @@
     <color name="Lgray">#CCCCCC</color>
     <color name="eyeIconColor">#FFFFFF</color> <!-- Bianco -->
     <color name="film_item">#B3B4B4B4</color>
+    <color name="sign_log_in_back">#5D000000</color>
     <color name="red">#FF0000</color>
+    <color name="success">#439547</color>
     <color name="transparent_sky">#003F8F</color>
 </resources>

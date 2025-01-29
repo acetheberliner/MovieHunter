@@ -43,7 +43,7 @@ class SignInActivity : AppCompatActivity() {
             if (username.isNotEmpty() && password.isNotEmpty()) {
                 performLogin(username, password)
             } else {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username e/o password mancanti", Toast.LENGTH_SHORT).show()
             }
         }
 

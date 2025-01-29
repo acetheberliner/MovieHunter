@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,17 +13,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp">
 
         <!-- Logo image -->
         <ImageView
             android:id="@+id/logo"
             android:layout_width="@dimen/img_width_for_signin"
             android:layout_height="@dimen/img_height_for_signin"
-            android:src="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/marginBottom"/>
+            android:layout_marginBottom="@dimen/marginBottom"
+            android:src="@drawable/logo" />
 
         <!-- ViewFlipper to handle login and sign-in visibility -->
         <ViewFlipper
@@ -34,25 +36,32 @@
             <!-- Buttons Container -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:layout_height="145dp"
+                android:background="@drawable/sign_log_in_rounded_back"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <!-- Sign-in Button -->
                 <Button
                     android:id="@+id/signin_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/text_for_signin"
-                    android:layout_marginTop="@dimen/marginTop_2"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/transparent_sky"
+                    android:textColor="@color/white" />
 
-                <!-- Back Button -->
                 <Button
                     android:id="@+id/back_to_homepage_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/text_for_back_btn"
-                    android:layout_marginTop="@dimen/marginTop_2"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/transparent_sky"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <!-- Sign-in Fields -->
@@ -60,69 +69,87 @@
                 android:id="@+id/signin_fields"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/sign_log_in_rounded_back"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:visibility="gone">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
+                    style="@style/CustomTextInputLayoutStyle"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:background="@android:color/transparent"
-                    style="@style/CustomTextInputLayoutStyle">
+                    android:gravity="center_horizontal">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_username"
                         style="@style/CustomEditTextStyle"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="@string/username_text"
-                        android:inputType="text"
-                        android:background="@android:color/transparent"/>
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
+                    style="@style/CustomTextInputLayoutStyle"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/white"
                     android:background="@android:color/transparent"
-                    style="@style/CustomTextInputLayoutStyle">
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/gg_sans_regular"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/white">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/signin_password"
                         style="@style/CustomEditTextStyle"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:hint="@string/password_text"
-                        android:inputType="textPassword"
-                        android:background="@android:color/transparent"/>
+                        android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/signin_submit_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/submit_btn"
-                    android:layout_marginTop="@dimen/marginTop_2"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/success"
+                    android:textColor="@color/white" />
 
                 <!-- Back to Selection Button -->
                 <Button
                     android:id="@+id/signin_back_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/back_to_select_options"
-                    android:layout_marginTop="@dimen/marginTop_2"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/transparent_sky"
+                    android:textColor="@color/white" />
 
                 <!-- Back to Film Button -->
                 <Button
                     android:id="@+id/signin_back_to_homepage_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:fontFamily="@font/gg_sans_regular"
                     android:text="@string/text_for_back_btn"
-                    android:layout_marginTop="@dimen/marginTop_2"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/transparent_sky"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
         </ViewFlipper>
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

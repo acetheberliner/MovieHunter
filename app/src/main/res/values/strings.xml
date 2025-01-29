@@ -15,10 +15,10 @@
     <string name="query_hint">Cerca film</string>
     <string name="text_for_signin">Registrati</string>
     <string name="text_for_back_btn">Indietro</string>
-    <string name="username_text">Nome utente</string>
+    <string name="username_text">Username</string>
     <string name="password_text">Password</string>
     <string name="submit_btn">Invia</string>
-    <string name="back_to_select_options">Torna alle opzioni</string>
+    <string name="back_to_select_options">Indietro</string>
     <string name="price">Prezzo: €4.99</string>
     <string name="enter_address">Indirizzo di spedizione</string>
     <string name="enter_hint">Viale G. Matteotti 593</string>
