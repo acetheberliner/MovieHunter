@@ -25,6 +25,7 @@
             android:layout_height="@dimen/img_height_for_signin"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/marginBottom"
+            android:contentDescription="@string/logo_content_description"
             android:src="@drawable/logo" />
 
         <!-- ViewFlipper to handle login and sign-in visibility -->

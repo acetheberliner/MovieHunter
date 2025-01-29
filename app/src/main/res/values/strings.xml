@@ -31,4 +31,5 @@
     <string name="contact_icon_description">contact_icon_description</string>
     <string name="Select_contact">Contatti</string>
     <string name="Film_sent_to">Inviato a</string>
+    <string name="logo_content_description">Logo di Movie Hunter</string>
 </resources>

@@ -63,9 +63,9 @@ class SignInActivity : AppCompatActivity() {
         Log.d("SigninActivity", "Received movie ID: $selectedMovieId")
 
         if (selectedMovieId == -1) {
-            Toast.makeText(this, "No movie ID provided", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nessun film selezionato", Toast.LENGTH_SHORT).show()
         } else {
-            Log.d("SigninActivity", "Movie ID is valid: $selectedMovieId")
+            Log.d("SigninActivity", "Movie ID is: $selectedMovieId")
         }
     }
 
@@ -73,10 +73,10 @@ class SignInActivity : AppCompatActivity() {
         userViewModel.login(username, password) { success, errorMessage ->
             runOnUiThread {
                 if (success) {
-                    Toast.makeText(this, "Sign In Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Registrazione effettuata", Toast.LENGTH_SHORT).show()
                     navigateToRiepilogoActivity()
                 } else {
-                    Toast.makeText(this, "Sign In Failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Registrazione non riuscita: $errorMessage", Toast.LENGTH_SHORT).show()
                     findViewById<TextInputEditText>(R.id.signin_password).text?.clear()
                 }
             }
@@ -98,7 +98,7 @@ class SignInActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            Toast.makeText(this, "No movie ID to navigate", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nessun ID film selezionato", Toast.LENGTH_SHORT).show()
             navigateToMainActivity()
         }
     }

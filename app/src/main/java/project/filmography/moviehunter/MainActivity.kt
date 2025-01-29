@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showNoInternetConnectionMessage() {
-        Toast.makeText(this, "No internet connection available", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Connessione internet assente", Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {
