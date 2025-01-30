@@ -17,4 +17,5 @@
     <color name="success">#3A943E</color>
     <color name="transparent_sky">#003F8F</color>
     <color name="low_opacity_blue">#C7003F8F</color>
+    <color name="low_opacity_black">#94000000</color>
 </resources>

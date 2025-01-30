@@ -81,6 +81,7 @@
             android:text="@string/film_title"
             android:textAppearance="?attr/textAppearance"
             android:textSize="@dimen/textSize_2"
+            android:textColor="@color/low_opacity_black"
             android:fontFamily="@font/gg_sans_bold" />
 
     </RelativeLayout>

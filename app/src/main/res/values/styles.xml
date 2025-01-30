@@ -12,9 +12,9 @@
 
     <!-- EditText custom style -->
     <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:textColor">@color/transparent_sky</item>
+        <item name="android:textColor">@color/low_opacity_black</item>
         <item name="android:fontFamily">@font/gg_sans_regular</item>
-        <item name="android:textColorHint">@color/transparent_sky</item>
+        <item name="android:textColorHint">@color/low_opacity_black</item>
     </style>
 
     <!-- TextInputLayout custom style -->

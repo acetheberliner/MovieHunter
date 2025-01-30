@@ -27,12 +27,12 @@ class ShippingActivity : AppCompatActivity() {
 
         buyButton.setOnClickListener {
             val address = addressEditText.text.toString()
-            if (address.isNotEmpty() && address.contains("Street", ignoreCase = true)) { // checks if the input contains the word "street"
+            if (address.isNotEmpty() && address.lowercase().contains("via", ignoreCase = true)) {
                 val intent = Intent(this, EndActivity::class.java)
                 startActivity(intent)
                 finish()  // Finish this activity so the user cannot return to it
             } else {
-                Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Indirizzo non valido", Toast.LENGTH_SHORT).show()
             }
         }
 
