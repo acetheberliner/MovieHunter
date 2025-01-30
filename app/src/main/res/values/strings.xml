@@ -11,7 +11,7 @@
     <string name="back_button">Indietro</string>
     <string name="movie_background">movie_background</string>
     <string name="background_desc">movie_background</string>
-    <string name="text_for_end_page">Torna alla Home</string>
+    <string name="text_for_end_page">Home</string>
     <string name="query_hint">Cerca film</string>
     <string name="text_for_signin">Accedi</string>
     <string name="text_for_back_btn">Indietro</string>
@@ -32,4 +32,6 @@
     <string name="Select_contact">Contatti</string>
     <string name="Film_sent_to">Inviato a</string>
     <string name="logo_content_description">Logo di Movie Hunter</string>
+    <string name="end_thanks">Grazie per aver scelto Movie Hunter!</string>
+    <string name="preparation_time">La preparazione del tuo ordine è iniziata. La consegna avverrà entro 3 giorni lavorativi</string>
 </resources>
