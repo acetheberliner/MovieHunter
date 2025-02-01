@@ -5,9 +5,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +31,8 @@ class UserListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)
 
+        val backButton = findViewById<ImageButton>(R.id.back_button)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         userAdapter = UserAdapter { user ->
             onUserSelected(user)
@@ -43,6 +47,11 @@ class UserListActivity : AppCompatActivity() {
         } else {
             loadContactsFromDevice()
         }
+
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     private fun onUserSelected(user: User) {
