@@ -26,34 +26,52 @@ class UserListActivity : AppCompatActivity() {
 
     private val contactsViewModel: ContactsViewModel by viewModels()
     private lateinit var userAdapter: UserAdapter
+    private var contactsList: List<User> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)
 
+        // Inizializzazione UI
         val backButton = findViewById<ImageButton>(R.id.back_button)
-
+        val searchView = findViewById<SearchView>(R.id.searchView)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        userAdapter = UserAdapter { user ->
-            onUserSelected(user)
-        }
+
+        // Configurazione barra di ricerca
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredContacts = contactsList.filter {
+                    it.name.contains(newText ?: "", ignoreCase = true)
+                }
+                userAdapter.setUsers(filteredContacts)
+                return true
+            }
+        })
+
+        // Configurazione RecyclerView
+        userAdapter = UserAdapter { user -> onUserSelected(user) }
         recyclerView.adapter = userAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Verifica e richiesta permessi per i contatti
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
             != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.READ_CONTACTS), PERMISSION_REQUEST_CODE)
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.READ_CONTACTS), PERMISSION_REQUEST_CODE
+            )
         } else {
             loadContactsFromDevice()
         }
 
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
-
+        // Azione tasto indietro
+        backButton.setOnClickListener { onBackPressed() }
     }
 
+    // Azione quando un utente viene selezionato
     private fun onUserSelected(user: User) {
         val resultIntent = Intent().apply {
             putExtra("selected_user", user)
@@ -62,6 +80,7 @@ class UserListActivity : AppCompatActivity() {
         finish()
     }
 
+    // Gestione della risposta alla richiesta di permessi
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -72,15 +91,16 @@ class UserListActivity : AppCompatActivity() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 loadContactsFromDevice()
             } else {
-                Toast.makeText(this, "Permission denied to read contacts", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Permesso negato per leggere i contatti", Toast.LENGTH_SHORT).show()
                 returnToSummaryActivity()
             }
         }
     }
 
+    // Caricamento contatti dal dispositivo
     private fun loadContactsFromDevice() {
         CoroutineScope(Dispatchers.IO).launch {
-            val contactsList = mutableListOf<User>()
+            val retrievedContacts = mutableListOf<User>()
             val cursor = contentResolver.query(
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 null, null, null, null
@@ -94,22 +114,23 @@ class UserListActivity : AppCompatActivity() {
                     while (it.moveToNext()) {
                         val name = it.getString(nameIndex) ?: "N/A"
                         val phoneNumber = it.getString(phoneNumberIndex) ?: "N/A"
-                        val user = User(name = name, phoneNumber = phoneNumber)
-                        contactsList.add(user)
+                        retrievedContacts.add(User(name = name, phoneNumber = phoneNumber))
                     }
                 } else {
                     runOnUiThread {
-                        Toast.makeText(this@UserListActivity, "Error retrieving contact information", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@UserListActivity, "Errore nel recupero dei contatti", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-            contactsViewModel.insertAll(contactsList) // Call ViewModel to insert contacts
-            runOnUiThread {
-                userAdapter.setUsers(contactsList)
-            }
+
+            // Aggiornamento della lista contatti
+            contactsList = retrievedContacts
+            contactsViewModel.insertAll(contactsList)
+            runOnUiThread { userAdapter.setUsers(contactsList) }
         }
     }
 
+    // Ritorno all'attività precedente in caso di mancato permesso
     private fun returnToSummaryActivity() {
         val intent = Intent(this, SummaryActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

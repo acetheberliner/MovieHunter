@@ -16,67 +16,69 @@ import project.filmography.moviehunter.R
 import project.filmography.moviehunter.models.movie.TMDbMovie
 import project.filmography.moviehunter.ui.SignInActivity
 
-class MovieAdapter(private val onClick: (TMDbMovie) -> Unit) :
+// Visualizzazione dei film nel RecyclerView
+class MovieAdapter :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
+    // Lista dei film da visualizzare
     private var movies = emptyList<TMDbMovie>()
 
+    // ViewHolder per ogni singolo elemento della lista
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleView: TextView = itemView.findViewById(R.id.movie_title)
-        val descriptionView: TextView = itemView.findViewById(R.id.movie_description)
-        val imageView: ImageView = itemView.findViewById(R.id.movie_image)
-        val buyButton: Button = itemView.findViewById(R.id.buy_button)
-        val movieItemLayout: View = itemView.findViewById(R.id.movie_item_layout)
+        private val titleView: TextView = itemView.findViewById(R.id.movie_title)
+        private val descriptionView: TextView = itemView.findViewById(R.id.movie_description)
+        private val imageView: ImageView = itemView.findViewById(R.id.movie_image)
+        private val buyButton: Button = itemView.findViewById(R.id.buy_button)
 
+        // Metodo per associare i dati del film agli elementi del layout
         fun bind(movie: TMDbMovie) {
             titleView.text = movie.original_title
             descriptionView.text = movie.overview
 
-            Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}").apply(
-                RequestOptions.bitmapTransform(
-                RoundedCorners(16)
-            )) // Raggio angoli
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
+            // Carica l'immagine del film usando Glide con angoli arrotondati
+            Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}")
+                .apply(RequestOptions.bitmapTransform(RoundedCorners(16)))
+                .placeholder(R.drawable.placeholder)  // Immagine di placeholder nel caso di caricamento
+                .error(R.drawable.error)  // Immagine di errore in caso di errore di caricamento
                 .into(imageView)
 
-            // Listener for the "Buy" button
+            // Listener per il pulsante "Compra"
             buyButton.setOnClickListener {
-                openLoginActivity(movie.id)
+                openLoginActivity(movie.id)  // Passa l'ID del film all'attività di login
             }
-
-            // Listener for the entire item layout
-            movieItemLayout.setOnClickListener {
-                openLoginActivity(movie.id)
-            }
-
         }
 
+        // Funzione per aprire la SignInActivity con l'ID del film
         private fun openLoginActivity(movieId: Int) {
             Log.d("MovieAdapter", "Passing movie ID: $movieId to LoginActivity")
-            //val context = itemView.context
+            // Crea un'intent per avviare la SignInActivity, passando l'ID del film come dato extra
             val intent = Intent(itemView.context, SignInActivity::class.java).apply {
-                putExtra("MOVIE_ID", movieId)
+                putExtra("MOVIE_ID", movieId)  // Passa l'ID del film come parametro
             }
-            itemView.context.startActivity(intent)
+            itemView.context.startActivity(intent)  // Avvia l'intent
         }
     }
 
+    // Metodo chiamato per creare una nuova view holder, che gestisce l'elemento della lista
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        // Inflazione del layout dell'elemento della lista
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_movie, parent, false)
-        return MovieViewHolder(itemView)
+        return MovieViewHolder(itemView)  // Restituisce il view holder con il layout appena creato
     }
 
+    // Metodo chiamato per associare i dati alla view holder creata
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val current = movies[position]
-        holder.bind(current)
+        val current = movies[position]  // Ottieni il film dalla lista
+        holder.bind(current)  // Associa i dati del film alla view holder
     }
 
+    // Ritorna il numero totale di elementi nella lista
     override fun getItemCount() = movies.size
 
+    // Metodo per aggiornare la lista dei film
     fun submitList(list: List<TMDbMovie>) {
-        movies = list
-        notifyDataSetChanged()
+        movies = list  // Imposta la nuova lista di film
+        notifyDataSetChanged()  // Notifica che la lista è cambiata e il RecyclerView deve essere aggiornato
     }
 }

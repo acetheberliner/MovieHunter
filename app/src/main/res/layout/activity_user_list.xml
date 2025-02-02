@@ -21,16 +21,39 @@
         android:layout_marginBottom="@dimen/marginBottom"
         android:padding="@dimen/padding"/>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        style="?attr/searchViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/marginBottom_5"
+        android:background="@drawable/film_rounded_corner"
+        android:elevation="3dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:focusedByDefault="false"
+        android:hint="@string/query_hint"
+        android:inputType="text"
+        android:queryHint="@string/query_hint"
+        app:iconifiedByDefault="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="350dp"
-        android:paddingHorizontal="@dimen/padding_10dp"
         android:layout_height="@dimen/height"
-        android:layout_marginTop="@dimen/marginTop_2"
-        app:layout_constraintTop_toBottomOf="@id/welcome_text"
+        android:paddingHorizontal="@dimen/padding_10dp"
+        android:layout_marginTop="@dimen/marginBottom_5"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/back_button"

@@ -5,21 +5,26 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+// Servizio API per i film
 interface MovieApiService {
+
+    // Ottiene i film di tendenza della settimana
     @GET("trending/movie/week")
     suspend fun getTrendingMovies(
-        @Query("api_key") apiKey: String,
-        @Query("language") language: String = "it"
+        @Query("api_key") apiKey: String,               // Chiave API
+        @Query("language") language: String = "it"      // Lingua della risposta
     ): TMDbResponse
 
+    // Ottiene i dettagli di un film
     @GET("movie/{id}")
     suspend fun getMovieDetails(
-        @Path("id") movieId: Int,
-        @Query("api_key") apiKey: String,
-        @Query("language") language: String = "it"
+        @Path("id") movieId: Int,                       // ID del film
+        @Query("api_key") apiKey: String,               // Chiave API
+        @Query("language") language: String = "it"      // Lingua della risposta
     ): TMDbMovie
 }
 
+// Risposta per i film di tendenza
 data class TMDbResponse(
-    val results: List<TMDbMovie>
+    val results: List<TMDbMovie> // Lista dei film
 )

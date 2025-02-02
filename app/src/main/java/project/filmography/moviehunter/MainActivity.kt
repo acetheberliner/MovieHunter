@@ -1,7 +1,6 @@
 package project.filmography.moviehunter
 
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
@@ -17,36 +16,32 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import project.filmography.moviehunter.ui.SignInActivity
 import project.filmography.moviehunter.ui.adapter.movie.MovieAdapter
 import project.filmography.moviehunter.ui.viewmodel.MovieViewModel
-
 
 class MainActivity : AppCompatActivity() {
 
     private val movieViewModel: MovieViewModel by viewModels {
         MovieViewModel.Factory(application)
     }
-    private val apiKey = "e96d473555668ee67739012c7f140604"
+    private val apiKey = "54403dbde09d7b532faa644c618e84cf"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Inizializza le view
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
         val searchView = findViewById<SearchView>(R.id.search_view)
         val backButton = findViewById<ImageButton>(R.id.back_button)
 
-        val adapter = MovieAdapter { movie ->
-            val intent = Intent(this, SignInActivity::class.java).apply {
-                putExtra("MOVIE_ID", movie.id)
-            }
-            startActivity(intent)
-        }
+        // Imposta l'adapter per il RecyclerView
+        val adapter = MovieAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Listener per la ricerca
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
@@ -65,14 +60,14 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        // Mostra la tastiera quando il SearchView viene cliccato
         val searchEditText: EditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
-
         searchView.setOnClickListener {
-            // Mostra la tastiera quando SearchView viene cliccata
             val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT)
         }
 
+        // Osserva i risultati della ricerca e li mostra nell'adapter
         movieViewModel.movies.observe(this, Observer { movies ->
             progressIndicator.visibility = View.GONE
             movies?.let { adapter.submitList(it) }
@@ -83,36 +78,42 @@ class MainActivity : AppCompatActivity() {
             searchResults?.let { adapter.submitList(it) }
         })
 
+        // Gestisce le operazioni di rete
         handleNetworkOperations()
 
+        // Listener per il bottone di ritorno
         backButton.setOnClickListener {
             onBackPressed()
         }
     }
 
+    // Controlla la connessione di rete
     private fun isNetworkAvailable(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
         return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
+    // Gestisce il caricamento dei film di tendenza in base alla connessione di rete
     private fun handleNetworkOperations() {
         if (isNetworkAvailable()) {
-            movieViewModel.fetchTrendingMovies(apiKey)
+            movieViewModel.fetchPopularMovies(apiKey)
         } else {
             showNoInternetConnectionMessage()
         }
     }
 
+    // Mostra un messaggio di errore se la connessione internet è assente
     private fun showNoInternetConnectionMessage() {
         Toast.makeText(this, "Connessione internet assente", Toast.LENGTH_SHORT).show()
     }
 
+    // Gestisce il comportamento del back button
     override fun onBackPressed() {
         val searchView = findViewById<SearchView>(R.id.search_view)
         if (!searchView.isIconified) {
             searchView.onActionViewCollapsed()
-            movieViewModel.fetchTrendingMovies(apiKey)
+            movieViewModel.fetchPopularMovies(apiKey)
         } else {
             super.onBackPressed()
         }

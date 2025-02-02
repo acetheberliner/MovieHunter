@@ -7,22 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import project.filmography.moviehunter.MainActivity
 import project.filmography.moviehunter.R
 
+// Activity finale che gestisce il comportamento dell'app dopo un'azione conclusiva
 class EndActivity : AppCompatActivity() {
 
-    private lateinit var actionButton: Button
+    private lateinit var actionButton: Button  // Bottone che attiva la navigazione
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_end)
+        setContentView(R.layout.activity_end)  // Imposta il layout per questa activity
 
+        // Trova il bottone nel layout
         actionButton = findViewById(R.id.action_button)
 
-        // Set up the button click listener
+        // Imposta il listener per il click del bottone
         actionButton.setOnClickListener {
-            // Navigate to the Movie List Activity
+            // Quando il bottone è cliccato, naviga alla MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            //finish()
+            //finish()  // Chiudi questa activity se non desiderato restare sulla schermata finale
         }
     }
 }

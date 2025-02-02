@@ -12,47 +12,52 @@ import project.filmography.moviehunter.models.signIn.TmdbApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// ViewModel per la gestione della sessione utente
 class UserViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val apiKey = "e96d473555668ee67739012c7f140604"
+    private val apiKey = "54403dbde09d7b532faa644c618e84cf"  // Chiave API per la TMDb
     private val guestSessionDao: GuestSessionDao = AppDatabase.getDatabase(application).guestSessionDao()
 
+    // Servizio API per la creazione della sessione ospite
     private val tmdbApiService = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/3/")
-        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl("https://api.themoviedb.org/3/")  // URL base per le richieste
+        .addConverterFactory(GsonConverterFactory.create())  // Converte la risposta JSON in oggetti Kotlin
         .build()
         .create(TmdbApiService::class.java)
 
+    // Funzione per effettuare il login, sia se l'utente esiste o deve essere creato
     fun login(username: String, password: String, onResult: (Boolean, String?) -> Unit) = viewModelScope.launch {
         try {
-            // Check if the user exists in the database
+            // Verifica se l'utente esiste già nel database
             val existingSession = guestSessionDao.getGuestSessionByUsername(username)
 
             if (existingSession != null) {
-                // If the user exists, verify the password
+                // Se l'utente esiste, verifica la password
                 if (existingSession.password == password) {
-                    onResult(true, null)
+                    onResult(true, null)  // Login riuscito
                 } else {
-                    // The password is wrong
-                    onResult(false, "Password is incorrect.")
+                    // La password è errata
+                    onResult(false, "Password errata")
                 }
             } else {
-                // The user does not exist, create a new session
+                // Se l'utente non esiste, crea una nuova sessione ospite
                 val guestSessionResponse: GuestSessionResponse = tmdbApiService.createGuestSession(apiKey)
                 val guestSessionId = guestSessionResponse.guest_session_id
 
+                // Crea una nuova sessione per l'utente
                 val newSession = GuestSession(username, password, guestSessionId)
                 guestSessionDao.insertGuestSession(newSession)
 
-                // Check if the insertion was successful
+                // Verifica se la sessione è stata inserita correttamente
                 val insertedSession = guestSessionDao.getGuestSessionByUsername(username)
                 if (insertedSession != null && insertedSession.password == password) {
-                    onResult(true, null)
+                    onResult(true, null)  // Login riuscito
                 } else {
-                    onResult(false, "Failed to create guest session.")
+                    onResult(false, "Failed to create guest session.")  // Errore creazione sessione
                 }
             }
         } catch (e: Exception) {
+            // Gestione degli errori
             onResult(false, e.message)
         }
     }

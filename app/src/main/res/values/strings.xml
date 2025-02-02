@@ -1,5 +1,5 @@
 <resources>
-    <string name="api_key">e96d473555668ee67739012c7f140604</string>
+    <string name="api_key">54403dbde09d7b532faa644c618e84cf</string>
     <string name="api_base_url">https://api.themoviedb.org/3/</string>
     <string name="app_name">Movie Hunter</string>
     <string name="movie_image_desc">Film poster</string>

@@ -5,13 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TMDbMovie(
-    val id: Int,
-    val original_title: String,
-    val overview: String,
-    val poster_path: String,
-    val release_date: String,
-    val vote_average: Double
-) : Parcelable {
-//    val posterUrl: String
-//        get() = "https://image.tmdb.org/t/p/w92/$poster_path"
-}
+    val id: Int,                // ID univoco del film
+    val original_title: String, // Titolo originale del film
+    val overview: String,       // Descrizione del film
+    val poster_path: String,    // Percorso dell'immagine del poster
+    val release_date: String,   // Data di rilascio del film
+    val vote_average: Double    // Voto medio del film
+) : Parcelable
