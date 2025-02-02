@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./app/src/main/res/mipmap-hdpi/ic_launcher_mh.png"/>
+    <img src="./assets/logo.png"/>
 </p>
 <p align="center">
      Movie Hunter
