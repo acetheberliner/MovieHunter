@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Background ImageView -->
-
-    <!-- Poster ImageView -->
-
-    <!-- Title TextView -->
-
-    <!-- Description TextView -->
-
-    <!-- Price TextView -->
-
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
@@ -30,71 +20,70 @@
         android:layout_marginTop="9dp"
         android:contentDescription="@string/movie_image_desc"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
+    <RelativeLayout
+        android:layout_width="330dp"
         android:layout_height="300dp"
-        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/poster_image"
-        android:scrollbars="none"
-        android:fillViewport="true">
+        android:layout_marginTop="12dp"
+        android:background="@drawable/film_rounded_corner"
+        android:padding="@dimen/padding_5dp">
 
-        <RelativeLayout
-            android:layout_width="330dp"
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/film_rounded_corner"
-            android:padding="@dimen/padding_5dp">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/marginBottom_2"
+            android:fontFamily="@font/gg_sans_bold"
+            android:text="@string/film_title"
+            android:textAppearance="?attr/textAppearance"
+            android:textColor="@color/low_opacity_black"
+            android:textSize="@dimen/textSize_2" />
 
-            <TextView
-                android:id="@+id/price_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/description_text_view"
-                android:layout_centerHorizontal="true"
-                android:layout_marginVertical="3dp"
-                android:fontFamily="@font/gg_sans_bold"
-                android:text="@string/price"
-                android:textAppearance="?attr/textAppearance"
-                android:textColor="@color/transparent_sky"
-                android:textSize="@dimen/textSize_4" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_text_view"
+            android:scrollbars="none"
+            android:fillViewport="true"
+            android:layout_above="@+id/price_text_view">
 
             <TextView
                 android:id="@+id/description_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title_text_view"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="@dimen/marginStart_4"
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="@dimen/marginEnd_4"
                 android:layout_marginBottom="@dimen/marginBottom"
+                android:paddingBottom="4dp"
                 android:fontFamily="@font/gg_sans_regular"
                 android:gravity="center_horizontal"
                 android:text="@string/filmdesc"
                 android:textAppearance="?attr/textAppearance"
                 android:textSize="@dimen/textSize_4" />
+        </ScrollView>
 
-            <TextView
-                android:id="@+id/title_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="@dimen/marginBottom_2"
-                android:fontFamily="@font/gg_sans_bold"
-                android:text="@string/film_title"
-                android:textAppearance="?attr/textAppearance"
-                android:textColor="@color/low_opacity_black"
-                android:textSize="@dimen/textSize_2" />
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-
+        <TextView
+            android:id="@+id/price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gg_sans_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/price"
+            android:textAppearance="?attr/textAppearance"
+            android:textColor="@color/transparent_sky"
+            android:textSize="@dimen/textSize_4" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -133,7 +122,5 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height"
             android:visibility="gone" />
-
     </LinearLayout>
-
 </RelativeLayout>
