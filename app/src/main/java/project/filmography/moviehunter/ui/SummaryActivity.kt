@@ -2,17 +2,24 @@ package project.filmography.moviehunter.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope // Aggiungi questa importazione per usare lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import kotlinx.coroutines.launch // Import per lanciare coroutine
 import project.filmography.moviehunter.R
 import project.filmography.moviehunter.data.entity.User
 import project.filmography.moviehunter.ui.viewmodel.MovieViewModel
+import project.filmography.moviehunter.network.giphy.GiphyApi
+import project.filmography.moviehunter.ui.adapter.giphy.GifAdapter
 
 class SummaryActivity : AppCompatActivity() {
 
@@ -23,12 +30,15 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var descriptionTextView: TextView
     private lateinit var proceedButton: Button
     private lateinit var shareButton: Button
+    private lateinit var gifRecyclerView: RecyclerView
+    private lateinit var giphyAdapter: GifAdapter
 
     // ID del film passato dall'attività precedente
     private var movieId: Int? = null
 
-    // Chiave API per accedere ai dettagli del film
+    // Chiave API per accedere ai dettagli del film e a Giphy
     private val apiKey = "54403dbde09d7b532faa644c618e84cf"
+    private val giphyApiKey = "49ChsckPtw8bgXsJfyLHGC9TLm1clE5L" // Sostituisci con la tua API key Giphy
 
     // ViewModel per la gestione dei dettagli del film
     private val movieViewModel: MovieViewModel by viewModels {
@@ -46,6 +56,11 @@ class SummaryActivity : AppCompatActivity() {
         descriptionTextView = findViewById(R.id.description_text_view)
         proceedButton = findViewById(R.id.proceed_button)
         shareButton = findViewById(R.id.share_button)
+        gifRecyclerView = findViewById(R.id.gif_recycler_view)
+
+        gifRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        giphyAdapter = GifAdapter(emptyList())
+        gifRecyclerView.adapter = giphyAdapter
 
         // Recupero dell'ID del film passato tramite Intent
         movieId = intent.getIntExtra("MOVIE_ID", -1)
@@ -68,6 +83,9 @@ class SummaryActivity : AppCompatActivity() {
                 .load(imageUrl)
                 .transform(RoundedCorners(16)) // Applica angoli arrotondati all'immagine
                 .into(posterImage)
+
+            // Carica una GIF correlata al film da Giphy
+            fetchGiphyGif(movieDetails.original_title)
         }
 
         // Azione per il pulsante "Procedi"
@@ -82,6 +100,23 @@ class SummaryActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE_USER)
         }
     }
+
+    // Funzione per recuperare la GIF da Giphy per il film
+    private fun fetchGiphyGif(movieTitle: String) {
+        lifecycleScope.launch {
+            try {
+                val response = GiphyApi.getRetrofitService().getGifsForMovie(movieTitle, giphyApiKey)
+                Log.d("SummaryActivity", "Giphy response: $response")
+
+                val gifUrls = response.data.take(3).map { it.images.original.url }
+                giphyAdapter.updateGifs(gifUrls)
+            } catch (e: Exception) {
+                Log.e("SummaryActivity", "Errore nel recuperare la GIF", e)
+                Toast.makeText(this@SummaryActivity, "Errore nel recuperare la GIF", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     // Gestisce il risultato dell'attività UserListActivity
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

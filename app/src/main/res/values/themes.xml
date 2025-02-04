@@ -18,7 +18,7 @@
         <!-- Altro -->
         <item name="textAppearance">@style/TextAppearance.MovieHunter.Day</item>
         <item name="searchViewStyle">@style/CustomSearchViewStyle</item>
-        <item name="eyeIconColor">@color/eyeIconColor</item>
+        <item name="iconEye">@color/eyeIconColor</item>
         <item name="android:fontFamily">@font/gg_sans_regular</item>
     </style>
 

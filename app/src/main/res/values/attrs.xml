@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CustomTextAppearance">
+    <attr name="iconEye" format="color" />
+    <attr name="searchViewStyle" format="reference" />
+    <declare-styleable name="PersonalizedText">
         <attr name="textAppearance" format="reference" />
     </declare-styleable>
-    <attr name="searchViewStyle" format="reference" />
-    <attr name="eyeIconColor" format="color" />
 </resources>
 

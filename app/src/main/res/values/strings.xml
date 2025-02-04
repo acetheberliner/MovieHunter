@@ -4,6 +4,8 @@
     <string name="app_name">Movie Hunter</string>
     <string name="movie_image_desc">Film poster</string>
     <string name="film_title">Titolo</string>
+    <string name="gif_section">GIF Popolari</string>
+    <string name="gif_description">gif_description</string>
     <string name="filmdesc">Panoramica</string>
     <string name="Button">Acquista</string>
     <string name="movie_poster">movie_poster</string>
@@ -29,6 +31,7 @@
     <string name="last_name">last_name</string>
     <string name="phone_number">phone_number</string>
     <string name="contact_icon_description">contact_icon_description</string>
+    <string name="gif_image_desc">gif_image_desc</string>
     <string name="Select_contact">Contatti</string>
     <string name="Film_sent_to">Inviato a</string>
     <string name="logo_content_description">Logo di Movie Hunter</string>
