@@ -2,35 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_image"
     android:gravity="center_horizontal"
-    android:padding="@dimen/padding">>
+    android:padding="@dimen/padding_16dp">>
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
+        android:src="@drawable/app_logo" />
 
     <RelativeLayout
         android:layout_width="361dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
         android:layout_marginTop="5dp"
-        android:background="@drawable/film_rounded_corner"
+        android:background="@drawable/rounded_box"
         android:layout_centerHorizontal="true"
-        android:paddingStart="@dimen/paddingStart"
-        android:paddingEnd="@dimen/paddingEnd">
+        android:paddingStart="@dimen/paddingStart_15dp"
+        android:paddingEnd="@dimen/paddingEnd_15dp">
 
         <!-- imageview sopra -->
         <ImageView
             android:id="@+id/success"
             android:layout_width="146dp"
             android:layout_height="82dp"
-            android:layout_marginTop="@dimen/marginTop_4"
+            android:layout_marginTop="@dimen/marginTop_8dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/success"
+            android:src="@drawable/success_icon"
             android:tint="@color/transparent_sky"/>
 
         <!-- prima textview sotto la imageview -->
@@ -40,12 +40,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/success"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginTop_4"
+            android:layout_marginTop="@dimen/marginTop_8dp"
             android:fontFamily="@font/gg_sans_bold"
             android:gravity="center"
-            android:text="@string/end_thanks"
+            android:text="@string/final_thanks"
             android:textColor="@color/low_opacity_black"
-            android:textSize="@dimen/textSize_3" />
+            android:textSize="@dimen/textSize_20sp" />
 
         <!-- seconda textview sotto la prima -->
         <TextView
@@ -54,13 +54,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/address_hint_text_view"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginTop"
-            android:layout_marginBottom="@dimen/marginBottom_4"
+            android:layout_marginTop="@dimen/marginTop_20dp"
+            android:layout_marginBottom="@dimen/marginBottom_20dp"
             android:fontFamily="@font/gg_sans_regular"
             android:gravity="center"
-            android:text="@string/preparation_time"
+            android:text="@string/delivery_desc"
             android:textColor="@color/low_opacity_black"
-            android:textSize="@dimen/textSize_2" />
+            android:textSize="@dimen/textSize_18sp" />
 
     </RelativeLayout>
 
@@ -69,10 +69,10 @@
         android:id="@+id/action_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="@string/text_for_end_page"
+        android:text="@string/homepage_btn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/marginBottom_6"
+        android:layout_marginBottom="@dimen/marginBottom_4dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:backgroundTint="@color/transparent_sky"

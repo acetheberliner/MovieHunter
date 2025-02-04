@@ -14,7 +14,7 @@ import project.filmography.moviehunter.MainActivity
 import project.filmography.moviehunter.R
 import project.filmography.moviehunter.ui.viewmodel.UserViewModel
 
-class SignInActivity : AppCompatActivity() {
+class LoginPageActivity : AppCompatActivity() {
 
     // ViewModel per gestire la logica del login
     private val userViewModel: UserViewModel by viewModels()
@@ -22,7 +22,7 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        setContentView(R.layout.login_activity)
 
         // Trova gli elementi del layout
         val viewFlipper = findViewById<ViewFlipper>(R.id.view_flipper)
@@ -69,12 +69,12 @@ class SignInActivity : AppCompatActivity() {
 
         // Ottieni l'ID del film passato tramite Intent
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
-        Log.d("SigninActivity", "Received movie ID: $selectedMovieId")
+        Log.d("LoginPageActivity", "Movie ID: $selectedMovieId")
 
         if (selectedMovieId == -1) {
             Toast.makeText(this, "Nessun film selezionato", Toast.LENGTH_SHORT).show()
         } else {
-            Log.d("SigninActivity", "Movie ID is: $selectedMovieId")
+            Log.d("LoginPageActivity", "Movie ID: $selectedMovieId")
         }
     }
 
@@ -104,7 +104,7 @@ class SignInActivity : AppCompatActivity() {
     private fun navigateToRiepilogoActivity() {
         val movieId = selectedMovieId
         if (movieId != null && movieId != -1) {
-            val intent = Intent(this, SummaryActivity::class.java).apply {
+            val intent = Intent(this, OverviewPageActivity::class.java).apply {
                 putExtra("MOVIE_ID", movieId)  // Passa l'ID del film alla schermata successiva
             }
             startActivity(intent)

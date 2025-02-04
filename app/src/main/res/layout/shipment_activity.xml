@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:padding="@dimen/padding">
+    android:background="@drawable/bg_image"
+    android:padding="@dimen/padding_16dp">
 
     <!-- Logo image -->
     <ImageView
@@ -11,17 +11,17 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
+        android:src="@drawable/app_logo" />
 
     <RelativeLayout
         android:layout_width="377dp"
         android:layout_height="212dp"
         android:layout_below="@id/logo"
-        android:background="@drawable/film_rounded_corner"
+        android:background="@drawable/rounded_box"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingStart="@dimen/paddingStart"
-        android:paddingEnd="@dimen/paddingEnd">
+        android:paddingStart="@dimen/paddingStart_15dp"
+        android:paddingEnd="@dimen/paddingEnd_15dp">
 
         <!-- prima textview -->
         <TextView
@@ -29,11 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginTop_3"
+            android:layout_marginTop="@dimen/marginTop_10dp"
             android:fontFamily="@font/gg_sans_bold"
-            android:text="@string/enter_address"
+            android:text="@string/shipment_address"
             android:textColor="@color/low_opacity_black"
-            android:textSize="@dimen/textSize_3" />
+            android:textSize="@dimen/textSize_20sp" />
 
         <!-- seconda edittext sotto la prima textview -->
 
@@ -44,13 +44,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/address_hint_text_view"
             android:layout_marginTop="18dp"
-            android:layout_marginBottom="@dimen/marginBottom_2"
+            android:layout_marginBottom="@dimen/marginBottom_8dp"
             android:backgroundTint="@color/transparent_sky"
             android:gravity="center"
-            android:hint="@string/enter_hint"
+            android:hint="@string/shipment_placeholder"
             android:inputType="text"
-            android:padding="@dimen/padding"
-            android:textSize="@dimen/textSize_4"
+            android:padding="@dimen/padding_16dp"
+            android:textSize="@dimen/textSize_14sp"
             android:textColor="@color/low_opacity_black" />
 
         <TextView
@@ -59,12 +59,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/address_edit_text"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginTop"
-            android:layout_marginBottom="@dimen/marginBottom_3"
+            android:layout_marginTop="@dimen/marginTop_20dp"
+            android:layout_marginBottom="@dimen/marginBottom_18dp"
             android:fontFamily="@font/gg_sans_regular"
-            android:text="@string/warning_message"
+            android:text="@string/payment_desc"
             android:textColor="@color/low_opacity_black"
-            android:textSize="@dimen/textSize_4" />
+            android:textSize="@dimen/textSize_14sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -79,7 +79,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:text="@string/text_for_back_btn"
+            android:text="@string/back_btn_text"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:backgroundTint="@color/transparent_sky"
@@ -89,13 +89,13 @@
             android:id="@+id/buy"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/marginEnd_4"
+            android:layout_marginEnd="@dimen/marginEnd_10dp"
             android:layout_marginHorizontal="8dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:backgroundTint="@color/transparent_sky"
             android:fontFamily="@font/gg_sans_regular"
-            android:text="@string/Button" />
+            android:text="@string/buy_btn" />
     </LinearLayout>
 
 </RelativeLayout>

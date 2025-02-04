@@ -4,10 +4,10 @@
     android:id="@+id/movie_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding"
-    android:background="@drawable/film_rounded_corner"
+    android:padding="@dimen/padding_16dp"
+    android:background="@drawable/rounded_box"
     android:elevation="3dp"
-    android:layout_marginBottom="@dimen/marginBottom_5">
+    android:layout_marginBottom="@dimen/marginBottom_10dp">
 
     <ImageView
         android:id="@+id/movie_image"
@@ -21,10 +21,10 @@
 
     <LinearLayout
         android:id="@+id/movie_details"
-        android:layout_width="@dimen/width"
+        android:layout_width="@dimen/width_0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="@dimen/marginStart_2"
+        android:layout_marginStart="@dimen/marginStart_15dp"
         app:layout_constraintStart_toEndOf="@id/movie_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,25 +34,25 @@
             android:id="@+id/movie_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_2"
+            android:textSize="@dimen/textSize_18sp"
             android:fontFamily="@font/gg_sans_bold" />
 
         <TextView
             android:id="@+id/movie_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginTop_4"
+            android:layout_marginTop="@dimen/marginTop_8dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:textSize="@dimen/textSize_4" />
+            android:textSize="@dimen/textSize_14sp" />
 
         <Button
             android:id="@+id/buy_button"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="@dimen/marginTop_2"
+            android:layout_marginTop="@dimen/marginTop_16dp"
             android:backgroundTint="@color/transparent_sky"
-            android:text="@string/Button"
+            android:text="@string/buy_btn"
             android:textAllCaps="false"
             android:fontFamily="@font/gg_sans_bold"
             android:elevation="3dp"

@@ -1,40 +1,56 @@
 <resources>
-    <string name="api_key">54403dbde09d7b532faa644c618e84cf</string>
-    <string name="api_base_url">https://api.themoviedb.org/3/</string>
+    <!-- Configurazione API TMDB -->
+    <string name="tmdb_api_key">54403dbde09d7b532faa644c618e84cf</string>
+    <string name="tmdb_base_url">https://api.themoviedb.org/3/</string>
+
+    <!-- Configurazione API Giphy -->
+    <string name="giphy_api_key">49ChsckPtw8bgXsJfyLHGC9TLm1clE5L</string>
+    <string name="giphy_base_url">https://api.giphy.com/v1/</string>
+
+    <!-- Informazioni sull'app -->
     <string name="app_name">Movie Hunter</string>
+    <string name="logo_description">logo_description</string>
+    <string name="final_thanks">Grazie per aver scelto Movie Hunter!</string>
+
+    <!-- Film e immagini -->
     <string name="movie_image_desc">Film poster</string>
-    <string name="film_title">Titolo</string>
-    <string name="gif_section">GIF Popolari</string>
-    <string name="gif_description">gif_description</string>
-    <string name="filmdesc">Panoramica</string>
-    <string name="Button">Acquista</string>
     <string name="movie_poster">movie_poster</string>
-    <string name="toggle_password_visibility">Mostra password</string>
-    <string name="back_button">Indietro</string>
     <string name="movie_background">movie_background</string>
-    <string name="background_desc">movie_background</string>
-    <string name="text_for_end_page">Home</string>
-    <string name="query_hint">Cerca film</string>
-    <string name="text_for_signin">Accedi</string>
-    <string name="text_for_back_btn">Indietro</string>
-    <string name="username_text">Username</string>
-    <string name="password_text">Password</string>
-    <string name="submit_btn">Accedi</string>
-    <string name="back_to_select_options">Indietro</string>
-    <string name="price">€4.99</string>
-    <string name="enter_address">Indirizzo di spedizione</string>
-    <string name="enter_hint">Viale G. Matteotti 593</string>
-    <string name="warning_message">NB.: Pagamento solo alla consenga</string>
-    <string name="proceed_btn">Acquista</string>
-    <string name="share_btn">Condividi</string>
-    <string name="first_name">first_name</string>
-    <string name="last_name">last_name</string>
-    <string name="phone_number">phone_number</string>
-    <string name="contact_icon_description">contact_icon_description</string>
+    <string name="background_desc">background_desc</string>
+    <string name="film_title">Titolo</string>
+    <string name="filmdesc">Panoramica</string>
+
+    <!-- GIF -->
+    <string name="giphy_section">GIF Popolari</string>
+    <string name="giphy_description">giphy_description</string>
     <string name="gif_image_desc">gif_image_desc</string>
-    <string name="Select_contact">Contatti</string>
-    <string name="Film_sent_to">Inviato a</string>
-    <string name="logo_content_description">Logo di Movie Hunter</string>
-    <string name="end_thanks">Grazie per aver scelto Movie Hunter!</string>
-    <string name="preparation_time">La preparazione del tuo ordine è iniziata. La consegna avverrà entro 3 giorni lavorativi</string>
+
+    <!-- Navigazione -->
+    <string name="back_btn">Indietro</string>
+    <string name="homepage_btn">Home</string>
+    <string name="search_placeholder">Cerca film</string>
+    <string name="back_btn_text">Indietro</string>
+
+    <!-- Autenticazione -->
+    <string name="password_visibility">Mostra password</string>
+    <string name="login_btn">Accedi</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    <!-- Acquisti e pagamenti -->
+    <string name="buy_btn">Acquista</string>
+    <string name="price">€4.99</string>
+    <string name="shipment_address">Indirizzo di spedizione</string>
+    <string name="shipment_placeholder">Viale G. Matteotti 593</string>
+    <string name="payment_desc">Pagamento alla consegna</string>
+    <string name="delivery_desc">La preparazione del tuo ordine è iniziata. La consegna avverrà entro 3 giorni lavorativi</string>
+
+    <!-- Condivisione e contatti -->
+    <string name="share_btn">Condividi</string>
+    <string name="first_name">Nome</string>
+    <string name="last_name">Cognome</string>
+    <string name="phone_number">Numero di telefono</string>
+    <string name="contact_icon_desc">contact_icon_description</string>
+    <string name="contacts">Contatti</string>
+    <string name="send_desc">Inviato a</string>
 </resources>

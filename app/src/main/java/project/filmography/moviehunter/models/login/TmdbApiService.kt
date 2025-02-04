@@ -1,4 +1,4 @@
-package project.filmography.moviehunter.models.signIn
+package project.filmography.moviehunter.models.login
 
 import retrofit2.http.GET
 import retrofit2.http.Query

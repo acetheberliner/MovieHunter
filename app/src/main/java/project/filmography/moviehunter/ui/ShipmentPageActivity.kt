@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import project.filmography.moviehunter.R
 
 // Activity che gestisce la schermata di inserimento dell'indirizzo per la spedizione
-class ShippingActivity : AppCompatActivity() {
+class ShipmentPageActivity : AppCompatActivity() {
 
     private lateinit var addressEditText: EditText  // EditText per l'indirizzo
     private lateinit var attentionTextView: TextView  // TextView per avvisi
@@ -19,7 +19,7 @@ class ShippingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shipping)  // Imposta il layout per questa activity
+        setContentView(R.layout.shipment_activity)  // Imposta il layout per questa activity
 
         // Trova gli elementi nel layout
         addressEditText = findViewById(R.id.address_edit_text)
@@ -32,7 +32,7 @@ class ShippingActivity : AppCompatActivity() {
             val address = addressEditText.text.toString()  // Ottiene l'indirizzo inserito
             if (address.isNotEmpty() && address.lowercase().contains("via", ignoreCase = true)) {
                 // Se l'indirizzo è valido, naviga alla schermata finale (EndActivity)
-                val intent = Intent(this, EndActivity::class.java)
+                val intent = Intent(this, FinalPageActivity::class.java)
                 startActivity(intent)
                 finish()  // Termina questa activity per evitare che l'utente ritorni su di essa
             } else {
@@ -49,7 +49,7 @@ class ShippingActivity : AppCompatActivity() {
 
     // Funzione che naviga alla schermata di riepilogo (SummaryActivity)
     private fun navigateToBackActivity() {
-        val intent = Intent(this, SummaryActivity::class.java)
+        val intent = Intent(this, OverviewPageActivity::class.java)
         startActivity(intent)
         finish()  // Termina questa activity
     }

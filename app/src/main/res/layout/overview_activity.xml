@@ -7,7 +7,7 @@
         android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@drawable/bg_image"
         android:contentDescription="@string/movie_background"
         android:scaleType="centerCrop" />
 
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/poster_image"
         android:layout_marginTop="12dp"
-        android:background="@drawable/film_rounded_corner"
+        android:background="@drawable/rounded_box"
         android:padding="@dimen/padding_5dp">
 
         <TextView
@@ -37,12 +37,12 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginBottom="@dimen/marginBottom_2"
+            android:layout_marginBottom="@dimen/marginBottom_8dp"
             android:fontFamily="@font/gg_sans_bold"
             android:text="@string/film_title"
             android:textAppearance="?attr/textAppearance"
             android:textColor="@color/low_opacity_black"
-            android:textSize="@dimen/textSize_2" />
+            android:textSize="@dimen/textSize_18sp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -56,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingEnd="@dimen/marginEnd_4"
-                android:paddingStart="@dimen/marginStart_4">
+                android:paddingEnd="@dimen/marginEnd_10dp"
+                android:paddingStart="@dimen/marginStart_10dp">
 
                 <TextView
                     android:id="@+id/description_text_view"
@@ -65,13 +65,13 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="3dp"
-                    android:layout_marginBottom="@dimen/marginBottom"
+                    android:layout_marginBottom="@dimen/marginBottom_16dp"
                     android:paddingBottom="4dp"
                     android:fontFamily="@font/gg_sans_regular"
                     android:gravity="center_horizontal"
                     android:text="@string/filmdesc"
                     android:textAppearance="?attr/textAppearance"
-                    android:textSize="@dimen/textSize_4" />
+                    android:textSize="@dimen/textSize_14sp" />
 
                 <TextView
                     android:id="@+id/gifs_section"
@@ -79,13 +79,13 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="@dimen/marginBottom_2"
+                    android:layout_marginBottom="@dimen/marginBottom_8dp"
                     android:fontFamily="@font/gg_sans_bold"
                     android:gravity="center"
-                    android:text="@string/gif_section"
+                    android:text="@string/giphy_section"
                     android:textAppearance="?attr/textAppearance"
                     android:textColor="@color/low_opacity_black"
-                    android:textSize="@dimen/textSize_2">
+                    android:textSize="@dimen/textSize_18sp">
 
                 </TextView>
 
@@ -97,7 +97,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true"
                     android:scrollbars="none"
-                    android:layout_marginBottom="@dimen/marginBottom_2"/>
+                    android:layout_marginBottom="@dimen/marginBottom_8dp"/>
 
             </LinearLayout>
 
@@ -116,7 +116,7 @@
             android:text="@string/price"
             android:textAppearance="?attr/textAppearance"
             android:textColor="@color/transparent_sky"
-            android:textSize="@dimen/textSize_4" />
+            android:textSize="@dimen/textSize_14sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -146,7 +146,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/transparent_sky"
             android:fontFamily="@font/gg_sans_regular"
-            android:text="@string/proceed_btn"
+            android:text="@string/buy_btn"
             android:textAllCaps="false"
             android:layout_marginHorizontal="8dp"
             android:textColor="@color/white" />
@@ -154,7 +154,7 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height"
+            android:layout_height="@dimen/height_0dp"
             android:visibility="gone" />
     </LinearLayout>
 </RelativeLayout>

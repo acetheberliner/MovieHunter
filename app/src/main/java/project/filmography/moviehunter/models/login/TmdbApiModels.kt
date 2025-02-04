@@ -1,4 +1,4 @@
-package project.filmography.moviehunter.models.signIn
+package project.filmography.moviehunter.models.login
 
 // Modello per la risposta della creazione di una sessione ospite
 data class GuestSessionResponse(

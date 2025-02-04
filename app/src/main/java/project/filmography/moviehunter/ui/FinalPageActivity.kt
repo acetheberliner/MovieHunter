@@ -8,13 +8,13 @@ import project.filmography.moviehunter.MainActivity
 import project.filmography.moviehunter.R
 
 // Activity finale che gestisce il comportamento dell'app dopo un'azione conclusiva
-class EndActivity : AppCompatActivity() {
+class FinalPageActivity : AppCompatActivity() {
 
     private lateinit var actionButton: Button  // Bottone che attiva la navigazione
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_end)  // Imposta il layout per questa activity
+        setContentView(R.layout.final_activity)  // Imposta il layout per questa activity
 
         // Trova il bottone nel layout
         actionButton = findViewById(R.id.action_button)

@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_image"
     tools:context=".MainActivity">
 
     <!-- Search bar with SearchView -->
@@ -16,13 +16,13 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/film_rounded_corner"
+        android:background="@drawable/rounded_box"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:focusedByDefault="false"
-        android:hint="@string/query_hint"
+        android:hint="@string/search_placeholder"
         android:inputType="text"
-        android:queryHint="@string/query_hint"
+        android:queryHint="@string/search_placeholder"
         app:iconifiedByDefault="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,17 +34,17 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height"
-        android:layout_marginStart="@dimen/marginStart_2"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginEnd_2"
+        android:layout_height="@dimen/height_0dp"
+        android:layout_marginStart="@dimen/marginStart_15dp"
+        android:layout_marginTop="@dimen/marginTop_20dp"
+        android:layout_marginEnd="@dimen/marginEnd_15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view"
         app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/item_movie" />
+        tools:listitem="@layout/item_movie_activity" />
 
     <!-- Circular Progress Indicator -->
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -65,9 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:elevation="3dp"
-        android:contentDescription="@string/back_button"
+        android:contentDescription="@string/back_btn"
         android:scaleType="centerInside"
-        android:src="@drawable/arrow_back"
+        android:src="@drawable/back_icon"
         app:backgroundTint="@color/transparent_sky"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

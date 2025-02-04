@@ -3,11 +3,11 @@
 
     <!-- SearchView custom style-->
     <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
-        <item name="android:background">@color/white</item> <!-- White bg -->
-        <item name="android:queryBackground">@color/white</item> <!-- Query bg -->
-        <item name="android:textColorHint">@color/black</item> <!-- hint text color -->
-        <item name="android:textColor">@color/search_text_color</item> <!-- text color -->
-        <item name="android:iconifiedByDefault">false</item> <!-- Show non-iconicalized search bar -->
+        <item name="android:background">@color/white</item>
+        <item name="android:queryBackground">@color/white</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColor">@color/search_text_color</item>
+        <item name="android:iconifiedByDefault">false</item>
     </style>
 
     <!-- EditText custom style -->

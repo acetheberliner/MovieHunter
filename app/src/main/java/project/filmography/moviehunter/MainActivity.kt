@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -24,11 +23,11 @@ class MainActivity : AppCompatActivity() {
     private val movieViewModel: MovieViewModel by viewModels {
         MovieViewModel.Factory(application)
     }
-    private val apiKey = "54403dbde09d7b532faa644c618e84cf"
+    private val tmdbApiKey = "54403dbde09d7b532faa644c618e84cf"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
 
         // Inizializza le view
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 query?.let {
                     if (isNetworkAvailable()) {
                         progressIndicator.visibility = View.VISIBLE
-                        movieViewModel.searchMovies(apiKey, it)
+                        movieViewModel.searchMovies(tmdbApiKey, it)
                     } else {
                         showNoInternetConnectionMessage()
                     }
@@ -68,22 +67,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Osserva i risultati della ricerca e li mostra nell'adapter
-        movieViewModel.movies.observe(this, Observer { movies ->
+        movieViewModel.movies.observe(this) { movies ->
             progressIndicator.visibility = View.GONE
             movies?.let { adapter.submitList(it) }
-        })
+        }
 
-        movieViewModel.searchResults.observe(this, Observer { searchResults ->
+        movieViewModel.searchResults.observe(this) { searchResults ->
             progressIndicator.visibility = View.GONE
             searchResults?.let { adapter.submitList(it) }
-        })
+        }
 
         // Gestisce le operazioni di rete
         handleNetworkOperations()
 
         // Listener per il bottone di ritorno
         backButton.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
     // Gestisce il caricamento dei film di tendenza in base alla connessione di rete
     private fun handleNetworkOperations() {
         if (isNetworkAvailable()) {
-            movieViewModel.fetchPopularMovies(apiKey)
+            movieViewModel.fetchPopularMovies(tmdbApiKey)
         } else {
             showNoInternetConnectionMessage()
         }
@@ -106,16 +105,5 @@ class MainActivity : AppCompatActivity() {
     // Mostra un messaggio di errore se la connessione internet è assente
     private fun showNoInternetConnectionMessage() {
         Toast.makeText(this, "Connessione internet assente", Toast.LENGTH_SHORT).show()
-    }
-
-    // Gestisce il comportamento del back button
-    override fun onBackPressed() {
-        val searchView = findViewById<SearchView>(R.id.search_view)
-        if (!searchView.isIconified) {
-            searchView.onActionViewCollapsed()
-            movieViewModel.fetchPopularMovies(apiKey)
-        } else {
-            super.onBackPressed()
-        }
     }
 }

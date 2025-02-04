@@ -14,7 +14,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import project.filmography.moviehunter.R
 import project.filmography.moviehunter.models.movie.TMDbMovie
-import project.filmography.moviehunter.ui.SignInActivity
+import project.filmography.moviehunter.ui.LoginPageActivity
 
 // Visualizzazione dei film nel RecyclerView
 class MovieAdapter :
@@ -38,8 +38,8 @@ class MovieAdapter :
             // Carica l'immagine del film usando Glide con angoli arrotondati
             Glide.with(imageView.context).load("https://image.tmdb.org/t/p/w185${movie.poster_path}")
                 .apply(RequestOptions.bitmapTransform(RoundedCorners(16)))
-                .placeholder(R.drawable.placeholder)  // Immagine di placeholder nel caso di caricamento
-                .error(R.drawable.error)  // Immagine di errore in caso di errore di caricamento
+                .placeholder(R.drawable.loading_icon)  // Immagine di placeholder nel caso di caricamento
+                .error(R.drawable.missing_poster_icon)  // Immagine di errore in caso di errore di caricamento
                 .into(imageView)
 
             // Listener per il pulsante "Compra"
@@ -52,7 +52,7 @@ class MovieAdapter :
         private fun openLoginActivity(movieId: Int) {
             Log.d("MovieAdapter", "Passing movie ID: $movieId to LoginActivity")
             // Crea un'intent per avviare la SignInActivity, passando l'ID del film come dato extra
-            val intent = Intent(itemView.context, SignInActivity::class.java).apply {
+            val intent = Intent(itemView.context, LoginPageActivity::class.java).apply {
                 putExtra("MOVIE_ID", movieId)  // Passa l'ID del film come parametro
             }
             itemView.context.startActivity(intent)  // Avvia l'intent
@@ -63,7 +63,7 @@ class MovieAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         // Inflazione del layout dell'elemento della lista
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_movie, parent, false)
+            .inflate(R.layout.item_movie_activity, parent, false)
         return MovieViewHolder(itemView)  // Restituisce il view holder con il layout appena creato
     }
 

@@ -21,7 +21,7 @@ import project.filmography.moviehunter.ui.viewmodel.MovieViewModel
 import project.filmography.moviehunter.network.giphy.GiphyApi
 import project.filmography.moviehunter.ui.adapter.giphy.GifAdapter
 
-class SummaryActivity : AppCompatActivity() {
+class OverviewPageActivity : AppCompatActivity() {
 
     // Dichiarazione delle variabili per i componenti dell'interfaccia
     private lateinit var posterImage: ImageView
@@ -36,9 +36,9 @@ class SummaryActivity : AppCompatActivity() {
     // ID del film passato dall'attività precedente
     private var movieId: Int? = null
 
-    // Chiave API per accedere ai dettagli del film e a Giphy
+    // Chiave API per accedere ai movie e a Giphy
     private val apiKey = "54403dbde09d7b532faa644c618e84cf"
-    private val giphyApiKey = "49ChsckPtw8bgXsJfyLHGC9TLm1clE5L" // Sostituisci con la tua API key Giphy
+    private val giphyApiKey = "49ChsckPtw8bgXsJfyLHGC9TLm1clE5L"
 
     // ViewModel per la gestione dei dettagli del film
     private val movieViewModel: MovieViewModel by viewModels {
@@ -47,7 +47,7 @@ class SummaryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_summary)
+        setContentView(R.layout.overview_activity)
 
         // Inizializzazione dei componenti UI
         posterImage = findViewById(R.id.poster_image)
@@ -57,6 +57,7 @@ class SummaryActivity : AppCompatActivity() {
         proceedButton = findViewById(R.id.proceed_button)
         shareButton = findViewById(R.id.share_button)
         gifRecyclerView = findViewById(R.id.gif_recycler_view)
+        priceTextView.text = getString(R.string.price)
 
         gifRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         giphyAdapter = GifAdapter(emptyList())
@@ -77,9 +78,9 @@ class SummaryActivity : AppCompatActivity() {
             // Impostazione dei dati nel layout
             titleTextView.text = movieDetails.original_title
             descriptionTextView.text = movieDetails.overview
-            priceTextView.text = "€4.99" // Prezzo fisso per il film
+            priceTextView.text = priceTextView.text
             val imageUrl = "https://image.tmdb.org/t/p/w500${movieDetails.poster_path}"
-            Glide.with(this@SummaryActivity)
+            Glide.with(this@OverviewPageActivity)
                 .load(imageUrl)
                 .transform(RoundedCorners(16)) // Applica angoli arrotondati all'immagine
                 .into(posterImage)
@@ -90,13 +91,13 @@ class SummaryActivity : AppCompatActivity() {
 
         // Azione per il pulsante "Procedi"
         proceedButton.setOnClickListener {
-            val intent = Intent(this, ShippingActivity::class.java)
+            val intent = Intent(this, ShipmentPageActivity::class.java)
             startActivity(intent)
         }
 
         // Azione per il pulsante "Condividi"
         shareButton.setOnClickListener {
-            val intent = Intent(this, UserListActivity::class.java)
+            val intent = Intent(this, ContactsPageActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE_USER)
         }
     }
@@ -106,13 +107,13 @@ class SummaryActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val response = GiphyApi.getRetrofitService().getGifsForMovie(movieTitle, giphyApiKey)
-                Log.d("SummaryActivity", "Giphy response: $response")
+                Log.d("OverviewPageActivity", "Risposta di Giphy: $response")
 
                 val gifUrls = response.data.take(3).map { it.images.original.url }
                 giphyAdapter.updateGifs(gifUrls)
             } catch (e: Exception) {
-                Log.e("SummaryActivity", "Errore nel recuperare la GIF", e)
-                Toast.makeText(this@SummaryActivity, "Errore nel recuperare la GIF", Toast.LENGTH_SHORT).show()
+                Log.e("OverviewPageActivity", "Errore nel recuperare la GIF", e)
+                Toast.makeText(this@OverviewPageActivity, "Errore nel recuperare la GIF", Toast.LENGTH_SHORT).show()
             }
         }
     }

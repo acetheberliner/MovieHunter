@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import project.filmography.moviehunter.R
 
 // Adapter per le GIF
@@ -15,11 +14,11 @@ class GifAdapter(private var gifUrls: List<String>) : RecyclerView.Adapter<GifAd
     // Funzione per aggiornare la lista di GIF
     fun updateGifs(newGifs: List<String>) {
         gifUrls = newGifs
-        notifyDataSetChanged() // Notifica l'adapter che i dati sono cambiati
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gif, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_giphy_activity, parent, false)
         return GifViewHolder(view)
     }
 

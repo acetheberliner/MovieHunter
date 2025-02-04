@@ -2,9 +2,10 @@
     package="project.filmography.moviehunter"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permessi richiesti -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,7 @@
         android:theme="@style/Theme.MovieHunter"
         tools:targetApi="31">
 
+        <!-- Attività -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,26 +27,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".ui.SignInActivity"
+            android:name=".ui.LoginPageActivity"
             android:exported="true">
         </activity>
+
         <activity
-            android:name=".ui.SummaryActivity"
+            android:name=".ui.OverviewPageActivity"
             android:exported="true">
         </activity>
+
         <activity
-            android:name=".ui.EndActivity"
+            android:name=".ui.FinalPageActivity"
             android:exported="true">
         </activity>
+
         <activity
-            android:name=".ui.ShippingActivity"
+            android:name=".ui.ShipmentPageActivity"
             android:exported="true">
         </activity>
+
         <activity
-            android:name=".ui.UserListActivity"
+            android:name=".ui.ContactsPageActivity"
             android:exported="true">
         </activity>
+
     </application>
 
 </manifest>

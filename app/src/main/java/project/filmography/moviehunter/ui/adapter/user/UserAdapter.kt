@@ -36,7 +36,7 @@ class UserAdapter(private val onUserClick: (User) -> Unit) :
     // Crea una nuova istanza di ViewHolder per ogni elemento
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_user, parent, false)
+            .inflate(R.layout.item_contact_activity, parent, false)
         return UserViewHolder(itemView)
     }
 

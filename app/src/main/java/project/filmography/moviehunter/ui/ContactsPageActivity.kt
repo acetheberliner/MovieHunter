@@ -22,7 +22,7 @@ import project.filmography.moviehunter.data.entity.User
 import project.filmography.moviehunter.ui.adapter.user.UserAdapter
 import project.filmography.moviehunter.ui.viewmodel.ContactsViewModel
 
-class UserListActivity : AppCompatActivity() {
+class ContactsPageActivity : AppCompatActivity() {
 
     private val contactsViewModel: ContactsViewModel by viewModels()
     private lateinit var userAdapter: UserAdapter
@@ -30,7 +30,7 @@ class UserListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_list)
+        setContentView(R.layout.contacts_activity)
 
         // Inizializzazione UI
         val backButton = findViewById<ImageButton>(R.id.back_button)
@@ -68,7 +68,7 @@ class UserListActivity : AppCompatActivity() {
         }
 
         // Azione tasto indietro
-        backButton.setOnClickListener { onBackPressed() }
+        backButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
     }
 
     // Azione quando un utente viene selezionato
@@ -118,7 +118,7 @@ class UserListActivity : AppCompatActivity() {
                     }
                 } else {
                     runOnUiThread {
-                        Toast.makeText(this@UserListActivity, "Errore nel recupero dei contatti", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ContactsPageActivity, "Errore nel recupero dei contatti", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -132,7 +132,7 @@ class UserListActivity : AppCompatActivity() {
 
     // Ritorno all'attività precedente in caso di mancato permesso
     private fun returnToSummaryActivity() {
-        val intent = Intent(this, SummaryActivity::class.java)
+        val intent = Intent(this, OverviewPageActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()

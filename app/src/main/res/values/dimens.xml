@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Title - welcome text -->
+    <!-- Title -->
     <dimen name="textSizeTitle">24sp</dimen>
-    <dimen name="padding">16dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
     <dimen name="padding_10dp">10dp</dimen>
     <dimen name="padding_5dp">5dp</dimen>
 
-    <!-- Texts size -->
-    <dimen name="textSize">16sp</dimen>
-    <dimen name="textSize_2">18sp</dimen>
-    <dimen name="textSize_3">20sp</dimen>
-    <dimen name="textSize_4">14sp</dimen>
+    <!-- TextSize -->
+    <dimen name="textSize_16sp">16sp</dimen>
+    <dimen name="textSize_18sp">18sp</dimen>
+    <dimen name="textSize_20sp">20sp</dimen>
+    <dimen name="textSize_14sp">14sp</dimen>
 
     <!-- ScrollView for main content -->
-    <dimen name="layout">0dp</dimen>
+    <dimen name="layout_0dp">0dp</dimen>
 
-    <!-- margins -->
-    <dimen name="marginTop">20dp</dimen>
-    <dimen name="marginTop_2">16dp</dimen>
-    <dimen name="marginTop_3">10dp</dimen>
-    <dimen name="marginTop_4">8dp</dimen>
+    <!-- Margins Top -->
+    <dimen name="marginTop_20dp">20dp</dimen>
+    <dimen name="marginTop_16dp">16dp</dimen>
+    <dimen name="marginTop_10dp">10dp</dimen>
+    <dimen name="marginTop_8dp">8dp</dimen>
 
-    <dimen name="marginBottom">16dp</dimen>
-    <dimen name="marginBottom_2">8dp</dimen>
+    <!-- Margins Bottom -->
+    <dimen name="marginBottom_16dp">16dp</dimen>
+    <dimen name="marginBottom_8dp">8dp</dimen>
     <dimen name="marginBottom_5dp">5dp</dimen>
-    <dimen name="marginBottom_3">18dp</dimen>
-    <dimen name="marginBottom_4">20dp</dimen>
-    <dimen name="marginBottom_5">10dp</dimen>
-    <dimen name="marginBottom_6">4dp</dimen>
+    <dimen name="marginBottom_18dp">18dp</dimen>
+    <dimen name="marginBottom_20dp">20dp</dimen>
+    <dimen name="marginBottom_10dp">10dp</dimen>
+    <dimen name="marginBottom_4dp">4dp</dimen>
 
-    <dimen name="marginStart">8dp</dimen>
-    <dimen name="marginStart_2">15dp</dimen>
-    <dimen name="marginStart_3">30dp</dimen>
-    <dimen name="marginStart_4">10dp</dimen>
+    <!-- Margins Start -->
+    <dimen name="marginStart_8dp">8dp</dimen>
+    <dimen name="marginStart_10dp">10dp</dimen>
+    <dimen name="marginStart_15dp">15dp</dimen>
+    <dimen name="marginStart_30dp">30dp</dimen>
 
-    <dimen name="marginEnd">16dp</dimen>
-    <dimen name="marginEnd_2">15dp</dimen>
-    <dimen name="marginEnd_3">30dp</dimen>
-    <dimen name="marginEnd_4">10dp</dimen>
+    <!-- Margins End -->
+    <dimen name="marginEnd_16dp">16dp</dimen>
+    <dimen name="marginEnd_15dp">15dp</dimen>
+    <dimen name="marginEnd_30dp">30dp</dimen>
+    <dimen name="marginEnd_10dp">10dp</dimen>
 
-    <dimen name="marginL">15dp</dimen>
-    <dimen name="marginR">15dp</dimen>
-    <dimen name="margin">16dp</dimen>
+    <!-- Margins Horizontal -->
+    <dimen name="marginL_15dp">15dp</dimen>
+    <dimen name="marginR_15dp">15dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
 
     <!-- Paddings -->
-    <dimen name="paddingStart">15dp</dimen>
-    <dimen name="paddingEnd">15dp</dimen>
+    <dimen name="paddingStart_15dp">15dp</dimen>
+    <dimen name="paddingEnd_15dp">15dp</dimen>
 
     <!-- Width and Height -->
-    <dimen name="width">0dp</dimen>
-    <dimen name="height">0dp</dimen>
-    <dimen name="width_for_back_btn">50dp</dimen>
-    <dimen name="height_for_back_btn">50dp</dimen>
+    <dimen name="width_0dp">0dp</dimen>
+    <dimen name="height_0dp">0dp</dimen>
+    <dimen name="width_back_btn_50dp">50dp</dimen>
+    <dimen name="height_back_btn_50dp">50dp</dimen>
     <dimen name="img_width_for_shipping_page">300dp</dimen>
     <dimen name="img_height_for_shipping_page">100dp</dimen>
     <dimen name="img_width_for_signin">296dp</dimen>

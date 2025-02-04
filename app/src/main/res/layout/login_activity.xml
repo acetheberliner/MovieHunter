@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="@dimen/padding"
-    android:background="@drawable/background"
-    tools:context=".ui.SignInActivity">
+    android:padding="@dimen/padding_16dp"
+    android:background="@drawable/bg_image"
+    tools:context=".ui.LoginPageActivity">
 
     <!-- Container for logo and buttons -->
     <LinearLayout
@@ -24,9 +24,9 @@
             android:layout_width="@dimen/img_width_for_signin"
             android:layout_height="@dimen/img_height_for_signin"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/marginBottom"
-            android:contentDescription="@string/logo_content_description"
-            android:src="@drawable/logo" />
+            android:layout_marginBottom="@dimen/marginBottom_16dp"
+            android:contentDescription="@string/logo_description"
+            android:src="@drawable/app_logo" />
 
         <!-- ViewFlipper to handle login and sign-in visibility -->
         <ViewFlipper
@@ -38,7 +38,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="145dp"
-                android:background="@drawable/sign_log_in_rounded_back"
+                android:background="@drawable/rounded_box_login"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -46,9 +46,9 @@
                     android:id="@+id/signin_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:layout_marginTop="@dimen/marginTop_16dp"
                     android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/text_for_signin"
+                    android:text="@string/login_btn"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
@@ -57,9 +57,9 @@
                     android:id="@+id/back_to_homepage_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:layout_marginTop="@dimen/marginTop_16dp"
                     android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/text_for_back_btn"
+                    android:text="@string/back_btn_text"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
@@ -70,7 +70,7 @@
                 android:id="@+id/signin_fields"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sign_log_in_rounded_back"
+                android:background="@drawable/rounded_box_login"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -89,7 +89,7 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="@string/username_text"
+                        android:hint="@string/username"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +109,7 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="@string/password_text"
+                        android:hint="@string/password"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,9 +117,9 @@
                     android:id="@+id/signin_submit_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:layout_marginTop="@dimen/marginTop_16dp"
                     android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/submit_btn"
+                    android:text="@string/login_btn"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
@@ -129,9 +129,9 @@
                     android:id="@+id/signin_back_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:layout_marginTop="@dimen/marginTop_16dp"
                     android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/back_to_select_options"
+                    android:text="@string/back_btn_text"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
@@ -141,9 +141,9 @@
                     android:id="@+id/signin_back_to_homepage_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_2"
+                    android:layout_marginTop="@dimen/marginTop_16dp"
                     android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/text_for_back_btn"
+                    android:text="@string/back_btn_text"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />

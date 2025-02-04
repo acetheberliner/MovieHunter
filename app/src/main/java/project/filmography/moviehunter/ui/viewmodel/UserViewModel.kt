@@ -7,8 +7,8 @@ import kotlinx.coroutines.launch
 import project.filmography.moviehunter.data.database.AppDatabase
 import project.filmography.moviehunter.data.entity.GuestSession
 import project.filmography.moviehunter.data.dao.GuestSessionDao
-import project.filmography.moviehunter.models.signIn.GuestSessionResponse
-import project.filmography.moviehunter.models.signIn.TmdbApiService
+import project.filmography.moviehunter.models.login.GuestSessionResponse
+import project.filmography.moviehunter.models.login.TmdbApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
