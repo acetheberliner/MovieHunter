@@ -37,19 +37,10 @@
             android:text="@string/take_photo_btn"
             android:textAllCaps="false"
             android:backgroundTint="@color/film_item"
-            android:textColor="@color/low_opacity_black"/>
-
-        <!-- ImageView
-            android:id="@+id/logo"
-            android:layout_width="@dimen/img_width_for_signin"
-            android:layout_height="@dimen/img_height_for_signin"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/marginBottom_16dp"
-            android:contentDescription="@string/logo_description"
-            android:src="@drawable/app_logo" /-->
+            android:textColor="@color/transparent_sky"/>
 
         <!-- ViewFlipper to handle login and sign-in visibility -->
-        <ViewFlipper
+            <ViewFlipper
             android:id="@+id/view_flipper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -156,17 +147,6 @@
                     android:backgroundTint="@color/transparent_sky"
                     android:textColor="@color/white" />
 
-                <!-- Back to Film Button -->
-                <Button
-                    android:id="@+id/signin_back_to_homepage_button"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginTop_16dp"
-                    android:fontFamily="@font/gg_sans_regular"
-                    android:text="@string/back_btn_text"
-                    android:textAllCaps="false"
-                    android:backgroundTint="@color/transparent_sky"
-                    android:textColor="@color/white" />
             </LinearLayout>
 
         </ViewFlipper>

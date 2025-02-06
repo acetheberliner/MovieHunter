@@ -46,7 +46,6 @@ class LoginPageActivity : AppCompatActivity() {
         val passwordEditText = findViewById<TextInputEditText>(R.id.signin_password)
         val loginBackButton = findViewById<Button>(R.id.signin_back_button)
         val backToFilmButton = findViewById<Button>(R.id.back_to_homepage_button)
-        val loginBackToFilmButton = findViewById<Button>(R.id.signin_back_to_homepage_button)
 
         cameraButton = findViewById(R.id.camera_button)
         capturedImageView = findViewById(R.id.captured_image)
@@ -81,10 +80,6 @@ class LoginPageActivity : AppCompatActivity() {
             backToMainActivity()  // Naviga alla homepage
         }
 
-        // Gestisci il click per tornare alla homepage dalla schermata di login
-        loginBackToFilmButton.setOnClickListener {
-            backToMainActivity()
-        }
 
         // Ottieni l'ID del film passato tramite Intent
         selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
