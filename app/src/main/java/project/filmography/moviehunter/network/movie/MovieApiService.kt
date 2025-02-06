@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface MovieApiService {
 
     // Ottiene i film di tendenza della settimana
-    @GET("trending/movie/week")
+    @GET("movie/popular")
     suspend fun getTrendingMovies(
         @Query("api_key") apiKey: String,               // Chiave API
         @Query("language") language: String = "it"      // Lingua della risposta

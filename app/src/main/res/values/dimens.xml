@@ -18,6 +18,7 @@
 
     <!-- Margins Top -->
     <dimen name="marginTop_20dp">20dp</dimen>
+    <dimen name="marginTop_2dp">2dp</dimen>
     <dimen name="marginTop_16dp">16dp</dimen>
     <dimen name="marginTop_10dp">10dp</dimen>
     <dimen name="marginTop_8dp">8dp</dimen>

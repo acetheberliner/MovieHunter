@@ -20,13 +20,33 @@
 
         <!-- Logo image -->
         <ImageView
+            android:id="@+id/captured_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/take_photo_desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_photo" />
+
+        <Button
+            android:id="@+id/camera_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop_2dp"
+            android:layout_marginBottom="@dimen/marginBottom_16dp"
+            android:fontFamily="@font/gg_sans_bold"
+            android:text="@string/take_photo_btn"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/film_item"
+            android:textColor="@color/low_opacity_black"/>
+
+        <!-- ImageView
             android:id="@+id/logo"
             android:layout_width="@dimen/img_width_for_signin"
             android:layout_height="@dimen/img_height_for_signin"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/marginBottom_16dp"
             android:contentDescription="@string/logo_description"
-            android:src="@drawable/app_logo" />
+            android:src="@drawable/app_logo" /-->
 
         <!-- ViewFlipper to handle login and sign-in visibility -->
         <ViewFlipper

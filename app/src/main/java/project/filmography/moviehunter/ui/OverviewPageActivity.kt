@@ -33,11 +33,14 @@ class OverviewPageActivity : AppCompatActivity() {
     private lateinit var gifRecyclerView: RecyclerView
     private lateinit var giphyAdapter: GifAdapter
 
+    private var capturedImage: ByteArray? = null
+    private var selectedMovieId: Int? = null
+
     // ID del film passato dall'attività precedente
     private var movieId: Int? = null
 
     // Chiave API per accedere ai movie e a Giphy
-    private val apiKey = "54403dbde09d7b532faa644c618e84cf"
+    private val apiKey = "854938d42be4125ce84812f957f4f8b5"
     private val giphyApiKey = "49ChsckPtw8bgXsJfyLHGC9TLm1clE5L"
 
     // ViewModel per la gestione dei dettagli del film
@@ -58,6 +61,10 @@ class OverviewPageActivity : AppCompatActivity() {
         shareButton = findViewById(R.id.share_button)
         gifRecyclerView = findViewById(R.id.gif_recycler_view)
         priceTextView.text = getString(R.string.price)
+
+        // Ottieni i dati passati dall'activity precedente
+        capturedImage = intent.getByteArrayExtra("captured_image")
+        selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
 
         gifRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         giphyAdapter = GifAdapter(emptyList())
@@ -91,7 +98,10 @@ class OverviewPageActivity : AppCompatActivity() {
 
         // Azione per il pulsante "Procedi"
         proceedButton.setOnClickListener {
-            val intent = Intent(this, ShipmentPageActivity::class.java)
+            val intent = Intent(this, ShipmentPageActivity::class.java).apply {
+                putExtra("captured_image", capturedImage)
+                putExtra("MOVIE_ID", selectedMovieId)
+            }
             startActivity(intent)
         }
 

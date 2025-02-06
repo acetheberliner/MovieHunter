@@ -1,6 +1,6 @@
 <resources>
     <!-- Configurazione API TMDB -->
-    <string name="tmdb_api_key">54403dbde09d7b532faa644c618e84cf</string>
+    <string name="tmdb_api_key">854938d42be4125ce84812f957f4f8b5</string>
     <string name="tmdb_base_url">https://api.themoviedb.org/3/</string>
 
     <!-- Configurazione API Giphy -->
@@ -53,4 +53,9 @@
     <string name="contact_icon_desc">contact_icon_description</string>
     <string name="contacts">Contatti</string>
     <string name="send_desc">Inviato a</string>
+
+    <!-- Fotografia -->
+    <string name="take_photo_desc">take_photo_desc</string>
+    <string name="take_photo_btn">Scatta foto</string>
+
 </resources>

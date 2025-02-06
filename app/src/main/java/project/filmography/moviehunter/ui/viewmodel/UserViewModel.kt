@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // ViewModel per la gestione della sessione utente
 class UserViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val apiKey = "54403dbde09d7b532faa644c618e84cf"  // Chiave API per la TMDb
+    private val apiKey = "854938d42be4125ce84812f957f4f8b5"  // Chiave API per la TMDb
     private val guestSessionDao: GuestSessionDao = AppDatabase.getDatabase(application).guestSessionDao()
 
     // Servizio API per la creazione della sessione ospite

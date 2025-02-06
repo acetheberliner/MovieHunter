@@ -17,6 +17,9 @@ class ShipmentPageActivity : AppCompatActivity() {
     private lateinit var buyButton: Button  // Bottone per acquistare
     private lateinit var backButton: Button  // Bottone per tornare alla schermata precedente
 
+    private var capturedImage: ByteArray? = null
+    private var selectedMovieId: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shipment_activity)  // Imposta il layout per questa activity
@@ -27,12 +30,19 @@ class ShipmentPageActivity : AppCompatActivity() {
         buyButton = findViewById(R.id.buy)
         backButton = findViewById(R.id.back_to_homepage_button)
 
+        // Ottieni i dati passati dall'activity precedente
+        capturedImage = intent.getByteArrayExtra("captured_image")
+        selectedMovieId = intent.getIntExtra("MOVIE_ID", -1)
+
         // Gestione del click sul bottone "Compra"
         buyButton.setOnClickListener {
             val address = addressEditText.text.toString()  // Ottiene l'indirizzo inserito
             if (address.isNotEmpty() && address.lowercase().contains("via", ignoreCase = true)) {
                 // Se l'indirizzo è valido, naviga alla schermata finale (EndActivity)
-                val intent = Intent(this, FinalPageActivity::class.java)
+                val intent = Intent(this, FinalPageActivity::class.java).apply {
+                    putExtra("captured_image", capturedImage)
+                    putExtra("MOVIE_ID", selectedMovieId)
+                }
                 startActivity(intent)
                 finish()  // Termina questa activity per evitare che l'utente ritorni su di essa
             } else {
@@ -43,12 +53,12 @@ class ShipmentPageActivity : AppCompatActivity() {
 
         // Gestione del click sul bottone "Torna alla homepage"
         backButton.setOnClickListener {
-            navigateToBackActivity()  // Naviga alla schermata di riepilogo
+            goToOverview()  // Naviga alla schermata di riepilogo
         }
     }
 
     // Funzione che naviga alla schermata di riepilogo (SummaryActivity)
-    private fun navigateToBackActivity() {
+    private fun goToOverview() {
         val intent = Intent(this, OverviewPageActivity::class.java)
         startActivity(intent)
         finish()  // Termina questa activity

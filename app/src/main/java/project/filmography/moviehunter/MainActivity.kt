@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val movieViewModel: MovieViewModel by viewModels {
         MovieViewModel.Factory(application)
     }
-    private val tmdbApiKey = "54403dbde09d7b532faa644c618e84cf"
+    private val tmdbApiKey = "854938d42be4125ce84812f957f4f8b5"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
